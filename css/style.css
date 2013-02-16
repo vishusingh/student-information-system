@@ -1,0 +1,524 @@
+/*** CSS Doc - Student Information System
+     Krishna Engineering College
+     Author: Vishu Singh
+***/
+
+body {
+    font-family: arial, verdana, helvetica;
+    background: #98d049 url(../images/head_bg.png) top center repeat-x;
+}
+
+p {
+    font-size: 12px;
+}
+
+h3 {
+    font-size: 18px;
+    font-family: verdana, arial, times new roman, tahoma;
+    color: #ffffff;    
+}
+
+#dialog {
+    display: none;
+}
+/*** Container ***/
+#container {
+    background: url(../images/bg.jpg) no-repeat;
+    overflow: hidden;
+    padding-bottom: 3em;
+}
+
+
+/*** Header & Sub Header ***/
+#header h3 {
+    text-indent: -9999px;
+    background: url(../images/logo.png) no-repeat;
+    width: 394px; 
+    position: absolute;
+    left: 0;   
+    margin-top: 17px;
+}
+
+#header {
+    background: url(../images/head_bg.png) repeat-x -10em 0;
+    height: 59px;
+    margin-left: 0;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+#top_menu {
+    position: absolute;
+    right: 0;
+    top: 17px;
+}
+#top_menu a {
+    text-indent: -9999px;
+    display: block;
+    width: 66px;
+    height: 24px;
+    background: url("../images/admin_btn.png") no-repeat;
+}
+
+a#ad_logout {
+    position: absolute;
+    top: 3px;
+    right: -5px;
+    text-decoration: none;
+    text-indent: -9999px;
+    color: #ebebeb;
+    text-indent: 0;
+    background: none;    
+}
+
+#sub_header {
+    margin-bottom: 60px;
+
+}
+
+#sub_header h4 {
+    color: #1f1f1f;
+    font-size: 18px;
+    position: absolute;
+    left: -9px;
+}
+
+/*** Search section ***/
+#search {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: url(../images/search_bg.png) no-repeat;
+
+}
+
+#search li {
+    display: inline;  
+    margin-right: 5px;
+    position: relative;
+}
+
+#search li ul {
+    background: url(../images/search_select.png) no-repeat;
+    display: list-item;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 104px;  
+    height: 80px;
+    float: left;      
+    visibility: hidden;
+    padding-top: 4px;
+}
+
+/*#search ul li:hover ul {
+    visibility: visible;
+}
+*/
+#search ul li a{
+    display: block;
+    text-decoration: none;
+    color: #777;
+    padding: 5px;
+    margin-left: 9px;
+}
+
+#search ul li a:hover {
+    color: #f7941d;
+}
+
+#search_box {
+    float: left;
+    padding: 0;
+    margin: 4px 30px 0 12px;
+    width: 185px;
+    border: 0;
+    margin-right: 5px;
+    background: none;    
+}
+
+/*** Left Col ***/
+#left_col {
+    background: #ffffff 26px 0;
+    border-left: 1px solid #b7b7b7;
+    border-right: 1px solid #b7b7b7;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+#left_col li {
+    margin: 24px;
+    width: 230px;   
+    padding-bottom: 35px;
+    border-bottom: 1px solid #acacac; 
+}
+
+li#last {
+    border-bottom: none;
+}
+
+#left_col img {
+    float: left;
+    margin-right: 20px;
+}
+
+#left_col p {
+    color: #898989;
+}
+
+#left_col h4, #right_col h4 {
+    margin-left: 20px;
+    color: #606060;
+}
+
+/*** Right col - Main Content Area***/
+
+#right_col p {
+    text-align: center;
+    margin-top: 2em;
+}
+
+#right_col {
+    background: #ffffff 26px 0;
+    border-left: 1px solid #b7b7b7;
+    border-right: 1px solid #b7b7b7;
+    width: 640px;
+    overflow: hidden;
+}
+
+#right_col ul {
+    margin: 24px 60px 24px 60px;
+}
+
+#right_col li {
+    float: left;
+    display: block;
+    width: 101px;
+    height: 102px;
+    background: url(../images/branch_bg.jpg) no-repeat top center;
+    margin-right: 25px;
+    margin-bottom: 25px;
+}
+
+.branch {
+    text-decoration: none;    
+    font-size: 36px;
+    display: block;
+    width: 101px;
+    height: 102px;
+    color: #898989;
+    padding: 30px 25px;
+}
+
+.back_btn {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    display: block;
+    background: url(../images/home_btn.png) no-repeat;
+    width: 50px;
+    height: 18px;
+    padding: 3px;
+    text-indent: 9px;
+    text-decoration: none;
+    font-size: 10px;
+}    
+
+
+#it {
+    padding-left: 33px;    
+}
+
+
+/*** Right Col - Table styles & loader ***/
+
+.profile {
+    margin: 50px 0 0 50px;           
+}
+
+.profile h4 {
+    position: relative;
+    left: -43px;
+    top: -20px;
+}
+
+.profile h5 {
+    margin-bottom: -20px;
+    margin-left: 110px;
+    color: #898989;
+    font-size: 14px;
+}
+
+.profile p {
+    position: relative;    
+    top: -15px;
+    left: -15px;  
+    text-align: left;    
+    margin-left: 0;
+}
+
+.profile img {
+    position: relative;
+    top: -180px;
+    left: -20px;
+}
+
+.loader, .edit {
+    margin-left: 220px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.edit {
+    width: 160px;
+    padding: 5px;
+    border: 1px solid #959595; 
+}
+
+.edit_p {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 60px;
+    left: 270px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #f7941d;
+}
+
+#table {
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    width: 600px;    
+    margin: 20px;
+    border-collapse: collapse;
+}
+
+#table a {
+    text-decoration: none;
+    color: #000000;    
+}
+
+#table a:hover {
+    color: #e69302;    
+}
+
+#table td, #table th {
+    font-size: 12px;
+    border: 1px solid #898989;
+    padding: 3px 7px 2px 7px;
+}
+
+#table th {
+    font-size: 14px;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #959595;
+    color: #ffffff;
+}
+
+#table tr.alt td {
+    background-color: #ebebeb;
+    color: #000000;
+}
+
+/*** Login box ***/
+.login {
+    margin-left: 300px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+}
+
+.input, .usr {
+    border: 0;
+    background: url(../images/login-txt.jpg) 0 3px no-repeat;
+    padding: 5px;
+    padding-bottom: 8px;
+    padding-left: 6px;
+    padding-right: 10px;
+    width:  162px;
+    height: 23px;
+}
+
+.usr {
+    margin-left: -3px;
+}
+.input_btn {
+    margin-left: 7.8em;
+    margin-top: 1em;   
+    border: none;
+    text-indent: -9999px;
+    background: url(../images/login_btn.jpg); 
+    display: block;
+    width: 54px;
+    height: 21px;
+    cursor: pointer;
+}
+ 
+#login {
+    background: #ffffff;
+    border-left: 1px solid #959595;
+    border-right: 1px solid #959595;
+    width: 340px;
+    height: 200px;
+}
+
+#login h3 {
+    color: #005e20;
+    margin-left: 30px;
+}
+
+#login form {
+    margin: 30px;
+}
+
+#login p {
+    float: left;
+    margin-right: 30px;
+    margin-top: 6px;
+    font-family: arial, verdana;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/*** Footer ***/
+
+#footer {
+    background: #ffffff;
+    border-left: 1px solid #b7b7b7;
+    border-right: 1px solid #b7b7b7;
+    width: 940px;
+}
+
+.footer {
+    margin-left: 0;
+    margin-top: 3em;    
+}
+
+#footer p {
+    text-align: center;
+}
+
+/*** Form - Admin Page ***/
+
+.leflabel {
+    float: left;
+    margin-right: 1em;
+    text-align: left;
+    width: 5em;
+    font-size: 18px;
+}
+
+.error {
+    font-size: 10px;
+    font-family: verdana, arial;
+    color: #898989; 
+    position: relative;
+    top: -5px;
+}
+
+
+#form {
+    margin: 60px;
+    margin-top: 40px;
+}
+
+
+
+#form div {
+    margin-bottom: 10px;
+}
+
+.finput {
+    border: none;
+    width: 220px;
+    height: 24px; 
+    background: url(../images/form_input.png) no-repeat;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 3px;   
+}    
+
+.finput:hover {
+    background: url(../images/form_input_hov.png) no-repeat;
+}
+
+#marks {
+    display: block;
+    width: 240px;
+    background: #ebebeb;
+    margin-top: 0;
+    margin-left: 0;
+    overflow: hidden;
+    padding: 0;    
+}
+
+#marks_inp, #edit_inp {
+    margin-top: 260px;
+    margin-left: -235px;
+    border: none;
+    background: url(../images/form_btn.png) no-repeat;
+    cursor: pointer;
+    width: 76px;
+    height: 25px;
+}
+
+#marks ul {
+    margin:0;
+    position: absolute;
+    top: 5px;
+    left: 64px;   
+}
+
+#marks h4 {
+    margin-left: 40px;
+}
+
+#marks li {
+    display: inline;
+    background: none;
+    margin: 0;
+    height: auto;
+    width: auto;
+    padding: 0;
+}
+
+#wrap {
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+#next {
+    position: absolute;
+    right: 0px;
+    top: 10px;
+}
+
+#prev {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+}
+
+.slideshow {
+    display: block;
+    width: 170px;
+    height: 200px;
+    margin-top: -18px;
+    margin-left: 0px;
+}
+
+.slideshow label {
+    float: left;
+    margin-right: 1em;
+    margin-top: 6px;  
+    width: 50px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.slideshow input {
+    border: 1px solid #959595;
+    margin-top: 5px;    
+}
