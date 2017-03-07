@@ -6,7 +6,7 @@
 	class Database
 	{
 		//initialize static and private property which will store DB connection
-		private static $connect
+		private static $connect;
 
 		//construct method to automatically connect to database when class is instantiated
 		function __construct()
