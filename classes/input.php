@@ -5,7 +5,7 @@
 	class Input
 	{
 		
-		public static function cleanInput($data = null)
+		public static function cleanData($data = null)
 		{
 			if ($data) 
 			{
