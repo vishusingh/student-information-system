@@ -1,9 +1,12 @@
 <?php
-	session_start();
-	
-	spl_autoload_register(function($class)
+
+	function my_autoloader($class) 
 	{
-		require_once 'classes/' . $class . '.php';
-	});
+    	include 'classes/' . $class . '.php';
+	}
+
+	spl_autoload_register('my_autoloader');
+
+	session_start();
 
 ?>
