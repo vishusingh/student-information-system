@@ -55,6 +55,7 @@
 				{
 					$this->_results 	= $this->_query->fetchAll(PDO::FETCH_OBJ);
 					$this->_count 		= $this->_query->rowCount();
+					echo $this->_count;
 				}
 
 				else
@@ -74,6 +75,11 @@
 		public function count()
 		{
 			return $this->_count;
+		}
+
+		public function results()
+		{
+			return $this->_results;
 		}
 	}
 ?>
