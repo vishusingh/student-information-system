@@ -1,3 +1,6 @@
+<?php 
+	include 'core/init.php';
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
@@ -22,3 +25,27 @@
 
 	</body>
 </html>
+
+<?php 
+	
+	$username = $password = "";
+
+	if ($_SERVER["REQUEST_METHOD"] == "POST") 
+	{
+
+		$username = Input::cleanData($_POST["username"]);
+		$password = Input::cleanData($_POST["password"]);
+
+		if (Validate::check($username, $password) === true) 
+		{	
+
+			$x = new User;
+			if ($x->login($username, $password))
+			{
+				Redirect::to('testclass.php');
+			}
+			
+		 }
+	}
+
+?>
