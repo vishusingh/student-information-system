@@ -4,7 +4,9 @@
 	*/
 	class Input
 	{
-		
+		/**
+		* Method to handle users input
+		*/
 		public static function cleanData($data = null)
 		{
 			if ($data) 
