@@ -1,3 +1,10 @@
+<?php
+    include 'core/init.php';      
+    if(!User::isLoggedIn())       
+    {     
+        Redirect::to('login.php');        
+    }            
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +26,7 @@
                     <!-- SIDEBAR USER TITLE -->
                     <div class="profile-usertitle">
                         <div class="profile-usertitle-name">
-                            Marcus Doe
+                            <?php echo $_SESSION['user_session']; ?>
                         </div>
                         <div class="profile-usertitle-job">
                             Developer
