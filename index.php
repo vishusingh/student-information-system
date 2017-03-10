@@ -1,5 +1,5 @@
 <?php
-    include 'core/init.php';      
+    require_once 'core/init.php';      
     if(!User::isLoggedIn())       
     {     
         Redirect::to('login.php');        
@@ -36,7 +36,7 @@
                     <!-- SIDEBAR BUTTONS -->
                     <div class="profile-userbuttons">
                         <button type="button" class="btn btn-success btn-sm">Profile</button>
-                        <a href="/logout" class="btn btn-danger btn-sm" role="button">Logout</a>
+                        <a href="/logout.php" class="btn btn-danger btn-sm" role="button">Logout</a>
                     </div>
                     <!-- END SIDEBAR BUTTONS -->
                     <!-- SIDEBAR MENU -->
