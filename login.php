@@ -42,7 +42,7 @@
 			$x = new User;
 			if ($x->login($username, $password))
 			{
-				Redirect::to('index.php');
+				Redirect::to('home.php');
 			}
 			
 		 }
