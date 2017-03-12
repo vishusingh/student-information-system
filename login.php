@@ -8,7 +8,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Login | Student Information System</title>
-		<link rel="stylesheet" href="css/login.css">
+		<link rel="stylesheet" href="/assets/css/login.css">
 	</head>
 	<body>
 		<div class="login">
@@ -18,11 +18,8 @@
 		    	<input type="text" name="username" placeholder="Username" required="required" />
 		        <input type="password" name="password" placeholder="Password" required="required" />
 		        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
-		    </form>    
-
+		    </form> 
 		</div>
-
-
 	</body>
 </html>
 
