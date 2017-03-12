@@ -5,6 +5,9 @@ Student Information System is a php application created as a college project. It
 
 [Check out the demo](http://wpvine.com/stinfosys)
 
+[Contributors Note]
+Please use allman style of coding [Read here https://en.wikipedia.org/wiki/Indent_style#Allman_style]
+
 What does it do?
 -----------
 
