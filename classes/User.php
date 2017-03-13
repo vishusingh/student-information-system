@@ -22,6 +22,12 @@
 			return ($query->count() > 0) ? $_SESSION['user_session'] = $query->results()[0]->username : false;
 		}
 
+		public function adminLogin($adminUsername, $adminPassword)
+		{			
+			$query = $this->_db->query("SELECT * FROM admin WHERE username = ? AND password = ?", array($adminUsername, $adminPassword));
+			return ($query->count() > 0) ? $_SESSION['user_session'] = $query->results()[0]->username : false;
+		}
+
 		/**
 		* Public Static Method to store user session if logged in
 		*/
