@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en-US">
+	<head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
         <meta charset="utf-8">
         <title>SIS | ADMIN</title>
@@ -18,18 +19,18 @@
 			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 				  <span class="icon-toggle"></span>
 			  </button>
-			  <a class="navbar-brand" href="#">Admin | Dashboard</a>
+			  <a class="navbar-brand" href="/admin">Admin | Dashboard</a>
 			</div>
 			<div class="navbar-collapse collapse">
 			  <ul class="nav navbar-nav navbar-right">
 				
 				<li class="dropdown">
-				  <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="fa fa-user"></i> Username <span class="caret"></span></a>
+				  <a class="dropdown-toggle" role="button" data-toggle="dropdown"><i class="fa fa-user"></i> Username <span class="caret"></span></a>
 				  <ul id="g-account-menu" class="dropdown-menu" role="menu">
-					<li><a href="#">Profile</a></li>
+					<li><a href="/content/profile">Profile</a></li>
 				  </ul>
 				</li>
-				<li><a href="#"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+				<li><a href="/logout.php"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
 			  </ul>
 			</div>
 		  </div><!-- /container -->
@@ -39,6 +40,7 @@
 		<!-- Main -->
 		<div class="container">
 		<div class="row">
+			<!-- start col-3 -->
 			<div class="col-md-3">
 			  <!-- Left column -->
 			  <a href="#"><strong><i class="fa fa-wrench"></i> Panel</strong></a>  
@@ -51,18 +53,19 @@
 				  </a>
 					<ul style="height: auto;" class="list-unstyled in" id="userMenu">
 						<li class="active"> <a href="#"><i class="fa fa-home"></i> Home</a></li>
-						<li><a href="#"><i class="fa fa-user"></i> Add New Student</a></li>
-						<li><a href="#"><i class="fa fa-table"></i> Timetables</a></li>
-						<li><a href="#"><i class="fa fa-search"></i> Results</a></li>
-						<li><a href="#"><i class="fa fa-percent"></i> Feed In Marks</a></li>
-						<li><a href="#"><i class="fa fa-group"></i> Students</a></li>
-						<li><a href="#"><i class="fa fa-list-alt"></i> Notes</a></li>
-						<li><a href="#"><i class="fa fa-upload"></i> Upload Notes</a></li>
-						<li><a href="#"><i class="fa fa-download"></i> Download Notes</a></li>
+						<li><a href="/content/addstudent"><i class="fa fa-user"></i> Add New Student</a></li>
+						<li><a href="/content/timetables"><i class="fa fa-table"></i> Timetables</a></li>
+						<li><a href="/content/results"><i class="fa fa-search"></i> Results</a></li>
+						<li><a href="/content/marks"><i class="fa fa-percent"></i> Feed In Marks</a></li>
+						<li><a href="/content/students"><i class="fa fa-group"></i> Students</a></li>
+						<li><a href="/content/notes"><i class="fa fa-list-alt"></i> Notes</a></li>
+						<li><a href="/content/upload"><i class="fa fa-upload"></i> Upload Notes</a></li>
+						<li><a href="/content/download"><i class="fa fa-download"></i> Download Notes</a></li>
 					</ul>
 				</li>
 			  </ul>
-			</div><!-- /col-3 -->
+			</div>
+			<!-- end col-3 -->
 
 			<div class="col-md-9">
 				
