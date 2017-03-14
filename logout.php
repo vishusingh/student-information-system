@@ -1,5 +1,8 @@
 <?php
-    session_start();
-    session_destroy();
-    header("location:index.php");
+	require_once 'core/init.php';
+    if (User::logout()) 
+    {
+    	Redirect::to('login.php');
+    }
+    
 ?>
