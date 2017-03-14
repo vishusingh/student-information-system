@@ -1,5 +1,5 @@
 <?php 
-	require_once 'core/init.php';
+	require_once '../core/init.php';
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -7,12 +7,12 @@
 	 	<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Login | SIS</title>
+		<title>ADMIN| LOGIN</title>
 		<link rel="stylesheet" href="/assets/css/login.css">
 	</head>
 	<body>
 		<div class="login">
-			<h1>Student</h1>
+			<h1>Administrator</h1>
 		    <h2>Login</h2>
 		    <form method="POST" role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
 		    	<input type="text" name="username" placeholder="Username" required="required" />
@@ -37,9 +37,9 @@
 		{	
 
 			$x = new User;
-			if ($x->login($username, $password))
+			if ($x->adminLogin($username, $password))
 			{
-				Redirect::to('home.php');
+				Redirect::to('index.php');
 			}
 			
 		 }
