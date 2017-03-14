@@ -13,7 +13,7 @@
     <body>
         
         <!-- Header -->
-		<?php include '../includes/admin/head.php'; ?>
+		<?php include '../includes/admin/header.php'; ?>
 		<!-- /Header -->
 
 		<!-- Main -->
