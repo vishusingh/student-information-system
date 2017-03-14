@@ -20,12 +20,10 @@
 		<div class="container">
 		<div class="row">
 			<!-- start col-3 -->
-			<div class="col-md-3">
+			<div class="col-md-2">
 			  <!-- Left column -->
-			  
-			  <ul class="list-unstyled">
-				<li class="nav-header">
-					<ul style="height: auto;" class="list-unstyled in" id="userMenu">
+			
+					<ul class="nav nav-pills nav-stacked">
 						<li class="active"> <a href="#"><i class="fa fa-home"></i> Home</a></li>
 						<li><a href="/content/addstudent"><i class="fa fa-user"></i> Add New Student</a></li>
 						<li><a href="/content/timetables"><i class="fa fa-table"></i> Timetables</a></li>
@@ -36,12 +34,10 @@
 						<li><a href="/content/upload"><i class="fa fa-upload"></i> Upload Notes</a></li>
 						<li><a href="/content/download"><i class="fa fa-download"></i> Download Notes</a></li>
 					</ul>
-				</li>
-			  </ul>
 			</div>
 			<!-- end col-3 -->
 
-			<div class="col-md-9">
+			<div class="col-md-10">
 				
 			  <!-- column 2 -->			  
 				<div class="row">
