@@ -194,7 +194,7 @@
                     </div><!--/col-->
                     <div class="col-md-6">
                         <div class="panel panel-default">
-                          <div class="panel-heading"><h4>Notices</h4></div>
+                          <div class="panel-heading"><h4>Announcements</h4></div>
                           <div class="panel-body">
                             
                           <div style="display: none;" class="alert alert-info in">

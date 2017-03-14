@@ -55,9 +55,7 @@
 			  <hr>
 			  
 			  <ul class="list-unstyled">
-				<li class="nav-header"> <a class="" href="#" data-toggle="collapse" data-target="#userMenu">
-				  <h5>Tools <i class="fa fa-chevron-down"></i></h5>
-				  </a>
+				<li class="nav-header">
 					<ul style="height: auto;" class="list-unstyled in" id="userMenu">
 						<li class="active"> <a href="#"><i class="fa fa-home"></i> Home</a></li>
 						<li><a href="/content/addstudent"><i class="fa fa-user"></i> Add New Student</a></li>
@@ -200,7 +198,7 @@
 					</div><!--/col-->
 					<div class="col-md-6">
 						<div class="panel panel-default">
-						  <div class="panel-heading"><h4>Notices</h4></div>
+						  <div class="panel-heading"><h4>Annoucements</h4></div>
 						  <div class="panel-body">
 							
 						  <div style="display: none;" class="alert alert-info in">
