@@ -229,20 +229,13 @@
                             <div class="panel-heading">
                                 <div class="panel-title">
                                 <i class="fa fa-wrench pull-right"></i>
-                                <h4>Post Request</h4>
+                                <h4>Post Suggestion Or Complaint</h4>
                                 </div>
                             </div>
                             <div class="panel-body">
 
                               <form class="form form-vertical">
                                
-                                <div class="control-group">
-                                  <label>Name</label>
-                                  <div class="controls">
-                                   <input class="form-control" placeholder="Enter Name" type="text">
-                                  </div>
-                                </div>      
-                                
                                 <div class="control-group">
                                   <label>Message</label>
                                   <div class="controls">
@@ -253,7 +246,12 @@
                                 <div class="control-group">
                                   <label>Category</label>
                                   <div class="controls">
-                                     <select class="form-control"><option selected="selected">options</option></select>
+                                     <select class="form-control">
+                                        <option></option>
+                                        <option>Lecturer</option>
+                                        <option>Suggestion</option>
+                                        <option>Other</option>
+                                     </select>
                                   </div>
                                 </div>    
                                 
@@ -261,7 +259,7 @@
                                     <label></label>
                                     <div class="controls">
                                     <button type="submit" class="btn btn-primary">
-                                      Post
+                                      send
                                     </button>
                                     </div>
                                 </div>   
