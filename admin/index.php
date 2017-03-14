@@ -1,9 +1,9 @@
 <?php
-    require_once '../core/init.php';      
-    if(!User::isLoggedIn())       
-    {     
-        Redirect::to('login.php');        
-    }            
+    // require_once '../core/init.php';      
+    // if(!User::isLoggedIn())       
+    // {     
+    //     Redirect::to('login.php');        
+    // }            
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -12,9 +12,9 @@
         <meta charset="utf-8">
         <title>SIS | ADMIN</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link href="/assets/css/bootstrap.css" rel="stylesheet">
-        <link href="/assets/css/admin/admin.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css">
+        <link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="/assets/css/home.css" rel="stylesheet" type="text/css">
+        <link href="/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
     
     <body>

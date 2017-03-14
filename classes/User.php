@@ -25,7 +25,7 @@
 		public function adminLogin($adminUsername, $adminPassword)
 		{			
 			$query = $this->_db->query("SELECT * FROM admin WHERE username = ? AND password = ?", array($adminUsername, $adminPassword));
-			return ($query->count() > 0) ? $_SESSION['user_session'] = $query->results()[0]->username : false;
+			return ($query->count() > 0) ? $_SESSION['admin_session'] = $query->results()[0]->username : false;
 		}
 
 		/**
@@ -35,7 +35,11 @@
 		{
 			if(isset($_SESSION['user_session']))
 			{
-				return true;
+				return $_SESSION['user_session'];
+			}
+			elseif(isset($_SESSION['admin_session']))
+			{
+				return $_SESSION['admin_session'];
 			}
 		}
 
