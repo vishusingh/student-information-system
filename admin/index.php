@@ -1,10 +1,3 @@
-<?php
-    // require_once '../core/init.php';      
-    // if(!User::isLoggedIn())       
-    // {     
-    //     Redirect::to('login.php');        
-    // }            
-?>
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
@@ -20,28 +13,7 @@
     <body>
         
         <!-- Header -->
-		<div id="top-nav" class="navbar navbar-inverse navbar-static-top">
-		  <div class="container">
-			<div class="navbar-header">
-			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				  <span class="icon-toggle"></span>
-			  </button>
-			  <a class="navbar-brand" href="/admin">Admin | Dashboard</a>
-			</div>
-			<div class="navbar-collapse collapse">
-			  <ul class="nav navbar-nav navbar-right">
-				
-				<li class="dropdown">
-				  <a class="dropdown-toggle" role="button" data-toggle="dropdown"><i class="fa fa-user"></i> Username <span class="caret"></span></a>
-				  <ul id="g-account-menu" class="dropdown-menu" role="menu">
-					<li><a href="/content/profile">Profile</a></li>
-				  </ul>
-				</li>
-				<li><a href="/logout.php"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
-			  </ul>
-			</div>
-		  </div><!-- /container -->
-		</div>
+		<?php include '../includes/admin/head.php'; ?>
 		<!-- /Header -->
 
 		<!-- Main -->
@@ -50,9 +22,6 @@
 			<!-- start col-3 -->
 			<div class="col-md-3">
 			  <!-- Left column -->
-			  <a href="#"><strong><i class="fa fa-wrench"></i> Panel</strong></a>  
-			  
-			  <hr>
 			  
 			  <ul class="list-unstyled">
 				<li class="nav-header">
@@ -74,17 +43,7 @@
 
 			<div class="col-md-9">
 				
-			  <!-- column 2 -->	
-			  <ul class="list-inline pull-right">
-				 <li><a href="#"><i class="fa fa-cog"></i></a></li>
-				 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="badge">3</span></a><ul class="dropdown-menu" role="menu"><li><a href="#">1. Is there a way..</a></li><li><a href="#">2. Hello, admin. I would..</a></li><li><a href="#"><strong>All messages</strong></a></li></ul></li>
-				 <li><a href="#"><i class="fa fa-user"></i></a></li>
-				 <li><a title="Add Widget" data-toggle="modal" href="#addWidgetModal"><span class="fa fa-plus-sign"></span> Add Widget</a></li>
-			  </ul>
-			  <a href="#"><strong><i class="fa fa-dashboard"></i> My Dashboard</strong></a>  
-			  
-				<hr>
-			  
+			  <!-- column 2 -->			  
 				<div class="row">
 				   
 					
