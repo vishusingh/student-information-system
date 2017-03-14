@@ -55,10 +55,8 @@
               <hr>
               
               <ul class="list-unstyled">
-                <li class="nav-header"> <a class="" href="#" data-toggle="collapse" data-target="#userMenu">
-                  <h5>Tools <i class="fa fa-chevron-down"></i></h5>
-                  </a>
-                    <ul style="height: auto;" class="list-unstyled in" id="userMenu">
+                <li class="nav-header">
+                    <ul style="height: auto;" class="list-unstyled in">
                         <li class="active"> <a href="#"><i class="fa fa-home"></i> Home</a></li>
                         <li><a href="/content/timetables"><i class="fa fa-table"></i> Timetables</a></li>
                         <li><a href="/content/classmates"><i class="fa fa-group"></i> Classmates</a></li>
