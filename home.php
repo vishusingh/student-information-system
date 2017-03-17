@@ -13,7 +13,7 @@
         <title>SIS | STUDENT</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
-        <link href="/assets/css/home.css" rel="stylesheet" type="text/css">
+        <!-- <link href="/assets/css/home.css" rel="stylesheet" type="text/css"> -->
         <link href="/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
     
@@ -48,38 +48,21 @@
         <div class="container">
         <div class="row">
             <!-- start col-3 -->
-            <div class="col-md-3">
+            <div class="col-md-2">
               <!-- Left column -->
-              <a href="#"><strong><i class="fa fa-wrench"></i> Panel</strong></a>  
-              
-              <hr>
-              
-              <ul class="list-unstyled">
-                <li class="nav-header">
-                    <ul style="height: auto;" class="list-unstyled in">
+                    <ul class="nav nav-pills nav-stacked">
                         <li class="active"> <a href="#"><i class="fa fa-home"></i> Home</a></li>
                         <li><a href="/content/timetables"><i class="fa fa-table"></i> Timetables</a></li>
                         <li><a href="/content/classmates"><i class="fa fa-group"></i> Classmates</a></li>
                         <li><a href="/content/results"><i class="fa fa-search"></i> Results</a></li>
                         <li><a href="/content/download"><i class="fa fa-download"></i> Download Notes</a></li>
                     </ul>
-                </li>
-              </ul>
             </div>
             <!-- end col-3 -->
 
-            <div class="col-md-9">
+            <div class="col-md-10">
                 
               <!-- column 2 --> 
-              <ul class="list-inline pull-right">
-                 <li><a href="#"><i class="fa fa-cog"></i></a></li>
-                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="badge">3</span></a><ul class="dropdown-menu" role="menu"><li><a href="#">1. Is there a way..</a></li><li><a href="#">2. Hello, admin. I would..</a></li><li><a href="#"><strong>All messages</strong></a></li></ul></li>
-                 <li><a href="#"><i class="fa fa-user"></i></a></li>
-                 <li><a title="Add Widget" data-toggle="modal" href="#addWidgetModal"><span class="fa fa-plus-sign"></span> Add Widget</a></li>
-              </ul>
-              <a href="#"><strong><i class="fa fa-dashboard"></i> My Dashboard</strong></a>  
-              
-                <hr>
               
                 <div class="row">
                    
