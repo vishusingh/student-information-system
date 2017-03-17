@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
         <meta charset="utf-8">
-        <title>SIS | STUDENT</title>
+        <title>SIS | Results</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
         <link href="/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -43,10 +43,10 @@
             <div class="col-md-2">
               <!-- Left column -->
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="active"> <a href="/home.php"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="/home.php"><i class="fa fa-home"></i> Home</a></li>
                         <li><a href="/content/timetables"><i class="fa fa-table"></i> Timetables</a></li>
                         <li><a href="/content/classmates"><i class="fa fa-group"></i> Classmates</a></li>
-                        <li><a href="/content/results"><i class="fa fa-search"></i> Results</a></li>
+                        <li  class="active"><a href="/content/results"><i class="fa fa-search"></i> Results</a></li>
                         <li><a href="/content/download"><i class="fa fa-download"></i> Download Notes</a></li>
                     </ul>
             </div>
