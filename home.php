@@ -70,54 +70,30 @@
                   
                     <!-- center left--> 
                     <div class="col-md-6">
-                      <div class="well">Inbox Messages <span class="badge pull-right">3</span></div>
-                      
-                      <hr>
-                      
-                      <div class="btn-group btn-group-justified">
-                        <a href="#" class="btn btn-primary col-sm-3">
-                          <i class="fa fa-plus"></i><br>
-                          Service
-                        </a>
-                        <a href="#" class="btn btn-primary col-sm-3">
-                          <i class="fa fa-cloud"></i><br>
-                          Cloud
-                        </a>
-                        <a href="#" class="btn btn-primary col-sm-3">
-                          <i class="fa fa-cog"></i><br>
-                          Tools
-                        </a>
-                        <a href="#" class="btn btn-primary col-sm-3">
-                          <i class="fa fa-question-sign"></i><br>
-                          Help
-                        </a>
-                      </div>
-                      
-                      <hr>
-                      
+                    
                       <div class="panel panel-default">
-                          <div class="panel-heading"><h4>Reports</h4></div>
+                          <div class="panel-heading"><h4>Course Units</h4></div>
                           <div class="panel-body">
                             
-                            <small>Success</small>
+                            <small>Operating Systems</small>
                             <div class="progress">
                               <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%">
                                 <span class="sr-only">72% Complete</span>
                               </div>
                             </div>
-                            <small>Info</small>
+                            <small>C programming</small>
                             <div class="progress">
                               <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
                                 <span class="sr-only">20% Complete</span>
                               </div>
                             </div>
-                            <small>Warning</small>
+                            <small>Web Design</small>
                             <div class="progress">
                               <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
                                 <span class="sr-only">60% Complete (warning)</span>
                               </div>
                             </div>
-                            <small>Danger</small>
+                            <small>Repair and Maintanence</small>
                             <div class="progress">
                               <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
                                 <span class="sr-only">80% Complete</span>
@@ -126,42 +102,6 @@
 
                           </div><!--/panel-body-->
                       </div><!--/panel-->
-            
-                      <hr>              
-
-                      <!--tabs-->
-                      <div class="container">
-                        <div class="col-md-4">
-                        <ul class="nav nav-tabs" id="myTab">
-                          <li class="active"><a href="#profile" data-toggle="tab">Profile</a></li>
-                          <li><a href="#messages" data-toggle="tab">Messages</a></li>
-                          <li><a href="#settings" data-toggle="tab">Settings</a></li>
-                        </ul>
-                        
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="profile">
-                            <h4><i class="fa fa-user"></i></h4>
-                            Lorem profile dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-                            <p>Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-                              dolor, in sagittis nisi.</p>
-                          </div>
-                          <div class="tab-pane" id="messages">
-                            <h4><i class="fa fa-comment"></i></h4>
-                            Message ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-                            <p>Quisque mauris augu.</p>
-                          </div>
-                          <div class="tab-pane" id="settings">
-                            <h4><i class="fa fa-cog"></i></h4>
-                            Lorem settings dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-                            <p>Quisque mauris augue, molestie.</p>
-                          </div>
-                        </div>
-                        </div>
-                      </div>  
-                       
-                      <!--/tabs-->
-                      
-                      <hr>
                       
                       <div class="panel panel-default">
                           <div class="panel-heading"><h4>New Requests</h4></div>
@@ -195,7 +135,7 @@
                       
                         <table class="table table-striped">
                               <thead>
-                                <tr><th>Visits</th><th>ROI</th><th>Source</th></tr>
+                                <tr><th colspan="3">Top Five Students</th></tr>
                               </thead>
                               <tbody>
                                 <tr><td>45</td><td>2.45%</td><td>Direct</td></tr>
@@ -250,15 +190,6 @@
                         
                           </div><!--/panel content-->
                         </div><!--/panel-->
-                      
-                        <div class="panel panel-default">
-                          <div class="panel-heading"><div class="panel-title"><h4>Engagement</h4></div></div>
-                          <div class="panel-body">  
-                            <div class="col-xs-4 text-center"><img src="/assets/img/admin/FFF.gif" class="img-circle img-responsive"></div>
-                            <div class="col-xs-4 text-center"><img src="/assets/img/admin/555.gif" class="img-circle img-responsive"></div>
-                            <div class="col-xs-4 text-center"><img src="/assets/img/admin/222.gif" class="img-circle img-responsive"></div>
-                          </div>
-                       </div><!--/panel-->
                       
                     </div><!--/col-span-6-->             
               </div><!--/row-->
