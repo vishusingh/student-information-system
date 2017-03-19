@@ -1,5 +1,6 @@
 <?php
     require_once $_SERVER['DOCUMENT_ROOT'] . '/core/init.php';
+    $section = 'home';
     if(!User::isLoggedIn())       
     {     
         Redirect::to('/login.php');        
@@ -25,18 +26,13 @@
         <!-- Main -->
         <div class="container">
         <div class="row">
-            <!-- start col-3 -->
+            <!-- start col-2 -->
             <div class="col-md-2">
-              <!-- Left column -->
-                    <ul class="nav nav-pills nav-stacked">
-                        <li class="active"> <a href="#"><i class="fa fa-home"></i> Home</a></li>
-                        <li><a href="/content/timetables"><i class="fa fa-table"></i> Timetables</a></li>
-                        <li><a href="/content/classmates"><i class="fa fa-group"></i> Classmates</a></li>
-                        <li><a href="/content/results"><i class="fa fa-search"></i> Results</a></li>
-                        <li><a href="/content/download"><i class="fa fa-download"></i> Download Notes</a></li>
-                    </ul>
+                <!-- side-nav-start -->
+                <?php require_once(ROOT_PATH . '/includes/side-nav.php'); ?>
+                <!-- side-nav-end -->
             </div>
-            <!-- end col-3 -->
+            <!-- end col-2 -->
 
             <div class="col-md-10">
                 
