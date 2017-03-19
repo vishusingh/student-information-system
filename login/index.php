@@ -39,7 +39,7 @@
 			$x = new User;
 			if ($x->login($username, $password))
 			{
-				Redirect::to('home.php');
+				Redirect::to('/home');
 			}
 			
 		 }
