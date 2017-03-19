@@ -1,3 +1,8 @@
+<?php
+
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/core/init.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
@@ -13,7 +18,7 @@
     <body>
         
         <!-- Header -->
-		<?php include '../includes/admin/header.php'; ?>
+		<?php require_once ROOT_PATH . '/includes/admin/header.php'; ?>
 		<!-- /Header -->
 
 		<!-- Main -->
