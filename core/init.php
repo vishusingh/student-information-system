@@ -2,7 +2,7 @@
 
 	function my_autoloader($class) 
 	{
-    	include 'classes/' . $class . '.php';
+    	require_once $_SERVER['DOCUMENT_ROOT'] . '/classes/' . $class . '.php';
 	}
 
 	spl_autoload_register('my_autoloader');
