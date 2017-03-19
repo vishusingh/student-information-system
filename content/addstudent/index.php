@@ -1,9 +1,8 @@
 <?php
     require_once $_SERVER['DOCUMENT_ROOT'] . '/core/init.php';
-    var_dump($_SERVER['DOCUMENT_ROOT']);
     if(!User::isLoggedIn())       
     {     
-        Redirect::to('login.php');        
+        Redirect::to('/login');        
     }           
 ?>
 <!DOCTYPE html>
