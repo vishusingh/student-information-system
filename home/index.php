@@ -1,9 +1,9 @@
 <?php
-    require_once 'core/init.php';      
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/core/init.php';
     if(!User::isLoggedIn())       
     {     
-        Redirect::to('login.php');        
-    }            
+        Redirect::to('/login.php');        
+    }           
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -32,7 +32,7 @@
               <ul class="nav navbar-nav navbar-right">
                 
                 <li class="dropdown">
-                  <a class="dropdown-toggle" role="button" data-toggle="dropdown"><i class="fa fa-user"></i> Username <span class="caret"></span></a>
+                  <a class="dropdown-toggle" role="button" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_SESSION['user_session']; ?> <span class="caret"></span></a>
                   <ul id="g-account-menu" class="dropdown-menu" role="menu">
                     <li><a href="/content/profile">Profile</a></li>
                   </ul>
