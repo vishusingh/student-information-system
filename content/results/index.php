@@ -176,16 +176,7 @@
             </div><!--/col-span-9-->
         </div>
         </div>
-        <script type="text/javascript" src="/assets/js/jquery.js"></script>
-        <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
-        <script type="text/javascript">
-        $(document).ready(function() {
-            $(".alert").addClass("in").fadeOut(4500);
-            $('[data-toggle=collapse]').click(function(){
-                $(this).find("i").toggleClass("glyphicon-chevron-right glyphicon-chevron-down");
-            });
-        });
-        </script>
-    
+        
+        <?php require_once(ROOT_PATH . '/includes/footer-scripts.php'); ?>
 </body>
 </html>

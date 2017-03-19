@@ -14,7 +14,6 @@
 		
 		Page Under Construction!!!
 
-		<script src="/assets/js/jquery.js"></script>		
-		<script src="/assets/js/bootstrap.js"></script>		
+		<?php require_once(ROOT_PATH . '/includes/footer-scripts.php'); ?>
 	</body>
 </html>
