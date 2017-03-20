@@ -1,5 +1,5 @@
 <?php
-
+	$section = 'home';
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/core/init.php';
 
 ?>
@@ -24,31 +24,16 @@
 		<!-- Main -->
 		<div class="container">
 		<div class="row">
-			<!-- start col-3 -->
+			<!-- start col-2 -->
 			<div class="col-md-2">
-			  <!-- Left column -->
-			
-					<ul class="nav nav-pills nav-stacked">
-						<li class="active"> <a href="#"><i class="fa fa-home"></i> Home</a></li>
-						<li><a href="/content/addstudent"><i class="fa fa-user"></i> Add New Student</a></li>
-						<li><a href="/content/timetables"><i class="fa fa-table"></i> Timetables</a></li>
-						<li><a href="/content/results"><i class="fa fa-search"></i> Results</a></li>
-						<li><a href="/content/marks"><i class="fa fa-percent"></i> Feed In Marks</a></li>
-						<li><a href="/content/students"><i class="fa fa-group"></i> Students</a></li>
-						<li><a href="/content/notes"><i class="fa fa-list-alt"></i> Notes</a></li>
-						<li><a href="/content/upload"><i class="fa fa-upload"></i> Upload Notes</a></li>
-						<li><a href="/content/download"><i class="fa fa-download"></i> Download Notes</a></li>
-					</ul>
+				<?php require_once(ROOT_PATH . '/includes/admin/side-nav.php'); ?>
 			</div>
-			<!-- end col-3 -->
+			<!-- end col-2 -->
 
 			<div class="col-md-10">
-				
-			  <!-- column 2 -->			  
-				<div class="row">
-				   
-					
-				  
+					  
+				<div class="row">   
+							  
 					<!-- center left-->	
 					<div class="col-md-6">
 					  <div class="well">Inbox Messages <span class="badge pull-right">3</span></div>

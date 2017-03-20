@@ -4,7 +4,7 @@
     if(!User::isLoggedIn())       
     {   
         Redirect::to('/login');        
-    }           
+    }       
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -20,7 +20,16 @@
     <body>
         
         <!-- Header -->
-            <?php require_once(ROOT_PATH . '/includes/header.php'); ?>
+            <?php 
+                if(User::isAdminLoggedIn())
+                {
+                    require_once(ROOT_PATH . '/includes/admin/header.php'); 
+                }
+                else
+                {
+                    require_once(ROOT_PATH . '/includes/header.php');
+                }
+            ?> 
         <!-- /Header -->
 
         <!-- Main -->
@@ -28,7 +37,16 @@
         <div class="row">
             <!-- start col-2 -->
             <div class="col-md-2">
-                <?php require_once(ROOT_PATH . '/includes/side-nav.php'); ?> 
+                <?php 
+                    if(User::isAdminLoggedIn())
+                    {
+                        require_once(ROOT_PATH . '/includes/admin/side-nav.php'); 
+                    }
+                    else
+                    {
+                        require_once(ROOT_PATH . '/includes/side-nav.php');
+                    }
+                ?> 
             </div>
             <!-- end col-2 -->
 

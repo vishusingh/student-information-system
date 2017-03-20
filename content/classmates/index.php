@@ -1,10 +1,10 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT'] . '/core/init.php');
-    $section = 'classmates';
     if(!User::isLoggedIn())       
     {   
         Redirect::to('/login');        
-    }           
+    } 
+    $section = 'classmates';          
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
