@@ -37,7 +37,14 @@
 			{
 				return $_SESSION['user_session'];
 			}
-			elseif(isset($_SESSION['admin_session']))
+		}
+
+		/**
+		* Public Static Method to store admin session if logged in
+		*/
+		public static function isAdminLoggedIn()
+		{
+			if(isset($_SESSION['admin_session']))
 			{
 				return $_SESSION['admin_session'];
 			}
@@ -50,6 +57,7 @@
 		{
 			session_destroy();
 			unset($_SESSION['user_session']);
+			unset($_SESSION['admin_session']);
 			return true;
 		}
 		
