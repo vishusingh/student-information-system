@@ -17,7 +17,7 @@
 
 <div id="top-nav" class="navbar navbar-default navbar-static-top">
 
-	<div class="container-fluid">
+	<div class="container">
 
 		<div class="navbar-header">
 
