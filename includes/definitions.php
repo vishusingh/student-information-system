@@ -22,6 +22,9 @@
 	//Define home view of system
 	define('homeView', rootPath . '/views/home.php');
 
+	//Define login view of system
+	define('loginView', rootPath . '/views/login.php');
+
 	/**
 	*  End Define Views of system
 	*/
