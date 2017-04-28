@@ -1,27 +1,56 @@
 <?php
+	
+	/**
+	* @author Kidhoma Norman
+	*/
 
 	/**
 	* Report simple running errors
 	*/
+	
 	error_reporting(E_ALL);
 
 	/**
-	* Display errors on screen
+	* Display errors on screen for development
 	*/
+
 	ini_set('display_errors', 1);
 
 	/**
-	* Define root path i.e /var/www/student-information-system
+	* Define root path of site
 	*/
-	define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT']);	
 
-	function my_autoloader($class) 
+	define('rootPath', $_SERVER['DOCUMENT_ROOT']);
+
+	/**
+	* Define base url path of site i.e http://127.0.0.1
+	*/
+
+	define('baseUrl', '');	
+
+	/**
+	* Function to acquire classes from classes folder
+	*/
+
+	function loadClasses($class) 
 	{
-    	require_once ROOT_PATH . '/classes/' . $class . '.php';
+
+    	require_once rootPath . '/classes' . '/' . $class . '.php';
+    	
 	}
 
-	spl_autoload_register('my_autoloader');
+	/**
+	* Function to load classes from loadClasses function
+	*/
 
-	session_start();
+	spl_autoload_register('loadClasses');
 
+	/**
+	* Require function to include all definitions for the site
+	*/	
+
+	require_once rootPath . '/includes/definitions.php';
+
+	require_once rootPath . '/includes/functions.php';
+	
 ?>
