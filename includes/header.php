@@ -59,8 +59,10 @@
 
 </div>
 
+<!--START OVERALL CONTAINER-->
 <div class="container">
 
+	<!--START OVERALL ROW-->
 	<div class="row">
 
 		<div class="col-md-2">
