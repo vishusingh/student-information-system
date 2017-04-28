@@ -10,19 +10,43 @@
 	{
 
 		$username = Input::cleanData($_POST["username"]);
+
 		$password = Input::cleanData($_POST["password"]);
 
 		if (Validate::check($username, $password) === true) 
 		{	
 
 			$x = new User;
+
 			if ($x->login($username, $password))
 			{
+
 				Redirect::to('/home');
+
 			}
 			
-		 }
+		}
+
 	}
 
-	require_once(ROOT_PATH . '/includes/login.php');
+	if ($section === 'admin') 
+	{
+
+		$h1 = 'Admin';
+
+		$title = 'ADMIN | LOGIN';
+
+	}
+
+	if ($section === 'student')
+	{
+
+		$h1 = 'Student';
+
+		$title = 'STUDENT | LOGIN';
+
+	}
+
+	require_once loginView;
+
 ?>
