@@ -1,9 +1,3 @@
-<?php 
-
-	require_once 'core/init.php';
-
-?>
-
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
@@ -15,9 +9,9 @@
 	</head>
 	<body>
 		
-		Page Under Construction!!!
+		<h1>Page Under Construction!!!</h1>
 
-		<?php require_once(rootPath . '/includes/footer-scripts.php'); ?>
+		<a href="/home/">Click Here</a>
 
 	</body>
 </html>
