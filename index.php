@@ -1,6 +1,9 @@
 <?php 
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/core/init.php');
+
+	require_once 'core/init.php';
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en-US">
 	<head>
@@ -14,6 +17,7 @@
 		
 		Page Under Construction!!!
 
-		<?php require_once(ROOT_PATH . '/includes/footer-scripts.php'); ?>
+		<?php require_once(rootPath . '/includes/footer-scripts.php'); ?>
+
 	</body>
 </html>

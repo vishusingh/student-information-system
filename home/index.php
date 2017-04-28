@@ -1,10 +1,7 @@
 <?php
     require_once $_SERVER['DOCUMENT_ROOT'] . '/core/init.php';
     $section = 'home';
-    if(!User::isLoggedIn())       
-    {     
-        Redirect::to('/login.php');        
-    }           
+              
 ?>
 <!DOCTYPE html>
 <html lang="en-US">

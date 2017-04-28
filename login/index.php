@@ -1,5 +1,6 @@
 <?php 
-	require_once $_SERVER['DOCUMENT_ROOT'] . '/core/init.php';
+
+	require_once '../core/init.php';
 	
 	$section = 'student';
 
