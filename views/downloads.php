@@ -15,28 +15,42 @@
 						<tr>
 
 							<th>No.</th>
-							<th>Lecturer</th>
-							<th>Course unit</th>
-							<th>Year</th>
 							<th>Name</th>
+							<th>Lecturer</th>
+							<th>Course</th>
+							<th>Semester</th>
 							<th>Download</th>
 							
 						</tr>
 
 					</thead>
 
-					<tbody>
+					<tbody>						
 
-						<tr>
+						<?php
 
-							<td>1</td>
-							<td>Anna</td>
-							<td>Operating Sys</td>
-							<td>Year 1 Sem 2</td>
-							<td>Intrduction to O.S</td>
-							<td><span class="fa fa-download"></span></td>
+							foreach ($results as $result) 
+							{
 
-						</tr>
+								echo '<tr>';
+
+								echo '<td>' . $result->id . '</td>';
+
+								echo '<td>' . $result->name . '</td>';
+
+								echo '<td>' . $result->lecturer . '</td>';
+
+								echo '<td>' . $result->course . '</td>';
+
+								echo '<td>' . $result->semester . '</td>';
+
+								echo '<td><span class="fa fa-download"></span></td>';
+
+								echo '</tr>';
+
+							}
+
+						?>
 
 					</tbody>
 
