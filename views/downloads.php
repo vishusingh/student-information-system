@@ -44,7 +44,7 @@
 
 								echo '<td>' . $result->semester . '</td>';
 
-								echo '<td><span class="fa fa-download"></span></td>';
+								echo '<td><a href="" download><span class="fa fa-download"></a></span></td>';
 
 								echo '</tr>';
 
