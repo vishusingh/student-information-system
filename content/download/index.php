@@ -4,6 +4,8 @@
 
 	require_once '../../core/init.php';
 
+	$results = results('SELECT * FROM notes');
+	
 	require_once header;
 
 	require_once downloadsView;
