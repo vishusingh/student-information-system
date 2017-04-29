@@ -34,6 +34,9 @@
 	//Define marks view of system
 	define('marksView', rootPath . '/views/marks.php');
 
+	//Define profile view of system
+	define('profileView', rootPath . '/views/profile.php');
+
 	/**
 	*  End Define Views of system
 	*/
