@@ -46,6 +46,9 @@
 	//Define uploads view of system
 	define('uploadsView', rootPath . '/views/upload.php');
 
+	//Define add students view of system
+	define('addStudentsView', rootPath . '/views/addstudent.php');
+
 	/**
 	*  End Define Views of system
 	*/
