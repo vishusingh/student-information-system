@@ -1,6 +1,6 @@
 <?php
 
-	$section = 'timetables';
+	$section = 'timeTables';
 
 	require_once '../../core/init.php';  
 
