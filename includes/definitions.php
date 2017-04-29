@@ -40,8 +40,11 @@
 	//Define students view of system
 	define('studentsView', rootPath . '/views/students.php');
 
-	//Define students view of system
+	//Define timetables view of system
 	define('timetablesView', rootPath . '/views/timetables.php');
+
+	//Define uploads view of system
+	define('uploadsView', rootPath . '/views/upload.php');
 
 	/**
 	*  End Define Views of system
