@@ -22,6 +22,7 @@
 
 <div id="top-nav" class="navbar navbar-default navbar-static-top">
 
+	<!--START NAVBAR CONTAINER-->
 	<div class="container">
 
 		<div class="navbar-header">
@@ -55,7 +56,7 @@
 		</div>
 
 	</div>
-	<!-- /container -->
+	<!--END NAVBAR CONTAINER-->
 
 </div>
 
