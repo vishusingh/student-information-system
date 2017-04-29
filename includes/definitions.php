@@ -25,6 +25,9 @@
 	//Define login view of system
 	define('loginView', rootPath . '/views/login.php');
 
+	//Define login view of system
+	define('classMatesView', rootPath . '/views/classmates.php');
+
 	/**
 	*  End Define Views of system
 	*/
