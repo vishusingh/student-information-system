@@ -37,6 +37,9 @@
 	//Define profile view of system
 	define('profileView', rootPath . '/views/profile.php');
 
+	//Define students view of system
+	define('studentsView', rootPath . '/views/students.php');
+
 	/**
 	*  End Define Views of system
 	*/
