@@ -49,6 +49,9 @@
 	//Define add students view of system
 	define('addStudentsView', rootPath . '/views/addstudent.php');
 
+	//Define results view of system
+	define('resultsView', rootPath . '/views/results.php');
+
 	/**
 	*  End Define Views of system
 	*/
