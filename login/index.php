@@ -21,7 +21,7 @@
 			if ($x->login($username, $password))
 			{
 
-				Redirect::to('/home');
+				Redirect::to('/home/');
 
 			}
 			

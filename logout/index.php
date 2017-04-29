@@ -5,7 +5,7 @@
     if (User::logout()) 
     {
 
-    	Redirect::to('login.php');
+    	Redirect::to('/login/');
     	
     }
     

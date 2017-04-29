@@ -12,9 +12,9 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo baseUrl; ?>/assets/css/bootstrap.css">
 
-        <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo baseUrl; ?>/assets/css/font-awesome.min.css">
 
     </head>
     
@@ -30,7 +30,7 @@
 			<span class="icon-toggle"></span>
 			</button>
 
-			<a class="navbar-brand" href="/admin">Student | Dashboard</a>
+			<a class="navbar-brand" href="<?php echo baseUrl; ?>/admin">Student | Dashboard</a>
 
 		</div>
 
@@ -43,12 +43,12 @@
 				<a class="dropdown-toggle" role="button" data-toggle="dropdown"><i class="fa fa-user"></i>USER<span class="caret"></span></a>
 
 				<ul id="g-account-menu" class="dropdown-menu" role="menu">
-				<li><a href="/content/profile">Profile</a></li>
+				<li><a href="<?php echo baseUrl; ?>/content/profile">Profile</a></li>
 				</ul>
 				
 			</li>
 
-			<li><a href="/logout.php"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+			<li><a href="<?php echo baseUrl; ?>/logout/"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
 			
 			</ul>
 

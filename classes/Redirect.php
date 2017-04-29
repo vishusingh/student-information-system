@@ -17,7 +17,7 @@
 			if ($location) 
 			{
 
-				header('location: ' . $location);
+				header('location: ' . baserUrl . $location);
 
 				exit();
 
