@@ -31,6 +31,9 @@
 	//Define downloads view of system
 	define('downloadsView', rootPath . '/views/downloads.php');
 
+	//Define marks view of system
+	define('marksView', rootPath . '/views/marks.php');
+
 	/**
 	*  End Define Views of system
 	*/
