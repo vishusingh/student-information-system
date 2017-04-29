@@ -40,6 +40,9 @@
 	//Define students view of system
 	define('studentsView', rootPath . '/views/students.php');
 
+	//Define students view of system
+	define('timetablesView', rootPath . '/views/timetables.php');
+
 	/**
 	*  End Define Views of system
 	*/
