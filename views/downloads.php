@@ -6,6 +6,13 @@
 
 		<div class="col-md-12">
 
+			<?php 
+
+				if (count($results)) 
+				{
+				
+			?>
+
 			<div class="table-responsive"> 
 
 				<table class="table table-hover table-bordered">
@@ -14,11 +21,11 @@
 
 						<tr>
 
-							<th>No.</th>
 							<th>Name</th>
 							<th>Lecturer</th>
 							<th>Course</th>
 							<th>Semester</th>
+							<th>Date Added</th>
 							<th>Download</th>
 							
 						</tr>
@@ -34,8 +41,6 @@
 
 								echo '<tr>';
 
-								echo '<td>' . $result->id . '</td>';
-
 								echo '<td>' . $result->name . '</td>';
 
 								echo '<td>' . $result->lecturer . '</td>';
@@ -44,7 +49,9 @@
 
 								echo '<td>' . $result->semester . '</td>';
 
-								echo '<td><a href="" download><span class="fa fa-download"></a></span></td>';
+								echo '<td>' . $result->timestamp . '</td>';
+
+								echo '<td><a href="' . baseUrl . $result->simplepath . '" download><span class="fa fa-download"></a></span></td>';
 
 								echo '</tr>';
 
@@ -57,6 +64,19 @@
 				</table>
 
 			</div>
+
+			<?php 
+
+				}
+
+				else
+				{
+
+					echo '<h1><div class="alert alert-info text-center"><p>There are no notes currently</p></div></h1>';
+
+				}
+
+			?>
 
 		</div><!--/col-span-12-->
 
