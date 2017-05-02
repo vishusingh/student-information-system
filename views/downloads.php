@@ -49,7 +49,7 @@
 
 								echo '<td>' . $result->semester . '</td>';
 
-								echo '<td>' . $result->timestamp . '</td>';
+								echo '<td>' . explode(' ', $result->timestamp)[0] . '</td>';
 
 								echo '<td><a href="' . baseUrl . $result->simplepath . '" download><span class="fa fa-download"></a></span></td>';
 
