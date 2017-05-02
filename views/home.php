@@ -23,7 +23,30 @@
 
 			</div>
 
-			<form action="" method="POST" role="form">
+			<form action="<?php echo $baseUrl; ?>/home/" method="POST" role="form">
+
+				<?php
+
+					if (isset($errorList)) 
+					{
+						
+						foreach ($errorList as $error) 
+						{
+							
+							echo '<div class="alert alert-danger">' . $error . '</div>';
+
+						}
+
+					}
+
+					if (isset($_GET['status']) && $_GET['status'] == 'complaitsuccess') 
+					{
+						
+						echo '<div class="alert alert-success"><p>Thanks for your feedback</p></div>';
+
+					}
+
+				?>
 
 				<legend><h3>Send in suggestion or complaint</h3></legend>
 			
@@ -48,7 +71,7 @@
 
 				</div>					
 			
-				<button type="submit" class="btn btn-info">Submit</button>
+				<button type="submit" name="submit" class="btn btn-info">Submit</button>
 
 			</form>
 
