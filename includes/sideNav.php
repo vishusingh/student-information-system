@@ -56,7 +56,7 @@
     <li <?php classActive($section, 'timeTables'); ?> ><a href="<?php echo $baseUrl; ?>/content/timetables/"><i class="fa fa-table"></i> Timetables</a>
     </li>
 
-    <li <?php classActive($section, 'download'); ?> ><a href="<?php echo $baseUrl; ?>/content/download/"><i class="fa fa-book"></i> Notes</a>
+    <li <?php classActive($section, 'notes'); ?> ><a href="<?php echo $baseUrl; ?>/content/notes/"><i class="fa fa-book"></i> Notes</a>
     </li>
     
 </ul>

@@ -29,7 +29,7 @@
 	define('classMatesView', rootPath . '/views/classmates.php');
 
 	//Define downloads view of system
-	define('downloadsView', rootPath . '/views/downloads.php');
+	define('notesView', rootPath . '/views/notes.php');
 
 	//Define marks view of system
 	define('marksView', rootPath . '/views/marks.php');

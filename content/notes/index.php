@@ -1,6 +1,6 @@
 <?php
 
-	$section = 'download';
+	$section = 'notes';
 
 	require_once '../../core/init.php';
 
@@ -8,7 +8,7 @@
 	
 	require_once header;
 
-	require_once downloadsView;
+	require_once notesView;
 
 	require_once footer;
 
