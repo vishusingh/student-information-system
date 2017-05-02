@@ -1,12 +1,10 @@
-<?php 
+<?php
 
-	require_once '../core/init.php';
-	
 	$section = 'student';
 
-	$username = $password = "";
+	require_once '../core/init.php';
 
-	if ($_SERVER["REQUEST_METHOD"] == "POST") 
+	if (isset($_POST['submit'])) 
 	{
 
 		$username = Input::cleanData($_POST["username"]);
@@ -26,24 +24,6 @@
 			}
 			
 		}
-
-	}
-
-	if ($section === 'admin') 
-	{
-
-		$h1 = 'Admin';
-
-		$title = 'ADMIN | LOGIN';
-
-	}
-
-	if ($section === 'student')
-	{
-
-		$h1 = 'Student';
-
-		$title = 'STUDENT | LOGIN';
 
 	}
 
