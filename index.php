@@ -18,7 +18,7 @@
 
 		<title>SIS | Home page</title>
 
-		<link rel="stylesheet" href="<?php echo baseUrl; ?>/assets/css/bootstrap.css">
+		<link rel="stylesheet" href="<?php echo $baseUrl; ?>/assets/css/bootstrap.css">
 
 	</head>
 
@@ -26,7 +26,7 @@
 		
 		<h1 class="text-center">Page Under Construction!!!</h1>
 
-		<h1 class="text-center"><a href="<?php echo baseUrl; ?>/home/">Click Here</a></h1>
+		<h1 class="text-center"><a href="<?php echo $baseUrl; ?>/home/">Click Here</a></h1>
 
 	</body>
 	
