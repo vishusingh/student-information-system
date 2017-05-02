@@ -52,6 +52,9 @@
 	//Define results view of system
 	define('resultsView', rootPath . '/views/results.php');
 
+	//Define results view of system
+	define('adminHomeView', rootPath . '/views/adminHome.php');
+
 	/**
 	*  End Define Views of system
 	*/
