@@ -1,5 +1,7 @@
 <?php
 
+	$page = 'admin';
+
 	$section = 'upload';
 
 	require_once '../../core/init.php';

@@ -1,5 +1,7 @@
 <?php
 
+	$page = 'admin';
+
 	$section = 'marks';
 
 	require_once '../../core/init.php';  

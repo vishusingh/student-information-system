@@ -1,5 +1,7 @@
 <?php
 
+	$page = 'admin';
+
 	$section = 'students';
 
 	require_once '../../core/init.php';  
