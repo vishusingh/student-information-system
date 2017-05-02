@@ -16,6 +16,8 @@
 
         <link rel="stylesheet" type="text/css" href="<?php echo baseUrl; ?>/assets/css/font-awesome.min.css">
 
+        <link rel="stylesheet" type="text/css" href="<?php echo baseUrl; ?>/assets/css/custom.css">
+
     </head>
     
 <body>
