@@ -35,6 +35,8 @@
 		<title><?php echo $title; ?></title>
 
 		<link rel="stylesheet" href="<?php echo $baseUrl; ?>/assets/css/bootstrap.css">
+
+		<link rel="stylesheet" href="<?php echo $baseUrl; ?>/assets/css/font-awesome.min.css">
 		
 	</head>
 
@@ -56,7 +58,13 @@
 
 						<label for="username">Username</label>
 
-						<input type="text" class="form-control" id="username" name="username" placeholder="Enter Your Username" value="<?php if(isset($username)){echo $username;}?>" required="required" />
+						<div class="input-group">
+
+							<span class="input-group-addon"><i class="fa fa-user"></i></span>
+
+							<input type="text" class="form-control" id="username" name="username" placeholder="Enter Your Username" value="<?php if(isset($username)){echo $username;}?>" required="required" />
+
+						</div>
 
 					</div>
 
@@ -64,7 +72,13 @@
 
 						<label for="password">Password</label>
 
-						<input type="password" class="form-control" id="password" name="password" placeholder="Enter Your Password" required="required" />
+						<div class="input-group">
+
+							<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+
+							<input type="password" class="form-control" id="password" name="password" placeholder="Enter Your Password" required="required" />
+
+						</div>
 
 					</div>
 
