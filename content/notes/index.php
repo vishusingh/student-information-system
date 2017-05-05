@@ -4,7 +4,7 @@
 
 	require_once '../../core/init.php';
 
-	$results = results('SELECT * FROM notes');
+	$notesResults = Database::getInstance()->getAll('notes')->results();
 	
 	require_once header;
 
