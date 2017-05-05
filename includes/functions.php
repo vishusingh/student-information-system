@@ -27,7 +27,7 @@
 
 	}
 
-	function uploadErrors() : array
+	function uploadErrors()
 	{
 
 		return	array(
