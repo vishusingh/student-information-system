@@ -8,7 +8,7 @@
 
 			<?php 
 
-				if (count($results)) 
+				if (count($notesResults)) 
 				{
 				
 			?>
@@ -36,22 +36,22 @@
 
 						<?php
 
-							foreach ($results as $result) 
+							foreach ($notesResults as $notesResult) 
 							{
 
 								echo '<tr>';
 
-								echo '<td>' . $result->name . '</td>';
+								echo '<td>' . $notesResult->name . '</td>';
 
-								echo '<td>' . $result->lecturer . '</td>';
+								echo '<td>' . $notesResult->lecturer . '</td>';
 
-								echo '<td>' . $result->course . '</td>';
+								echo '<td>' . $notesResult->course . '</td>';
 
-								echo '<td>' . $result->semester . '</td>';
+								echo '<td>' . $notesResult->semester . '</td>';
 
-								echo '<td>' . explode(' ', $result->timestamp)[0] . '</td>';
+								echo '<td>' . explode(' ', $notesResult->timestamp)[0] . '</td>';
 
-								echo '<td><a href="' . baseUrl . $result->simplepath . '" download><span class="fa fa-download"></a></span></td>';
+								echo '<td><a href="' . baseUrl . $notesResult->simplepath . '" download><span class="fa fa-download"></a></span></td>';
 
 								echo '</tr>';
 
