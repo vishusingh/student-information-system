@@ -1,7 +1,0 @@
-[14-Jan-2011 06:59:27] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/vishu/public_html/stinfosys/ajax/topstu.php on line 8
-[14-Jan-2011 06:59:39] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/vishu/public_html/stinfosys/ajax/student.php on line 42
-[14-Jan-2011 06:59:40] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/vishu/public_html/stinfosys/ajax/topstu.php on line 8
-[14-Jan-2011 07:00:15] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/vishu/public_html/stinfosys/ajax/topstu.php on line 8
-[14-Jan-2011 07:03:51] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/vishu/public_html/stinfosys/ajax/topstu.php on line 8
-[14-Jan-2011 07:06:49] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'vishu_admin'@'gator1228.hostgator.com' (using password: YES) in /home/vishu/public_html/stinfosys/connect.php on line 2
-[14-Jan-2011 07:07:54] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'vishu_admin'@'gator1228.hostgator.com' (using password: YES) in /home/vishu/public_html/stinfosys/connect.php on line 2
