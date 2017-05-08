@@ -31,16 +31,16 @@
 		private	static $count = 0;
 
 		// property containing database host
-		private static $dbhost = '127.0.0.1';
+		private static $dbhost = '95.211.187.137';
 
 		// property containing database name
-		private static $dbname = 'sis';
+		private static $dbname = 'testing1236';
 
 		// property containing database username
-		private static $dbusername = 'root';
+		private static $dbusername = 'schoolsystem1';
 
 		// property containing database password
-		private static $dbpassword = 'root';
+		private static $dbpassword = 'schoolsystem';
 
 		// Method to auto-connect to database at the call of this class
 		private function __construct()
