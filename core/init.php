@@ -62,6 +62,8 @@
 	* Require function to include all common functions for the system
 	*/
 
-	require_once rootPath . '/includes/functions.php';
+	require_once rootPath . '/includes/functions/functions.php';
+
+	require_once rootPath . '/includes/functions/databaseQueryFunctions.php';
 	
 ?>
