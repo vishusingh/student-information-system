@@ -162,20 +162,6 @@
 
 			}
 
-			elseif (empty($where)) 
-			{
-
-				$sql = "{$action} FROM {$table}";
-
-				if (!$this->query($sql)->error()) 
-				{
-
-					return $this;
-
-				}
-
-			}
-
 			return false;
 		
 		}
@@ -185,14 +171,6 @@
 		{
 			
 			return $this->action('SELECT *', $table, $where);
-			
-		}
-
-		// get all data from table
-		public function getAll($table)
-		{
-			
-			return $this->action('SELECT *', $table);
 			
 		}
 
