@@ -4,7 +4,7 @@
 
 	require_once '../../core/init.php';
 
-	$timeTableResults = results('SELECT * FROM timetables');
+	$timeTableResults = databaseGetAll('timetables');
 
 	require_once header;
 

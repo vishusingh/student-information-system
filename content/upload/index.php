@@ -6,21 +6,21 @@
 
 	require_once '../../core/init.php';
 
-	$errorStore = rootPath . '/uploads/notes/myerrors.log';
+	$errorStore = rootPath . '/errors/myerrors.log';
 
-	$courses = results('SELECT course_name FROM courses');
+	$courses = databaseGetSpecificFields('courses', 'course_name');
 
-	$lecturers = results('SELECT name FROM lecturers');
+	$lecturers = databaseGetSpecificFields('lecturers', 'name');
 
 	$uploadErrors = uploadErrors();
 
-	$notesRootPath = rootPath . '/uploads/notes/';
+	$notesRootPath = rootPath . '/downloads/notes/';
 
-	$notesSimplePath = '/uploads/notes/';
+	$notesSimplePath = '/downloads/notes/';
 
-	$timeTablesRootPath = rootPath . '/uploads/timetables/';
+	$timeTablesRootPath = rootPath . '/downloads/timetables/';
 
-	$timeTablesSimplePath = '/uploads/timetables/';
+	$timeTablesSimplePath = '/downloads/timetables/';
 
 	$maxFileSize = 5000000;
 
