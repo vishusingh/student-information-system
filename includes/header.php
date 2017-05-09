@@ -12,11 +12,11 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <link rel="stylesheet" type="text/css" href="<?php echo baseUrl; ?>/assets/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="<?=bootstrapcss;?>">
 
-        <link rel="stylesheet" type="text/css" href="<?php echo baseUrl; ?>/assets/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="<?=fontawesome;?>">
 
-        <link rel="stylesheet" type="text/css" href="<?php echo baseUrl; ?>/assets/css/custom.css">
+        <link rel="stylesheet" type="text/css" href="<?=customcss;?>">
 
     </head>
     
