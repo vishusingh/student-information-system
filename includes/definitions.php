@@ -13,6 +13,23 @@
 	// Define Side NavBar 
 	define('sideNav', rootPath . '/includes/sideNav.php');
 
+	// Define Bootstrap css link
+	define('bootstrapcss', baseUrl . '/assets/css/bootstrap.css');
+
+	// Define custom css link
+	define('customcss', baseUrl . '/assets/css/custom.css');
+
+	// Define jquery link
+	define('jquery', baseUrl . '/assets/js/jquery.js');
+
+	// Define bootstrap js link
+	define('bootstrapjs', baseUrl . '/assets/js/bootstrap.js');
+
+	// Define fontawesome link
+	define('fontawesome', baseUrl . '/assets/css/font-awesome.min.css');
+
+	// Define bootstrap file js link
+	define('btfilejs', baseUrl . '/assets/js/bootstrap-filestyle.min.js');
 
 
 	/**
