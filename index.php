@@ -18,7 +18,7 @@
 
 		<title>SIS | Home page</title>
 
-		<link rel="stylesheet" href="<?php echo $baseUrl; ?>/assets/css/bootstrap.css">
+		<link rel="stylesheet" href="<?=bootstrapcss;?>">
 
 	</head>
 
