@@ -1,31 +1,29 @@
 Student Information System
 ==========================
 
-Student Information System is a php application created as a college project. It's a simple student records maintenance app built on WAMP.
+Student Information System is a php application created as a college project. It's a simple student records maintenance app.
 
-[Check out the demo](http://wpvine.com/stinfosys)
+[Check out the demo](https://myschoolsys.herokuapp.com/)
 
 [Contributors Note]
-Please use allman style of coding [Read here https://en.wikipedia.org/wiki/Indent_style#Allman_style]
+-------------------
+Please use allman style of coding for php, js and css [Read here](https://en.wikipedia.org/wiki/Indent_style#Allman_style)
 
 What does it do?
 -----------
 
 * Provides the ability to add student records including their profile info and 4 year semester wise internal and external marks.
 
-How to use it
+Prerequisites
 -----------
 
-WIP
+Your Environment Should Have The Following
 
-Browser support
------------
+* Latest Internet Browser i.e Google Chrome, FireFox etc
+* PHP 7
+* MySQL
 
-* Google Chrome
-* Mozilla Firefox 3+
-* Apple Safari 4+
-* Opera 10+
-* Internet Explorer 6+
+Or You May Just Need To Install The Latest Webserver To Your PC i.e Lamp, Mamp, Wamp etc
 
 License
 -----------
