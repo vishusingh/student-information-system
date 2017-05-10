@@ -14,11 +14,11 @@
 
 	$uploadErrors = uploadErrors();
 
-	$notesRootPath = rootPath . '/downloads/notes/';
+	$notesRootPath = '../../downloads/notes/';
 
 	$notesSimplePath = '/downloads/notes/';
 
-	$timeTablesRootPath = rootPath . '/downloads/timetables/';
+	$timeTablesRootPath = '../../downloads/timetables/';
 
 	$timeTablesSimplePath = '/downloads/timetables/';
 
