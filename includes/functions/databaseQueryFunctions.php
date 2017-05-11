@@ -11,7 +11,7 @@
 		
 			$query = Database::getInstance()->query('SELECT * FROM ' . $tableName);
 
-			return !$query->error() && $query->count() > 0 ? $results = $query->results() : $results = array();
+			return !$query->error() && $query->count() > 0 ? $results = $query->results() : $results;
 
 		}
 
@@ -66,7 +66,7 @@
 
 			$query = Database::getInstance()->get($table, $where);
 
-			return !$query->error() && $query->count() > 0 ? $results = $query->results() : $results = array();
+			return !$query->error() && $query->count() > 0 ? $results = $query->results() : $results;
 
 		}
 
