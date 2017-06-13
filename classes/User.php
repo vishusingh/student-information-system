@@ -1,93 +1,90 @@
 <?php
 
-	/**
-	* @author Kidhoma Norman
-	*/
-
-	class User 
+	class User
 	{
 
-		// Private property to handle database connection
-		private $_db;
+		private static $firstName;
 
-		public function __construct()
+		private static $lastName;
+		
+		private static $userDetails;
+
+		private static $sessionName = 'user';
+
+		public static function create($fields = array()) :bool
 		{
 
-			$this->_db = Database::getInstance();
-
-		}
-		
-		/**
-		* Method to handle user login and check if login is true 
-		*/
-
-		public function login($username, $password)
-		{	
-
-			$query = $this->_db->query("SELECT * FROM test WHERE username = ? AND password = ?", array($username, $password));
-
-			return ($query->count() > 0) ? $_SESSION['user_session'] = $query->results()[0]->username : false;
+			return (Database::insert('people', $fields)) ? true : false; 
 
 		}
 
-		public function adminLogin($adminUsername, $adminPassword)
-		{	
+		private static function find($user = null)
+		{
 
-			$query = $this->_db->query("SELECT * FROM admin WHERE username = ? AND password = ?", array($adminUsername, $adminPassword));
+			if ($user)
+			{
+				
+				$data = Database::getWhere('users', array('username', '=', $user));
 
-			return ($query->count() > 0) ? $_SESSION['admin_session'] = $query->results()[0]->username : false;
+				if (count($data)) 
+				{
+					
+					self::$userDetails = $data;
+
+					return true;
+
+				}
+
+			}
+
+			return false;
 
 		}
 
-		/**
-		* Public Static Method to store user session if logged in
-		*/
+		public static function login($username = null, $password = null)
+		{
+
+			if (self::find($username)) 
+			{
+
+				foreach (self::$userDetails as $userData) 
+				{
+				
+					if ($userData->pin_code == $password) 
+					{
+
+						Session::create(self::$sessionName, $userData->id);
+
+						Session::create('username', $userData->username);
+
+						Session::create('email', $userData->email);
+				
+						return true;
+
+					}
+
+				}
+
+			}
+
+			return false;
+
+		}
 
 		public static function isLoggedIn()
 		{
 
-			if(isset($_SESSION['user_session']))
-			{
-
-				return $_SESSION['user_session'];
-
-			}
+			return (Session::exists(self::$sessionName)) ? true : false;
 
 		}
-
-		/**
-		* Public Static Method to store admin session if logged in
-		*/
-
-		public static function isAdminLoggedIn()
-		{
-
-			if(isset($_SESSION['admin_session']))
-			{
-
-				return $_SESSION['admin_session'];
-
-			}
-
-		}
-
-		/**
-		* Public Method to handle users logout
-		*/
 
 		public static function logout()
 		{
 
-			session_destroy();
-
-			unset($_SESSION['user_session']);
-
-			unset($_SESSION['admin_session']);
-
-			return true;
+			Session::delete(self::$sessionName);
 
 		}
-
+		
 	}
-	
+
 ?>

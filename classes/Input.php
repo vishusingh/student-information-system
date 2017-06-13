@@ -1,34 +1,62 @@
-<?php 
-
-	/**
-	* @author Kidhoma Norman
-	*/
+<?php
 
 	class Input
 	{
 
-		/**
-		* Method to handle users input
-		*/
-
-		public static function cleanData($data = null)
+		public static function exists($type = 'POST')
 		{
 
-			if ($data) 
+			switch ($type) 
 			{
 
-				$data = trim($data);
+				case 'POST':
+					
+					return (!empty($_POST)) ? true : false; 
 
-				$data = stripslashes($data);
+					break;
 
-				$data = htmlspecialchars($data);
+				case 'GET':
+					
+					return (!empty($_GET)) ? true : false;
 
-				return $data;
+					break;
+				
+				default:
+
+					return false;
+
+					break;
+
+			}
+
+		}
+		
+		public static function get($formItem)
+		{
+			
+			if (isset($_POST[$formItem])) 
+			{
+				
+				return Escape::data($_POST[$formItem]);
+
+			}
+
+			elseif (isset($_GET[$formItem])) 
+			{
+
+				return Escape::data($_GET[$formItem]);
+
+			}
+
+			else
+			{
+
+				return '';
 
 			}
 
 		}
 
 	}
-	
+
 ?>
