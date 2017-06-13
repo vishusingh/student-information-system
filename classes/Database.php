@@ -82,7 +82,7 @@
 		}
 
 		// Method to hand queries from users i.e "SELECT, INSERT, UPDATE, etc"
-		public function query($sql, $params = array())
+		public static function query($sql, $params = array())
 		{
 
 			// initialize error to false to avoid returning errors of previous queries
@@ -128,11 +128,11 @@
 
 			}
 
-			return $this;
+			return new static;
 
 		}
 
-		private function action($action, $table, $where = array())
+		private static function action($action, $table, $where = array())
 		{
 
 			if (count($where) === 3)
@@ -151,10 +151,10 @@
 
 					$sql = "{$action} FROM {$table} WHERE {$filed} {$operator} ?";
 
-					if (!$this->query($sql, array($value))->error()) 
+					if (!self::getInstance()->query($sql, array($value))->error()) 
 					{
 
-						return $this;
+						return new static;
 
 					}
 
@@ -167,18 +167,61 @@
 		}
 
 		// get specified data from table
-		public function get($table, $where = array())
+		public static function get($table, $where = array())
 		{
 			
-			return $this->action('SELECT *', $table, $where);
+			return self::action('SELECT *', $table, $where);
 			
 		}
 
 		// Delete specified data from table
-		public function delete($table, $where)
+		public static function delete($table, $where)
 		{
 
-			return $this->action('DELETE', $table, $where);
+			return self::action('DELETE', $table, $where);
+
+		}
+
+		public static function insert($table, $fields = array())
+		{
+
+			if (count($fields)) 
+			{
+				
+				$keys = array_keys($fields);
+
+				$values = '';
+
+				$x = 1;
+
+				foreach ($fields as $field) 
+				{
+					
+					$values .= '?';
+
+					if ($x < count($fields)) 
+					{
+						
+						$values .= ', ';
+
+						$x++; 
+
+					}
+
+				}
+
+				$queryString = "INSERT INTO {$table} (`" . implode('`, `', $keys) . "`) VALUES ({$values})";
+
+				if (!self::getInstance()->query($queryString, $fields)->error()) 
+				{
+					
+					return true;
+
+				}
+
+			}
+
+			return false;
 
 		}
 
@@ -207,5 +250,7 @@
 		}
 
 	}
-	
+
+	Database::insert('courses', array('course_name' => 'Computer Science'));
+
 ?>
