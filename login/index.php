@@ -4,25 +4,32 @@
 
 	require_once '../core/init.php';
 
-	if (isset($_POST['submit'])) 
+	if (Input::exists()) 
 	{
 
-		$username = Input::cleanData($_POST["username"]);
+		$username = Input::get('username');
 
-		$password = Input::cleanData($_POST["password"]);
+		$password = Input::get('password');
 
-		if (Validate::check($username, $password) === true) 
-		{	
+		$token  = Input::get('token');
 
-			$x = new User;
+		if (Token::check($token))
+		{			
 
-			if ($x->login($username, $password))
+			if (empty($username) || empty($password)) 
+			{	
+
+				$errorList[] = 'Username or Password must not be empty';
+				
+			}
+
+			if (strlen($username) > 32 || strlen($password) > 32) 
 			{
+				
 
-				Redirect::to('/home/');
 
 			}
-			
+
 		}
 
 	}
