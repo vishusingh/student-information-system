@@ -2,11 +2,8 @@
 
 	require_once '../core/init.php';
 
-    if (User::logout()) 
-    {
-
-    	Redirect::to('/login/');
-    	
-    }
+	User::logout();
     
+    Redirect::to('/login/');
+
 ?>

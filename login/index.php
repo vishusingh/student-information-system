@@ -1,10 +1,12 @@
 <?php
 
-	$section = 'student';
-
 	require_once '../core/init.php';
 
-	if (Input::exists()) 
+	$pageTitle = 'Login';
+
+	$errorList = array();
+	
+	if (Input::exists('POST')) 
 	{
 
 		$username = Input::get('username');
@@ -23,12 +25,31 @@
 				
 			}
 
-			if (strlen($username) > 32 || strlen($password) > 32) 
+			if (count($errorList) == 0)
 			{
 				
+				if (User::login($username, $password)) 
+		    	{
 
+		    		return (User::isAdmin()) ? Redirect::to('/admin/') : Redirect::to('/home/');
+
+		    	}
+
+		    	else
+		    	{
+		    		
+		    		$errorList[] = 'Invalid username or password.';
+
+		    	}
 
 			}
+
+		}
+
+		else
+		{
+
+			$errorList[] = 'There was a problem logging in. Please try again later';
 
 		}
 

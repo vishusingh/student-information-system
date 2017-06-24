@@ -4,7 +4,9 @@
 
 	require_once '../../core/init.php';
 
-	$timeTableResults = databaseGetAll('timetables');
+	requireAuth();
+
+	$timeTableResults = Database::getAll('timetables');
 
 	require_once header;
 

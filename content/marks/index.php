@@ -4,7 +4,9 @@
 
 	$section = 'marks';
 
-	require_once '../../core/init.php';  
+	require_once '../../core/init.php';
+
+	requireAdmin();
 
 	require_once header;
 

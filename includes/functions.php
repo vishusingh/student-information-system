@@ -24,4 +24,31 @@
 
 	}
 
+	function requireAuth()
+	{
+
+		if (!User::isLoggedIn())
+		{
+			
+			Redirect::to('/login/');
+
+		}
+
+	}
+
+	function requireAdmin()
+	{
+
+		requireAuth();
+
+		if (!User::isAdmin())
+		{
+			
+			die('<center><h2>Unauthorized Access. This attempt will be reported to administrators</h2></center>');
+
+		}
+
+	}
+
 ?>
+

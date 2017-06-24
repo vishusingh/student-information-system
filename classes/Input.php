@@ -3,10 +3,10 @@
 	class Input
 	{
 
-		public static function exists($type = 'POST')
+		public static function exists(string $methodType) :bool
 		{
 
-			switch ($type) 
+			switch ($methodType) 
 			{
 
 				case 'POST':

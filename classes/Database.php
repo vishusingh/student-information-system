@@ -8,48 +8,32 @@
 	class Database
 	{
 
-		// property to handle database connection
 		private static $instance = null;
 
-		/*
-		* property to handle database connection string 
-		* new PDO('mysql:host=127.0.0.1;dbname=arksnorman', 'root', 'root');
-		*
-		*/
 		private static $connection;
 
-		// property to handle user querys i.e "SELECT, UPDATE, INSERT etc"
 		private	static $query;
 
-		// property to handle errors in case of any
 		private	static $error = false;
 
-		// property to handle data which has been got from database
 		private	static $results;
-
-		// property to handle number of rows affected 
+ 
 		private	static $count = 0;
 
-		// property containing database host
-		private static $dbhost = '95.211.187.137';
+		private static $dbhost = '127.0.0.1';
 
-		// property containing database name
-		private static $dbname = 'testing1236';
+		private static $dbname = 'sis';
 
-		// property containing database username
-		private static $dbusername = 'schoolsystem1';
+		private static $dbusername = 'root';
 
-		// property containing database password
-		private static $dbpassword = 'schoolsystem';
+		private static $dbpassword = 'root';
 
-		// Method to auto-connect to database at the call of this class
-		private function __construct()
+		private static function connect()
 		{
 
 			try 
 			{
 
-				//connect to database
 				self::$connection = new PDO('mysql:host=' . self::$dbhost . ';dbname=' . self::$dbname . '', '' . self::$dbusername . '', '' . self::$dbpassword . '');
 
 			} 
@@ -57,35 +41,31 @@
 			catch (PDOException $e) 
 			{
 
-				// return error if fail to connect to database
 				die($e->getMessage());
 
 			}
 
+			return new static;
+
 		}
 
-		// Method to return succesfull connection to database in case of no error
 		public static function getInstance()
 		{
 
 			if (!isset(self::$instance)) 
 			{
 
-				// assign static variable $_instance to database class to construct new database
-				self::$instance = new self;
+				self::$instance = self::connect();
 
 			}
 
-			// Return if sucessful connection
 			return self::$instance;
 
 		}
 
-		// Method to hand queries from users i.e "SELECT, INSERT, UPDATE, etc"
 		public static function query($sql, $params = array())
 		{
 
-			// initialize error to false to avoid returning errors of previous queries
 			self::$error = false;
 
 			if (self::$query = self::$connection->prepare($sql)) 
@@ -110,10 +90,8 @@
 				if (self::$query->execute()) 
 				{
 
-					// store results from select statement as an object
 					self::$results 	= self::$query->fetchAll(PDO::FETCH_OBJ);
 
-					// store number of rows affected
 					self::$count = self::$query->rowCount();
 
 				}
@@ -121,14 +99,13 @@
 				else
 				{
 
-					// return error if above code failed to execute
 					self::$error = true;
 
 				}
 
-			}
+				return new static;
 
-			return new static;
+			}			
 
 		}
 
@@ -149,7 +126,7 @@
 				if (in_array($operator, $operators)) 
 				{
 
-					$sql = "{$action} FROM {$table} WHERE {$filed} {$operator} ?";
+					$sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
 
 					if (!self::getInstance()->query($sql, array($value))->error()) 
 					{
@@ -166,15 +143,20 @@
 		
 		}
 
-		// get specified data from table
-		public static function get($table, $where = array())
+		public static function getWhere($table, $where = array())
 		{
 			
-			return self::action('SELECT *', $table, $where);
+			return self::action('SELECT *', $table, $where)->results();
 			
 		}
 
-		// Delete specified data from table
+		public static function getAll($table)
+		{
+			
+			return self::getInstance()->query("SELECT * FROM {$table}")->results();
+			
+		}
+
 		public static function delete($table, $where)
 		{
 
@@ -225,7 +207,6 @@
 
 		}
 
-		// Method to handle errors 
 		public function error()
 		{
 
@@ -233,7 +214,6 @@
 
 		}
 
-		// Method to handle numbers of rows affected 
 		public function count()
 		{
 
@@ -241,7 +221,6 @@
 
 		}
 
-		// Method to handle results fetched from database if any
 		public function results()
 		{
 
@@ -250,7 +229,5 @@
 		}
 
 	}
-
-	Database::insert('courses', array('course_name' => 'Computer Science'));
 
 ?>

@@ -36,6 +36,13 @@
 
 		}
 
+		public static function destroy()
+		{
+			
+			return session_destroy();
+
+		}
+
 	}
 
 ?>

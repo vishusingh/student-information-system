@@ -4,7 +4,9 @@
 
 	$section = 'students';
 
-	require_once '../../core/init.php';  
+	require_once '../../core/init.php';
+
+	requireAuth();
 
 	require_once header;
 

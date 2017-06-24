@@ -1,25 +1,3 @@
-<?php
-
-	if ($section == 'admin') 
-	{
-
-		$h1 = 'Admin';
-
-		$title = 'ADMIN | LOGIN';
-
-	}
-
-	if ($section == 'student')
-	{
-
-		$h1 = 'Student';
-
-		$title = 'STUDENT | LOGIN';
-
-	}
-
-?>
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -32,7 +10,7 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title><?php echo $title; ?></title>
+		<title><?php echo $pageTitle; ?></title>
 
 		<link rel="stylesheet" href="<?php echo $baseUrl; ?>/assets/css/bootstrap.css">
 
@@ -48,11 +26,27 @@
 
 			<div class="col-md-4">
 
-				<h1 class="text-center"><?php echo $h1; ?></h1>
+				<h1 class="text-center">School Management System</h1>								
 				
-			    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="POST" role="form">
+			    <form action="" method="POST" role="form">
 
 					<legend><h2 class="text-center">Login</h2></legend>
+
+					<?php
+
+					if (isset($errorList) && count($errorList)) 
+					{
+						
+						foreach ($errorList as $error) 
+						{
+							
+							echo '<br /><div class="alert alert-danger">' . $error . '</div><br />';
+
+						}
+
+					}
+
+					?>
 
 					<div class="form-group">
 
@@ -62,7 +56,7 @@
 
 							<span class="input-group-addon"><i class="fa fa-user"></i></span>
 
-							<input type="text" class="form-control" id="username" name="username" placeholder="Enter Your Username" value="<?php if(isset($username)){echo $username;}?>" required="required" />
+							<input type="text" class="form-control" id="username" name="username" placeholder="Enter Your Username" value="<?php echo Input::get('username'); ?>" required />
 
 						</div>
 
@@ -76,11 +70,13 @@
 
 							<span class="input-group-addon"><i class="fa fa-lock"></i></span>
 
-							<input type="password" class="form-control" id="password" name="password" placeholder="Enter Your Password" required="required" />
+							<input type="password" class="form-control" id="password" name="password" placeholder="Enter Your Password" required />
 
 						</div>
 
 					</div>
+
+					<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 
 					<center><button type="submit" class="btn btn-info">Let me in</button></center>
 

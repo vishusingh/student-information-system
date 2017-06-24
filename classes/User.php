@@ -3,13 +3,11 @@
 	class User
 	{
 
-		private static $firstName;
-
-		private static $lastName;
-		
 		private static $userDetails;
 
 		private static $sessionName = 'user';
+
+		private static $data;
 
 		public static function create($fields = array()) :bool
 		{
@@ -49,16 +47,14 @@
 
 				foreach (self::$userDetails as $userData) 
 				{
-				
-					if ($userData->pin_code == $password) 
+
+					if (password_verify($password, $userData->password))
 					{
 
-						Session::create(self::$sessionName, $userData->id);
+						Session::create('userId', $userData->id);
 
-						Session::create('username', $userData->username);
+						Session::create('userToken', Token::generate());
 
-						Session::create('email', $userData->email);
-				
 						return true;
 
 					}
@@ -74,14 +70,39 @@
 		public static function isLoggedIn()
 		{
 
-			return (Session::exists(self::$sessionName)) ? true : false;
+			return (Session::exists('userId') && Session::exists('userToken')) ? true : false;
 
 		}
 
 		public static function logout()
 		{
 
-			Session::delete(self::$sessionName);
+			return Session::destroy();
+
+		}
+
+		public static function isAdmin()
+		{
+			
+			return (self::isLoggedIn() && self::data('admin') == 1) ? true : false;
+
+		}
+
+		public static function data($name)
+		{
+
+			$data = '';
+
+			$results = Database::getWhere('users', array('id', '=', Session::get('userId')));
+
+			foreach ($results as $result)
+			{
+				
+				$data = $result->$name;
+
+			}
+
+			return $data;
 
 		}
 		

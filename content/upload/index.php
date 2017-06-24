@@ -6,11 +6,13 @@
 
 	require_once '../../core/init.php';
 
+	requireAdmin();
+
 	$errorStore = rootPath . '/errors/myerrors.log';
 
-	$courses = databaseGetSpecificFields('courses', 'course_name');
+	$courses = Database::getInstance()->query('SELECT course_name FROM courses')->results();
 
-	$lecturers = databaseGetSpecificFields('lecturers', 'name');
+	$lecturers = Database::getInstance()->query('SELECT name FROM lecturers')->results();
 
 	$uploadErrors = uploadErrors();
 

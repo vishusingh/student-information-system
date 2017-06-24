@@ -2,33 +2,16 @@
 
 	$page = 'admin';
 
-	$section = 'admin';
+    $section = 'adminHome';
 
-	require_once '../core/init.php';
+    require_once '../core/init.php';
 
-	if (isset($_POST['submit'])) 
-	{
+    requireAdmin();
 
-		$username = Input::cleanData($_POST["username"]);
+    require_once header;
 
-		$password = Input::cleanData($_POST["password"]);
+    require_once adminHomeView;
 
-		if (Validate::check($username, $password) === true) 
-		{	
-
-			$x = new User;
-
-			if ($x->adminLogin($username, $password))
-			{
-
-				Redirect::to('/admin/home/');
-
-			}
-			
-		}
-
-	}
-
-	require_once loginView;
-
+    require_once footer;
+              
 ?>

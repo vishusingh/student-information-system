@@ -4,6 +4,8 @@
 
     require_once '../core/init.php';
 
+    requireAuth();
+
     if (isset($_POST['submit'])) 
     {
 
