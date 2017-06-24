@@ -7,6 +7,8 @@
 
 <div class="panel panel-default">
 
+<div class="panel-body">
+
     <ul class="nav nav-pills nav-stacked">
 
         <li <?php classActive($section, 'adminHome'); ?> ><a href="<?php echo $baseUrl; ?>/admin/"><i class="fa fa-home"></i> Home</a>
@@ -34,6 +36,8 @@
         </li>
 
     </ul>
+
+    </div>
 
 </div>
 

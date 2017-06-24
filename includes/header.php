@@ -33,7 +33,7 @@
 			<span class="icon-toggle"></span>
 			</button>
 
-			<a class="navbar-brand" href="<?php echo baseUrl; ?>/admin">Student | Dashboard</a>
+			<a class="navbar-brand" href="<?php echo baseUrl; ?>/admin/">Dashboard</a>
 
 		</div>
 
@@ -43,7 +43,7 @@
 
 			<li class="dropdown">
 
-				<a class="dropdown-toggle" role="button" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo User::data('username'); ?><span class="caret"></span></a>
+				<a class="dropdown-toggle" role="button" data-toggle="dropdown"><i class="fa fa-user "></i> <?php echo User::data('username'); ?><span class="caret"></span></a>
 
 				<ul id="g-account-menu" class="dropdown-menu" role="menu">
 				<li><a href="<?php echo baseUrl; ?>/content/profile/">Profile</a></li>

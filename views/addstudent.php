@@ -6,7 +6,7 @@
 
 		<h1 class="text-center">Add Student</h1>
 
-		<hr />
+		<br />
 
 		<div class="col-md-6">
 
