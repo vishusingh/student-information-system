@@ -8,7 +8,7 @@
 		public static function generate()
 		{
 
-			$generatedToken = md5(uniqid());
+			$generatedToken = hash('sha256', uniqid());
 
 			Session::create(self::$tokenName, $generatedToken);
 
