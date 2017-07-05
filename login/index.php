@@ -31,7 +31,7 @@
 				if (User::login($username, $password)) 
 		    	{
 
-		    		return (User::isAdmin()) ? Redirect::to('/admin/') : Redirect::to('/home/');
+		    		Redirect::to('/home/');
 
 		    	}
 

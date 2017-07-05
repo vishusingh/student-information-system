@@ -1,85 +1,214 @@
-<!--START COLUMN 10-->
-<div class="col-md-10">
+<div class="container" style="margin-top: 15px">
 
-	<!--START ROW-->
-	<div class="row">
+	<div class="alert alert-success">
 
-		<!--START COLUMN 6 ONE-->
-		<div class="col-md-6">
+		Welcome back <strong><?php echo User::data('username'); ?></strong>
 
-		</div>
-		<!--END COLUMN 6 ONE-->
+	</div>
 
-		<!--START COLUMN 6 TWO-->
-		<div class="col-md-6">
+	<div class="col-md-3 text-center">
 
-			<div class="panel panel-default">
+		<div class="panel panel-default">
 
-				<div class="panel-heading"><h5>Announcements</h5></div>
+			<div class="panel-body">
 
-				<div class="panel-body">
-					<p>Content from database here</p>
-				</div>
+				<i class="fa fa-home fa-5x"></i><a href="/home/"><h3>Home</h3></a>
 
 			</div>
 
-			<form action="<?php echo $baseUrl; ?>/home/" method="POST" role="form">
-
-				<?php
-
-					if (isset($errorList)) 
-					{
-						
-						foreach ($errorList as $error) 
-						{
-							
-							echo '<div class="alert alert-danger">' . $error . '</div>';
-
-						}
-
-					}
-
-					if (isset($_GET['status']) && $_GET['status'] == 'complaitsuccess') 
-					{
-						
-						echo '<div class="alert alert-success"><p>Thanks for your feedback</p></div>';
-
-					}
-
-				?>
-
-				<legend><h3>Send in suggestion or complaint</h3></legend>
-			
-				<div class="form-group">
-
-					<label for="category">Category</label>
-
-					<select class="form-control" name="category" id="category">
-						<option></option>
-						<option>Lecturer</option>
-						<option>Suggestion</option>
-						<option>Other</option>
-					</select>
-
-				</div>
-
-				<div class="form-group">
-
-					<label for="message">Message</label>
-
-					<textarea class="form-control" name="message" rows="3" id="message"></textarea>
-
-				</div>					
-			
-				<button type="submit" name="submit" class="btn btn-info">Submit</button>
-
-			</form>
-
 		</div>
-		<!--END COLUMN 6 TWO-->
 
 	</div>
-	<!--END ROW-->
+
+	<?php if (User::isAdmin()): ?>
+
+	<div class="col-md-3 text-center">
+
+		<div class="panel panel-default">
+
+			<div class="panel-body">
+
+				<i class="fa fa-plus fa-5x text-success"></i><a href="/new/"><h3>New</h3></a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<?php endif; ?>
+
+	<div class="col-md-3 text-center">
+
+		<div class="panel panel-default">
+
+			<div class="panel-body">
+
+				<i class="fa fa-search fa-5x text-primary"></i><a href="/search/"><h3>Search</h3></a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<?php if (User::isAdmin()): ?>
+
+	<div class="col-md-3 text-center">
+
+		<div class="panel panel-default">
+
+			<div class="panel-body">
+
+				<i class="fa fa-group fa-5x text-muted"></i><a href="/students/"><h3>Students</h3></a>
+
+			</div>
+
+		</div>
+
+	</div>
+	<?php endif; ?>
+
+	<?php if (User::isAdmin()): ?>
+
+	<div class="col-md-3 text-center">
+
+		<div class="panel panel-default">
+
+			<div class="panel-body">
+
+				<i class="fa fa-trash fa-5x text-danger"></i><a href="/delete/"><h3>Delete Files</h3></a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<?php endif; ?> 
+
+	<div class="col-md-3 text-center">
+
+		<div class="panel panel-default">
+
+			<div class="panel-body">
+
+				<i class="fa fa-bar-chart fa-5x text-warning"></i><a href="/results/"><h3>Results</h3></a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<?php if (User::isAdmin()): ?>
+
+	<div class="col-md-3 text-center">
+
+		<div class="panel panel-default">
+
+			<div class="panel-body">
+
+				<i class="fa fa-upload fa-5x text-muted"></i><a href="/upload/"><h3>Upload</h3></a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<?php endif; ?>
+
+	<?php if (User::isAdmin()): ?>
+
+	<div class="col-md-3 text-center">
+
+		<div class="panel panel-default">
+
+			<div class="panel-body">
+
+				<i class="fa fa-download fa-5x text-muted"></i><a href="/download/"><h3>Download</h3></a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<?php endif; ?>
+
+	<div class="col-md-3 text-center">
+
+		<div class="panel panel-default">
+
+			<div class="panel-body">
+
+				<i class="fa fa-table fa-5x text-primary"></i><a href="/timetables/"><h3>Timetables</h3></a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="col-md-3 text-center">
+
+		<div class="panel panel-default">
+
+			<div class="panel-body">
+
+				<i class="fa fa-book fa-5x text-success"></i><a href="/notes/"><h3>Notes</h3></a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<?php if (!User::isAdmin()): ?>
+
+	<div class="col-md-3 text-center">
+
+		<div class="panel panel-default">
+
+			<div class="panel-body">
+
+				<i class="fa fa-group fa-5x text-info"></i><a href="/classmates/"><h3>Classmates</h3></a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<?php endif; ?>
+
+	<div class="col-md-3 text-center">
+
+		<div class="panel panel-default">
+
+			<div class="panel-body">
+
+				<i class="fa fa-user fa-5x text-info"></i><a href="/profile/"><h3>Profile</h3></a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="col-md-3 text-center">
+
+		<div class="panel panel-default">
+
+			<div class="panel-body">
+
+				<i class="fa fa-sign-out fa-5x text-info"></i><a href="/logout/"><h3>Logout</h3></a>
+
+			</div>
+
+		</div>
+
+	</div>
 
 </div>
-<!--END COLUMN 10-->

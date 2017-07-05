@@ -1,7 +1,10 @@
-<!--START COLUMN 10-->
-<div class="col-md-10">
+<div class="container">
 
-	<!--START ROW-->
+	<ol class="breadcrumb" style="margin-bottom: 15px;">
+		<li><a href="/">Home</a></li>
+		<li class="active">Notes</li>
+	</ol>
+
 	<div class="row">
 
 		<div class="col-md-12">
@@ -15,7 +18,7 @@
 
 			<div class="table-responsive"> 
 
-				<table class="table table-hover table-bordered">
+				<table class="table table-hover table-bordered" style="padding: 10px;">
 
 					<thead>
 
@@ -78,10 +81,8 @@
 
 			?>
 
-		</div><!--/col-span-12-->
+		</div>
 
 	</div>
-	<!--END ROW-->
 
 </div>
-<!--END COLUMN 10-->

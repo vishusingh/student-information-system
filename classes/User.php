@@ -5,10 +5,6 @@
 
 		private static $userDetails;
 
-		private static $sessionName = 'user';
-
-		private static $data;
-
 		public static function create($fields = array()) :bool
 		{
 
@@ -27,7 +23,7 @@
 				if (count($data)) 
 				{
 					
-					self::$userDetails = $data;
+					self::$userDetails = $data[0];
 
 					return true;
 
@@ -44,20 +40,15 @@
 
 			if (self::find($username)) 
 			{
-
-				foreach (self::$userDetails as $userData) 
+	
+				if (password_verify($password, self::$userDetails->password))
 				{
 
-					if (password_verify($password, $userData->password))
-					{
+					Session::create('userId', self::$userDetails->id);
 
-						Session::create('userId', $userData->id);
+					Session::create('userToken', Token::generate());
 
-						Session::create('userToken', Token::generate());
-
-						return true;
-
-					}
+					return true;
 
 				}
 
@@ -91,18 +82,11 @@
 		public static function data($name)
 		{
 
-			$data = '';
-
 			$results = Database::getWhere('users', array('id', '=', Session::get('userId')));
 
-			foreach ($results as $result)
-			{
-				
-				$data = $result->$name;
-
-			}
-
-			return $data;
+			$data = $results[0];
+			
+			return $data->$name;
 
 		}
 		

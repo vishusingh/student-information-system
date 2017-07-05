@@ -1,10 +1,3 @@
-
-</div>
-<!--END OVERALL ROW-->
-
-</div>
-<!--END OVERALL CONTAINER-->
-
 </body>
 
 <script type="text/javascript" src="<?=jquery;?>"></script>

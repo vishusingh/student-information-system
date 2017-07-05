@@ -1,7 +1,10 @@
-<!--START COLUMN 10-->
-<div class="col-md-10">
+<div class="container">
 
-	<!--START ROW-->
+	<ol class="breadcrumb" style="margin-bottom: 15px;">
+		<li><a href="/">Home</a></li>
+		<li class="active">Upload</li>
+	</ol>
+
 	<div class="row">
 
 		<div class="col-md-6">
@@ -205,7 +208,5 @@
 		</div>
 
 	</div>
-	<!--END ROW-->
 
 </div>
-<!--END COLUMN 10-->

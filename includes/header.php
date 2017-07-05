@@ -8,7 +8,7 @@
 
         <meta charset="utf-8">
 
-        <title>SIS | STUDENT</title>
+        <title>School Management System</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -22,9 +22,10 @@
     
 <body>
 
-<div id="top-nav" class="navbar navbar-default navbar-static-top">
+<?php if (isset($section) && $section != 'home'): ?>
 
-	<!--START NAVBAR CONTAINER-->
+<div class="navbar navbar-default navbar-static-top">
+
 	<div class="container">
 
 		<div class="navbar-header">
@@ -33,7 +34,7 @@
 			<span class="icon-toggle"></span>
 			</button>
 
-			<a class="navbar-brand" href="<?php echo baseUrl; ?>/admin/">Dashboard</a>
+			<?php require_once rootPath . '/includes/nav.php'; ?>
 
 		</div>
 
@@ -41,15 +42,7 @@
 
 			<ul class="nav navbar-nav navbar-right">
 
-			<li class="dropdown">
-
-				<a class="dropdown-toggle" role="button" data-toggle="dropdown"><i class="fa fa-user "></i> <?php echo User::data('username'); ?><span class="caret"></span></a>
-
-				<ul id="g-account-menu" class="dropdown-menu" role="menu">
-				<li><a href="<?php echo baseUrl; ?>/content/profile/">Profile</a></li>
-				</ul>
-				
-			</li>
+			<li><a href="<?php echo baseUrl; ?>/profile/"><i class="fa fa-user fa-lg"></i> <?php echo User::data('username'); ?></a></li>
 
 			<li><a href="<?php echo baseUrl; ?>/logout/"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
 			
@@ -58,18 +51,7 @@
 		</div>
 
 	</div>
-	<!--END NAVBAR CONTAINER-->
 
 </div>
 
-<!--START OVERALL CONTAINER-->
-<div class="container">
-
-	<!--START OVERALL ROW-->
-	<div class="row">
-
-		<div class="col-md-2">
-
-		<?php require_once sideNav; ?>
-
-		</div>
+<?php endif; ?>
