@@ -20,13 +20,13 @@
  
 		private	static $count = 0;
 
-		private static $dbhost = '127.0.0.1';
+		private static $dbhost = 'ec2-23-23-225-12.compute-1.amazonaws.com';
 
-		private static $dbname = 'sis';
+		private static $dbname = 'desh8nqneg7dki';
 
-		private static $dbusername = 'root';
+		private static $dbusername = 'tawzgjtdvjvmey';
 
-		private static $dbpassword = 'root';
+		private static $dbpassword = '3150362bb41de7ee6215db1e05ea4c52f464f3a69b5c82241c33f9ddf53fb15e';
 
 		private static function connect()
 		{
@@ -34,7 +34,7 @@
 			try 
 			{
 
-				self::$connection = new PDO('mysql:host=' . self::$dbhost . ';dbname=' . self::$dbname . '', '' . self::$dbusername . '', '' . self::$dbpassword . '');
+				self::$connection = new PDO('pgsql:host=' . self::$dbhost . ';dbname=' . self::$dbname . ';port=5432', '' . self::$dbusername . '', '' . self::$dbpassword . '');
 
 			} 
 
@@ -192,7 +192,7 @@
 
 				}
 
-				$queryString = "INSERT INTO {$table} (`" . implode('`, `', $keys) . "`) VALUES ({$values})";
+				$queryString = "INSERT INTO {$table} (" . implode(', ', $keys) . ") VALUES ({$values})";
 
 				if (!self::getInstance()->query($queryString, $fields)->error()) 
 				{
@@ -229,5 +229,5 @@
 		}
 
 	}
-
+	
 ?>
