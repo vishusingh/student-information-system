@@ -66,7 +66,7 @@
 				if (Database::getInstance()->query($sqlQuery, $array)) 
 				{
 
-					Redirect::to('/content/upload/?notestatus=success');
+					Redirect::to('/upload/?notestatus=success');
 
 				}
 
@@ -135,7 +135,7 @@
 				if (Database::getInstance()->query($sqlQuery, $array)) 
 				{
 
-					Redirect::to('/content/upload/?timetablestatus=success');
+					Redirect::to('/upload/?timetablestatus=success');
 
 				}
 

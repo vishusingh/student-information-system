@@ -32,7 +32,7 @@
 
 			?>
 
-			<form action="<?php echo $baseUrl; ?>/content/upload/" method="POST" enctype="multipart/form-data" role="form">
+			<form action="<?php echo $baseUrl; ?>/upload/" method="POST" enctype="multipart/form-data" role="form">
 
 				<legend>Upload Notes</legend>	
 
