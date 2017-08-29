@@ -35,6 +35,7 @@
 			{
 
 				self::$connection = new PDO('pgsql:host=' . self::$dbhost . ';dbname=' . self::$dbname . ';port=5432', '' . self::$dbusername . '', '' . self::$dbpassword . '');
+				self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 			} 
 
