@@ -1,33 +1,43 @@
 <?php
 
-	require_once 'core/init.php';
+	/**
+	* @author Kidhoma Norman
+	* @package Student Information System
+	* @license http://opensource.org/licenses/MIT	MIT License
+	* @link	https://arksnorman-sis.herokuapp.com
+	* @link	https://arksnorman.tk
+	* @link http://www.vishusingh.com/
+	* @since Version 1.0.0
+	*/
 
-?>
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
-<!DOCTYPE html>
+	define('ROOTPATH', $_SERVER['DOCUMENT_ROOT']);	
 
-<html lang="en-US">
+	switch (ENVIRONMENT)
+	{
+		case 'development':
+			error_reporting(-1);
+			ini_set('display_errors', 1);
+		break;
 
-	<head>
+		case 'testing':
+		case 'production':
+			ini_set('display_errors', 0);
+			if (version_compare(PHP_VERSION, '7.0', '>='))
+			{
+				error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+			}
+			else
+			{
+				error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
+			}
+		break;
 
-		<meta charset="utf-8">
-
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<title>SIS | Home page</title>
-
-		<link rel="stylesheet" href="<?=bootstrapcss;?>">
-
-	</head>
-
-	<body>
-		
-		<h1 class="text-center">Page Under Construction!!!</h1>
-
-		<h1 class="text-center"><a href="<?php echo $baseUrl; ?>/home/">Click Here</a></h1>
-
-	</body>
+		default:
+			header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+			echo 'The application environment is not set correctly.';
+			exit(1);
+	}
 	
-</html>
+?>

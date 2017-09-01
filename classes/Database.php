@@ -20,13 +20,13 @@
  
 		private	static $count = 0;
 
-		private static $dbhost = 'ec2-23-23-225-12.compute-1.amazonaws.com';
+		private static $dbhost = '127.0.0.1';
 
-		private static $dbname = 'desh8nqneg7dki';
+		private static $dbname = 'sis';
 
-		private static $dbusername = 'tawzgjtdvjvmey';
+		private static $dbusername = 'root';
 
-		private static $dbpassword = '3150362bb41de7ee6215db1e05ea4c52f464f3a69b5c82241c33f9ddf53fb15e';
+		private static $dbpassword = 'root';
 
 		private static function connect()
 		{
@@ -34,7 +34,7 @@
 			try 
 			{
 
-				self::$connection = new PDO('pgsql:host=' . self::$dbhost . ';dbname=' . self::$dbname . ';port=5432', '' . self::$dbusername . '', '' . self::$dbpassword . '');
+				self::$connection = new PDO('mysql:host=' . self::$dbhost . ';dbname=' . self::$dbname . ';port=3306', '' . self::$dbusername . '', '' . self::$dbpassword . '');
 				self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 			} 

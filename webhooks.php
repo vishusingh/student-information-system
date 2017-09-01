@@ -2,9 +2,7 @@
 
 	if (!empty($_POST)) 
 	{
-
-		shell_exec('git pull');
-		
+		shell_exec('git pull');		
 	}
 
 ?>
