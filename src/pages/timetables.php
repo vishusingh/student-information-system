@@ -2,16 +2,14 @@
 
 	$section = 'timeTables';
 
-	require_once '../core/init.php';
-
 	requireAuth();
 
 	$timeTableResults = Database::getAll('timetables');
 
-	require_once header;
+	require_once HEADER;
 
-	require_once timetablesView;
+	require_once ROOTPATH . '/src/templates/timetables.php';
 
-	require_once footer;
+	require_once FOOTER;
 
 ?>

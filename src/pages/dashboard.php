@@ -2,8 +2,6 @@
 
     $section = 'home';
 
-    require_once '../core/init.php';
-
     requireAuth();
 
     if (isset($_POST['submit'])) 
@@ -45,10 +43,10 @@
 
     }
 
-    require_once header;
+    require_once HEADER;
 
-    require_once homeView;
+    require_once ROOTPATH . '/src/templates/dashbaord.php';
 
-    require_once footer;
+    require_once FOOTER;
               
 ?>

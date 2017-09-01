@@ -1,10 +1,10 @@
 <?php
 
-	class Login
+	class Notes
 	{
 		public function index()
 		{
-			View::renderTemplate('login');
+			View::renderTemplate('notes');
 		}
 	}
 

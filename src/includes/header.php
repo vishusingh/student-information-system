@@ -12,11 +12,11 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <link rel="stylesheet" type="text/css" href="<?=bootstrapcss;?>">
+        <link rel="stylesheet" type="text/css" href="/src/assets/css/bootstrap.css">
 
-        <link rel="stylesheet" type="text/css" href="<?=fontawesome;?>">
+        <link rel="stylesheet" type="text/css" href="/src/assets/css/font-awesome.min.css">
 
-        <link rel="stylesheet" type="text/css" href="<?=customcss;?>">
+        <link rel="stylesheet" type="text/css" href="/src/assets/css/custom.css">
 
     </head>
     
@@ -34,7 +34,7 @@
 			<span class="icon-toggle"></span>
 			</button>
 
-			<?php require_once rootPath . '/includes/nav.php'; ?>
+			<?php require_once ROOTPATH . '/src/includes/nav.php'; ?>
 
 		</div>
 
@@ -42,9 +42,9 @@
 
 			<ul class="nav navbar-nav navbar-right">
 
-			<li><a href="<?php echo baseUrl; ?>/profile/"><i class="fa fa-user fa-lg"></i> <?php echo User::data('username'); ?></a></li>
+			<li><a href="/profile/"><i class="fa fa-user fa-lg"></i> <?php echo User::data('username'); ?></a></li>
 
-			<li><a href="<?php echo baseUrl; ?>/logout/"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+			<li><a href="/logout/"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
 			
 			</ul>
 

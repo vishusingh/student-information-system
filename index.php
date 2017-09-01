@@ -10,9 +10,17 @@
 	* @since Version 1.0.0
 	*/
 
+	session_start();
+
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
-	define('ROOTPATH', $_SERVER['DOCUMENT_ROOT']);	
+	$configIni = parse_ini_file('config.ini', true);
+
+	define('DBHOST', $configIni['database']['host']);
+	define('DBUSERNAME', $configIni['database']['username']);
+	define('DBPASS', $configIni['database']['password']);
+	define('DBPORT', $configIni['database']['port']);
+	define('DBNAME', $configIni['database']['name']);
 
 	switch (ENVIRONMENT)
 	{
@@ -38,6 +46,62 @@
 			header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
 			echo 'The application environment is not set correctly.';
 			exit(1);
+	}
+
+	define('ROOTPATH', $_SERVER['DOCUMENT_ROOT']);
+	define('HEADER', ROOTPATH . '/src/includes/header.php');
+	define('FOOTER', ROOTPATH . '/src/includes/footer.php');
+	define('NAV', ROOTPATH . '/src/includes/nav.php');
+
+	function autoloadClasses($class)
+	{
+		$folderPath = "/classes/";
+		$folderPath1 = "/controllers/";
+
+		if (file_exists(ROOTPATH . $folderPath . $class . '.php'))
+		{
+			require_once ROOTPATH . $folderPath . $class . '.php';
+		}
+		else
+		{
+			require_once ROOTPATH . $folderPath1 . $class . '.php';
+		}
+	}
+	
+	spl_autoload_register('autoloadClasses');
+
+	require_once ROOTPATH . '/src/includes/functions.php';
+
+	$url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : '/';
+
+	if ($url == '/')
+	{
+		Index::home();
+	}
+	else
+	{
+        $requestedController = ucfirst(strtolower($url[0]));
+
+        $requestedAction = isset($url[1]) ? $url[1] : '';
+
+        $requestedParams = array_slice($url, 2);
+
+        $ctrlPath = ROOTPATH."/controllers/$requestedController.php";
+
+        if (file_exists($ctrlPath))
+        {
+        	$newPage = new $requestedController;
+        	if ($requestedAction != '')
+            {
+                return $newPage->$requestedAction($requestedParams);
+            }
+            return $newPage->index();
+        }
+        else
+        {
+            header('HTTP/1.1 404 Not Found');
+            die('404 - The file - '.$ctrlPath.' - not found');
+        }
 	}
 	
 ?>

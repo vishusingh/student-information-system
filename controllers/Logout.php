@@ -1,11 +1,12 @@
 <?php
 
-	class Login
+	class Logout
 	{
 		public function index()
 		{
-			View::renderTemplate('login');
+			View::renderTemplate('logout');
 		}
+
 	}
 
 ?>
