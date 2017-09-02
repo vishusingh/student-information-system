@@ -12,7 +12,7 @@
     <h1>We&rsquo;ll be back soon!</h1>
     <div>
         <p>Sorry for the inconvenience but we&rsquo;re performing some maintenance at the moment. If you need to you can always <a href="mailto:webmaster@arksnorman.tk">contact us</a>, otherwise we&rsquo;ll be back online shortly!</p>
-        <p>&mdash; The Team</p>
+        <p>&mdash; Arksnorman</p>
     </div>
     <a href="/login/"><h2>Try the live version of APP here</h2></a>
 </article>
