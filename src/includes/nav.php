@@ -2,7 +2,7 @@
     if (User::isAdmin()) 
     {
 ?>
-<a class="navbar-brand" href="/dashboard/">Home</a>
+<a class="navbar-brand" href="/dashboard/">Dashboard</a>
 <ul class="nav navbar-nav">
     <li><a href="/new/"><i class="fa fa-plus"></i> New</a></li>
     <li><a href="/students/"><i class="fa fa-group"></i> Students</a></li>

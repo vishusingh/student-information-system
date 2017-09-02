@@ -8,16 +8,12 @@
 		private	static $error = false;
 		private	static $results; 
 		private	static $count = 0;
-		private static $dbhost = '127.0.0.1';
-		private static $dbname = 'sis';
-		private static $dbusername = 'root';
-		private static $dbpassword = 'root';
 		private static function connect()
 		{
 			try 
 			{
-				self::$connection = new PDO('mysql:host=' . self::$dbhost . ';dbname=' . self::$dbname . ';port=3306', '' . self::$dbusername . '', '' . self::$dbpassword . '');
-				self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				self::$connection = new PDO(DBDRIVER.":host=".DBHOST.";dbname=".DBNAME.";port=".DBPORT."", DBUSERNAME, DBPASS);
+				// self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			}
 			catch (PDOException $e) 
 			{

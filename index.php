@@ -14,14 +14,6 @@
 
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
-	$configIni = parse_ini_file('config.ini', true);
-
-	define('DBHOST', $configIni['database']['host']);
-	define('DBUSERNAME', $configIni['database']['username']);
-	define('DBPASS', $configIni['database']['password']);
-	define('DBPORT', $configIni['database']['port']);
-	define('DBNAME', $configIni['database']['name']);
-
 	switch (ENVIRONMENT)
 	{
 		case 'development':
@@ -52,6 +44,14 @@
 	define('HEADER', ROOTPATH . '/src/includes/header.php');
 	define('FOOTER', ROOTPATH . '/src/includes/footer.php');
 	define('NAV', ROOTPATH . '/src/includes/nav.php');
+
+	$configIni = parse_ini_file(ROOTPATH . '/config.ini', true);
+	define('DBHOST', $configIni['database']['host']);
+	define('DBUSERNAME', $configIni['database']['username']);
+	define('DBPASS', $configIni['database']['password']);
+	define('DBPORT', $configIni['database']['port']);
+	define('DBNAME', $configIni['database']['dbname']);
+	define('DBDRIVER', $configIni['database']['driver']);
 
 	function autoloadClasses($class)
 	{
