@@ -44,8 +44,7 @@
 	define('HEADER', ROOTPATH . '/src/includes/header.php');
 	define('FOOTER', ROOTPATH . '/src/includes/footer.php');
 	define('NAV', ROOTPATH . '/src/includes/nav.php');
-
-	$configIni = 'config.ini';
+	$configIni = __DIR__ . '/config.ini'; 
 	define('CONFIG_OPTIONS', parse_ini_file($configIni, true));
 
 	function autoloadClasses($class)
