@@ -6,8 +6,10 @@
 	$courses = Database::getInstance()->query('SELECT course_name FROM courses')->results();
 	$lecturers = Database::getInstance()->query('SELECT name FROM lecturers')->results();
 	$uploadErrors = uploadErrors();
-	$notesRootPath = ROOTPATH . '/src/downloads/notes/';
-	$timeTablesRootPath = ROOTPATH . '/src/downloads/timetables/';
+	$notesPath = ROOTPATH . '/downloads/notes/';
+	$notesRootPath = file_exists($notesPath) ? $notesPath : mkdir($notesPath, 0777, true);
+	$timeTablesPath = ROOTPATH . '/downloads/timetables/';
+	$timeTablesRootPath = file_exists($timeTablesPath) ? $timeTablesPath : mkdir($timeTablesPath, 0777, true);
 	$maxFileSize = 5000000;
 
 	if (isset($_POST['submitnotes'])) 
