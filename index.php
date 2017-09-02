@@ -45,13 +45,8 @@
 	define('FOOTER', ROOTPATH . '/src/includes/footer.php');
 	define('NAV', ROOTPATH . '/src/includes/nav.php');
 
-	$configIni = parse_ini_file(ROOTPATH . '/config.ini', true);
-	define('DBHOST', $configIni['database']['host']);
-	define('DBUSERNAME', $configIni['database']['username']);
-	define('DBPASS', $configIni['database']['password']);
-	define('DBPORT', $configIni['database']['port']);
-	define('DBNAME', $configIni['database']['dbname']);
-	define('DBDRIVER', $configIni['database']['driver']);
+	$configIni = ROOTPATH . '/config.ini';
+	define('CONFIG_OPTIONS', parse_ini_file($configIni, true));
 
 	function autoloadClasses($class)
 	{
@@ -70,8 +65,14 @@
 	
 	spl_autoload_register('autoloadClasses');
 
+	define('DBHOST', Config::getOption('database/host'));
+	define('DBUSERNAME', Config::getOption('database/username'));
+	define('DBPASS', Config::getOption('database/password'));
+	define('DBPORT', Config::getOption('database/port'));
+	define('DBNAME', Config::getOption('database/dbname'));
+	define('DBDRIVER', Config::getOption('database/driver'));
+	
 	require_once ROOTPATH . '/src/includes/functions.php';
-
 	$url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : '/';
 
 	if ($url == '/')
