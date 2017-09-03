@@ -4,7 +4,7 @@
 	{
 		public function index()
 		{
-			View::renderTemplate('notes');
+			require_once View::renderTemplate('notes');
 		}
 	}
 
