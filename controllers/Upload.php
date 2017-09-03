@@ -4,7 +4,7 @@
 	{
 		public function index()
 		{
-			View::renderTemplate('upload');
+			require_once View::renderTemplate('upload');
 		}
 	}
 

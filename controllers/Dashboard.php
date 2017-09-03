@@ -4,7 +4,7 @@
 	{		
 		function index()
 		{
-			View::renderTemplate('dashboard');
+			require_once View::renderTemplate('dashboard');
 		}
 	}
 

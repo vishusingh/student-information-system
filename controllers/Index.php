@@ -4,7 +4,7 @@
 	{		
 		public static function home()
 		{
-			View::renderTemplate('index');
+			require_once View::renderTemplate('index');
 		}
 	}
 

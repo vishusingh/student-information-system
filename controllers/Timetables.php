@@ -4,7 +4,7 @@
 	{
 		public function index()
 		{
-			View::renderTemplate('timetables');
+			require_once View::renderTemplate('timetables');
 		}
 	}
 
