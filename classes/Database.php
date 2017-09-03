@@ -8,6 +8,7 @@
 		private	static $error = false;
 		private	static $results; 
 		private	static $count = 0;
+		
 		private static function connect()
 		{
 			try 
@@ -19,7 +20,6 @@
 			{
 				die($e->getMessage());
 			}
-
 			return new static;
 		}
 
@@ -29,7 +29,6 @@
 			{
 				self::$instance = self::connect();
 			}
-
 			return self::$instance;
 		}
 
@@ -59,7 +58,6 @@
 				{
 					self::$error = true;
 				}
-
 				return new static;
 			}
 		}
@@ -83,7 +81,6 @@
 					}
 				}
 			}
-
 			return false;		
 		}
 
@@ -128,7 +125,6 @@
 					return true;
 				}
 			}
-
 			return false;
 		}
 

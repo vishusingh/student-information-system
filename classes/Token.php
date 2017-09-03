@@ -2,36 +2,24 @@
 
 	class Token
 	{
-
 		private static $tokenName = 'token';
 		
 		public static function generate()
 		{
-
 			$generatedToken = hash('sha256', uniqid());
-
 			Session::create(self::$tokenName, $generatedToken);
-
-			return $generatedToken;
-			
+			return $generatedToken;			
 		}
 
 		public static function check($token)
-		{
-			
+		{			
 			if (Session::exists(self::$tokenName) && $token === Session::get(self::$tokenName)) 
 			{
-
 				Session::delete(self::$tokenName);
-
 				return true;
-
 			}
-
 			return false;
-
 		}
-
 	}
 
 ?>
