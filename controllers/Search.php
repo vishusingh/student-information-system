@@ -4,7 +4,7 @@
 	{
 		public function index()
 		{
-			View::renderTemplate('search');
+			require_once View::renderTemplate('search');
 		}
 	}
 

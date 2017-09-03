@@ -4,7 +4,7 @@
 	{
 		public function index()
 		{
-			View::renderTemplate('logout');
+			require_once View::renderTemplate('logout');
 		}
 
 	}

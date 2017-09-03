@@ -8,7 +8,7 @@
 
             if (file_exists($file) && is_readable($file)) 
             {
-                require_once $file;
+                return $file;
             }
             else 
             {

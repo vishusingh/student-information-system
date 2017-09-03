@@ -4,7 +4,7 @@
 	{
 		public function index()
 		{
-			View::renderTemplate('classmates');
+			require_once View::renderTemplate('classmates');
 		}
 	}
 
