@@ -1,33 +1,104 @@
 <?php
 
-	require_once 'core/init.php';
+	/**
+	* @author Kidhoma Norman
+	* @package Student Information System
+	* @license http://opensource.org/licenses/MIT	MIT License
+	* @link	https://arksnorman-sis.herokuapp.com
+	* @link	https://arksnorman.tk
+	* @link http://www.vishusingh.com/
+	* @since Version 1.0.0
+	*/
 
-?>
+	session_start();
 
-<!DOCTYPE html>
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
-<html lang="en-US">
+	switch (ENVIRONMENT)
+	{
+		case 'development':
+			error_reporting(-1);
+			ini_set('display_errors', 1);
+		break;
 
-	<head>
+		case 'testing':
+		case 'production':
+			ini_set('display_errors', 0);
+			if (version_compare(PHP_VERSION, '7.0', '>='))
+			{
+				error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+			}
+			else
+			{
+				error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
+			}
+		break;
 
-		<meta charset="utf-8">
+		default:
+			header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+			echo 'The application environment is not set correctly.';
+			exit(1);
+	}
 
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	define('ROOTPATH', $_SERVER['DOCUMENT_ROOT']);
+	define('HEADER', ROOTPATH . '/src/includes/header.php');
+	define('FOOTER', ROOTPATH . '/src/includes/footer.php');
+	define('NAV', ROOTPATH . '/src/includes/nav.php');
+	$configIni = __DIR__ . '/config.ini'; 
+	define('CONFIG_OPTIONS', parse_ini_file($configIni, true));
 
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+	function autoloadClasses($class)
+	{
+		$folderPath = "/classes/";
+		$folderPath1 = "/controllers/";
 
-		<title>SIS | Home page</title>
-
-		<link rel="stylesheet" href="<?=bootstrapcss;?>">
-
-	</head>
-
-	<body>
-		
-		<h1 class="text-center">Page Under Construction!!!</h1>
-
-		<h1 class="text-center"><a href="<?php echo $baseUrl; ?>/home/">Click Here</a></h1>
-
-	</body>
+		if (file_exists(ROOTPATH . $folderPath . $class . '.php'))
+		{
+			require_once ROOTPATH . $folderPath . $class . '.php';
+		}
+		else
+		{
+			require_once ROOTPATH . $folderPath1 . $class . '.php';
+		}
+	}
 	
-</html>
+	spl_autoload_register('autoloadClasses');
+
+	define('DBHOST', Config::getOption('database/host'));
+	define('DBUSERNAME', Config::getOption('database/username'));
+	define('DBPASS', Config::getOption('database/password'));
+	define('DBPORT', Config::getOption('database/port'));
+	define('DBNAME', Config::getOption('database/dbname'));
+	define('DBDRIVER', Config::getOption('database/driver'));
+
+	require_once ROOTPATH . '/src/includes/functions.php';
+	$url = isset($_SERVER['REQUEST_URI']) ? explode('/', ltrim($_SERVER['REQUEST_URI'],'/')) : '/';
+	
+	if ($url[0] == '')
+	{
+		Index::home();
+	}
+	else
+	{
+        $requestedController = ucfirst(strtolower($url[0]));
+        $requestedAction = isset($url[1]) ? $url[1] : '';
+        $requestedParams = array_slice($url, 2);
+        $ctrlPath = ROOTPATH."/controllers/$requestedController.php";
+
+        if (file_exists($ctrlPath))
+        {
+        	$newPage = new $requestedController;
+        	if ($requestedAction != '')
+            {
+                return $newPage->$requestedAction($requestedParams);
+            }
+            return $newPage->index();
+        }
+        else
+        {
+            header('HTTP/1.1 404 Not Found');
+            die('404 - The file - '.$ctrlPath.' - not found');
+        }
+	}
+	
+?>
