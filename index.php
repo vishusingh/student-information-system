@@ -81,11 +81,8 @@
 	else
 	{
         $requestedController = ucfirst(strtolower($url[0]));
-
         $requestedAction = isset($url[1]) ? $url[1] : '';
-
         $requestedParams = array_slice($url, 2);
-
         $ctrlPath = ROOTPATH."/controllers/$requestedController.php";
 
         if (file_exists($ctrlPath))
