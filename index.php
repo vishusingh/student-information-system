@@ -72,9 +72,9 @@
 	define('DBDRIVER', Config::getOption('database/driver'));
 
 	require_once ROOTPATH . '/src/includes/functions.php';
-	$url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : '/';
-
-	if ($url == '/')
+	$url = isset($_SERVER['REQUEST_URI']) ? explode('/', ltrim($_SERVER['REQUEST_URI'],'/')) : '/';
+	
+	if ($url[0] == '')
 	{
 		Index::home();
 	}
