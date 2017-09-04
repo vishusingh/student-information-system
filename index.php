@@ -41,9 +41,8 @@
 	}
 
 	define('ROOTPATH', $_SERVER['DOCUMENT_ROOT']);
-	define('HEADER', ROOTPATH . '/src/includes/header.php');
-	define('FOOTER', ROOTPATH . '/src/includes/footer.php');
-	define('NAV', ROOTPATH . '/src/includes/nav.php');
+	define('HEADER', __DIR__ . '/includes/header.php');
+	define('FOOTER', __DIR__ . '/includes/footer.php');
 	$configIni = __DIR__ . '/config.ini'; 
 	define('CONFIG_OPTIONS', parse_ini_file($configIni, true));
 
@@ -52,13 +51,13 @@
 		$folderPath = "/classes/";
 		$folderPath1 = "/controllers/";
 
-		if (file_exists(ROOTPATH . $folderPath . $class . '.php'))
+		if (file_exists(__DIR__ . $folderPath . $class . '.php'))
 		{
-			require_once ROOTPATH . $folderPath . $class . '.php';
+			require_once __DIR__ . $folderPath . $class . '.php';
 		}
 		else
 		{
-			require_once ROOTPATH . $folderPath1 . $class . '.php';
+			require_once __DIR__ . $folderPath1 . $class . '.php';
 		}
 	}
 	
@@ -71,19 +70,19 @@
 	define('DBNAME', Config::getOption('database/dbname'));
 	define('DBDRIVER', Config::getOption('database/driver'));
 
-	require_once ROOTPATH . '/src/includes/functions.php';
+	require_once __DIR__ . '/includes/functions.php';
 	$url = isset($_SERVER['REQUEST_URI']) ? explode('/', ltrim($_SERVER['REQUEST_URI'],'/')) : '/';
 	
 	if ($url[0] == '')
 	{
-		Index::home();
+		Login::index();
 	}
 	else
 	{
         $requestedController = ucfirst(strtolower($url[0]));
         $requestedAction = isset($url[1]) ? $url[1] : '';
         $requestedParams = array_slice($url, 2);
-        $ctrlPath = ROOTPATH."/controllers/$requestedController.php";
+        $ctrlPath = __DIR__ . "/controllers/$requestedController.php";
 
         if (file_exists($ctrlPath))
         {
