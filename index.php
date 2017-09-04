@@ -96,7 +96,7 @@
         else
         {
             header('HTTP/1.1 404 Not Found');
-            die('404 - The file - '.$ctrlPath.' - not found');
+            require_once __DIR__ . '/templates/404.php';
         }
 	}
 	
