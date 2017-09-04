@@ -98,6 +98,5 @@
             header('HTTP/1.1 404 Not Found');
             require_once __DIR__ . '/templates/404.php';
         }
-	}
-	
+	}	
 ?>
