@@ -4,6 +4,8 @@ Student Information System
 Student Information System is a php application created as a college project. It's a simple student records maintenance app.
 
 [Check Out The Current Running App Here](https://arksnorman-sis.herokuapp.com/)
+USERNAME: arksnorman
+PASSWORD: 12345
 
 [Contributors Note]
 -------------------
