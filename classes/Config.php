@@ -1,5 +1,4 @@
 <?php
-
 	class Config
 	{
 		public static function getOption(string $path = null)
@@ -20,5 +19,3 @@
 			return false;
 		}
 	}
-
-?>
