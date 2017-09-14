@@ -1,100 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Dashboard</title>   
-<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-theme.css">
-<!-- font icon -->
-<link rel="stylesheet" type="text/css" href="/assets/css/elegant-icons-style.css">
-<link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css">
-<!-- Custom styles -->
-<link rel="stylesheet" type="text/css" href="/assets/css/widgets.css">
-<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-<link rel="stylesheet" type="text/css" href="/assets/css/style-responsive.css">
-<link rel="stylesheet" type="text/css" href="/assets/css/jquery-ui-1.10.4.min.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="all,follow" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.default.css" id="theme-stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/grasp_mobile_progress_circle-1.0.0.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/icons.css" />
 </head>
 <body>
-<!-- container section start -->
-<section id="container" class="">
-<header class="header dark-bg">
-    <div class="toggle-nav">
-        <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+<nav class="side-navbar">
+    <div class="side-navbar-wrapper">
+        <div class="sidenav-header d-flex align-items-center justify-content-center">
+            <div class="sidenav-header-inner text-center">
+                <img src="/img/avatar-1.jpg" alt="person" class="img-fluid rounded-circle">
+                <h2><?=ucfirst(User::data('username'));?></h2>
+                <span><?=ucfirst(User::data('role'));?></span>
+            </div>
+            <div class="sidenav-header-logo"><a href="/dashboard/" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
+        </div>
+        <div class="main-menu">
+            <ul id="side-main-menu" class="side-menu list-unstyled">
+                <li class="active"><a href="/dashboard/"> <i class="icon-home"></i><span>Dashboard</span></a></li>
+                <li><a href="/announcements/"><i class="icon-form"></i><span>Announcements</span></a></li>
+                <li><a href="/new/"><i class="icon-presentation"></i><span>New</span></a></li>
+                <li><a href="/admins/"><i class="icon-presentation"></i><span>Admins</span></a></li>
+                <li><a href="/students/"><i class="icon-presentation"></i><span>Students</span></a></li>
+                <li><a href="/lecturers/"><i class="icon-presentation"></i><span>Lecturers</span></a></li>
+                <li><a href="/search/"><i class="icon-presentation"></i><span>Search</span></a></li>
+                <li><a href="/upload/"><i class="icon-interface-windows"></i><span>Upload</span></a></li>
+                <li><a href="/timetables/"><i class="icon-grid"> </i><span>Time Tables</span></a></li>
+                <li><a href="/notes/"><i class="fa fa-book"></i><span>Notes</span></a></li>
+            </ul>
+        </div>
     </div>
-    <a href="/dashboard/" class="logo">Student Information <span class="lite">System</span></a>
-    <div class="top-nav notification-row">
-        <ul class="nav pull-right top-menu">
-            <li class="dropdown">
-                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <span class="profile-ava">
-                <img alt="" src="/assets/img/avatar1_small.jpg">
-                </span>
-                <span class="username"><?=User::data('username');?></span>
-                <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu extended logout">
-                    <div class="log-arrow-up"></div>
-                    <li class="eborder-top">
-                        <a href="/profile/"><i class="icon_profile"></i> My Profile</a>
-                    </li>
-                    <li>
-                        <a href="/logout/"><i class="icon_key_alt"></i> Log Out</a>
-                    </li>
+</nav>
+<div class="page home-page">
+<header class="header">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-holder d-flex align-items-center justify-content-between">
+                <div class="navbar-header">
+                    <a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a>
+                    <a href="/dashboard/" class="navbar-brand">
+                        <div class="brand-text hidden-sm-down"><strong class="text-primary">STUDENT INFORMATION SYSTEM</strong></div>
+                    </a>
+                </div>
+                <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                    <li class="nav-item"><a href="/logout/" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
                 </ul>
-            </li>
-        </ul>
-    </div>
+            </div>
+        </div>
+    </nav>
 </header>
-<aside>
-    <div id="sidebar"  class="nav-collapse ">
-        <ul class="sidebar-menu">
-            <li class="active">
-                <a class="" href="/dashboard/">
-                <i class="icon_house_alt"></i>
-                <span>Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a class="" href="/announcements/">
-                <i class="icon_mic"></i>
-                <span>Announcements</span>
-                </a>
-            </li>
-            <li>
-                <a class="" href="/timetables/">
-                <i class="icon_table"></i>
-                <span>Timetables</span>
-                </a>
-            </li>
-            <li>
-                <a class="" href="/classmates/">
-                <i class="icon_group"></i>
-                <span>Classmates</span>
-                </a>
-            </li>
-            <li>                     
-                <a class="" href="/notes/">
-                <i class="icon_documents_alt"></i>
-                <span>Notes</span>
-                </a>
-            </li>
-            <li>
-                <a class="" href="/search/">
-                <i class="icon_search"></i>
-                <span>Search</span>
-                </a>
-            </li>
-            <li class="sub-menu">
-                <a href="javascript:;" class="">
-                <i class="icon_piechart"></i>
-                <span>Results</span>
-                <span class="menu-arrow arrow_carrot-right"></span>
-                </a>
-                <ul class="sub">
-                    <li><a class="" href="/results/">Results</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</aside>
-<!--main content start-->
-<section id="main-content">

@@ -1,28 +1,12 @@
 <?php
 
-	class Profile extends User
+	class Profile extends Controller
 	{
 		public function index()
 		{
-			require_once View::renderTemplate('profile');
-		}
-
-		public function users($username)
-		{
-			try
-			{
-				$userInfo = Database::getWhere('users', array('username', '=', $username));
-			}
-			catch (Exception $e)
-			{
-				die('User not Found: ' . $e-getMessage());
-			}
-			require_once View::renderTemplate('profile');
-		}
-
-		public function edit()
-		{
-			
+			require_once HEADER;
+			require_once $this->view('profile');
+			require_once FOOTER;
 		}
 	}
 
