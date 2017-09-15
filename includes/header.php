@@ -24,7 +24,7 @@
                 <h2><?=ucfirst(User::data('username'));?></h2>
                 <span><?=ucfirst(User::data('role'));?></span>
             </div>
-            <div class="sidenav-header-logo"><a href="/dashboard/" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
+            <div class="sidenav-header-logo"><a href="/dashboard/" class="brand-small text-center"> <strong>SI</strong><strong class="text-primary">S</strong></a></div>
         </div>
         <div class="main-menu">
             <ul id="side-main-menu" class="side-menu list-unstyled">

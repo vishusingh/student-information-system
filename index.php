@@ -13,6 +13,15 @@
 	session_start();
 
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+	define('DS', DIRECTORY_SEPARATOR);
+	define('ROOTPATH', __DIR__);
+	define('VIEWPATH', ROOTPATH . DS . 'templates' . DS);
+	define('MODELPATH', ROOTPATH . DS . 'models' . DS);
+	define('CONTROLLERPATH', ROOTPATH . DS . 'controllers' . DS);
+	define('CLASSPATH', ROOTPATH . DS . 'classes' . DS);
+	define('INCPATH', ROOTPATH . DS . 'includes' . DS);
+	define('HEADER', INCPATH . 'header.php');
+	define('FOOTER', INCPATH . 'footer.php');
 
 	switch (ENVIRONMENT)
 	{
@@ -40,63 +49,20 @@
 			exit(1);
 	}
 
-	define('ROOTPATH', $_SERVER['DOCUMENT_ROOT']);
-	define('HEADER', __DIR__ . '/includes/header.php');
-	define('FOOTER', __DIR__ . '/includes/footer.php');
-	$configIni = __DIR__ . '/config.ini'; 
-	define('CONFIG_OPTIONS', parse_ini_file($configIni, true));
-
-	function autoloadClasses($class)
+	function autoload($file)
 	{
-		$folderPath = "/classes/";
-		$folderPath1 = "/controllers/";
-
-		if (file_exists(__DIR__ . $folderPath . $class . '.php'))
+		if(file_exists(CLASSPATH . $file . '.php'))
 		{
-			require_once __DIR__ . $folderPath . $class . '.php';
+			require_once CLASSPATH . $file . '.php';
 		}
 		else
 		{
-			require_once __DIR__ . $folderPath1 . $class . '.php';
+			require_once CONTROLLERPATH . $file . '.php';
 		}
 	}
-	
-	spl_autoload_register('autoloadClasses');
 
-	define('DBHOST', Config::getOption('database/host'));
-	define('DBUSERNAME', Config::getOption('database/username'));
-	define('DBPASS', Config::getOption('database/password'));
-	define('DBPORT', Config::getOption('database/port'));
-	define('DBNAME', Config::getOption('database/dbname'));
-	define('DBDRIVER', Config::getOption('database/driver'));
+	spl_autoload_register('autoload');
+	require_once INCPATH . 'definitions.php';
+	require_once INCPATH . 'functions.php';
 
-	require_once __DIR__ . '/includes/functions.php';
-	$url = isset($_SERVER['REQUEST_URI']) ? explode('/', ltrim($_SERVER['REQUEST_URI'],'/')) : '/';
-	
-	if ($url[0] == '')
-	{
-		Login::index();
-	}
-	else
-	{
-        $requestedController = ucfirst(strtolower($url[0]));
-        $requestedAction = isset($url[1]) ? $url[1] : '';
-        $requestedParams = array_slice($url, 2);
-        $ctrlPath = __DIR__ . "/controllers/$requestedController.php";
-
-        if (file_exists($ctrlPath))
-        {
-        	$newPage = new $requestedController;
-        	if ($requestedAction != '')
-            {
-                return $newPage->$requestedAction($requestedParams);
-            }
-            return $newPage->index();
-        }
-        else
-        {
-            header('HTTP/1.1 404 Not Found');
-            require_once __DIR__ . '/templates/404.php';
-        }
-	}	
-?>
+	FrontController::runRequest();
