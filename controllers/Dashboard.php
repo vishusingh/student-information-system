@@ -1,10 +1,13 @@
 <?php
 
-	class Dashboard
-	{		
+	class Dashboard extends Controller
+	{
 		function index()
 		{
-			require_once View::renderTemplate('dashboard');
+			requireAuth();
+			require_once HEADER;
+			require_once $this->view('dashboard');
+			require_once FOOTER;
 		}
 	}
 
