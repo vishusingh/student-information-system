@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 	class Database
 	{
@@ -6,17 +6,17 @@
 		private static $connection;
 		private	static $query;
 		private	static $error = false;
-		private	static $results; 
+		private	static $results;
 		private	static $count = 0;
-		
+
 		private static function connect()
 		{
-			try 
+			try
 			{
 				self::$connection = new PDO(DBDRIVER.":host=".DBHOST.";dbname=".DBNAME.";port=".DBPORT."", DBUSERNAME, DBPASS);
 				// self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			}
-			catch (PDOException $e) 
+			catch (PDOException $e)
 			{
 				die($e->getMessage());
 			}
@@ -25,7 +25,7 @@
 
 		public static function getInstance()
 		{
-			if (!isset(self::$instance)) 
+			if (!isset(self::$instance))
 			{
 				self::$instance = self::connect();
 			}
@@ -36,20 +36,20 @@
 		{
 			self::$error = false;
 
-			if (self::$query = self::$connection->prepare($sql)) 
+			if (self::$query = self::$connection->prepare($sql))
 			{
 				$x = 1;
 
-				if (count($params)) 
+				if (count($params))
 				{
-					foreach ($params as $param) 
+					foreach ($params as $param)
 					{
 						self::$query->bindValue($x, $param);
 						$x++;
 					}
 				}
 
-				if (self::$query->execute()) 
+				if (self::$query->execute())
 				{
 					self::$results 	= self::$query->fetchAll(PDO::FETCH_OBJ);
 					self::$count = self::$query->rowCount();
@@ -71,27 +71,27 @@
 				$operator = $where[1];
 				$value = $where[2];
 
-				if (in_array($operator, $operators)) 
+				if (in_array($operator, $operators))
 				{
 					$sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
 
-					if (!self::getInstance()->query($sql, array($value))->error()) 
+					if (!self::getInstance()->query($sql, array($value))->error())
 					{
 						return new static;
 					}
 				}
 			}
-			return false;		
+			return false;
 		}
 
 		public static function getWhere($table, $where = array())
-		{	
-			return self::action('SELECT *', $table, $where)->results();			
+		{
+			return self::action('SELECT *', $table, $where)->results();
 		}
 
 		public static function getAll($table)
-		{			
-			return self::getInstance()->query("SELECT * FROM {$table}")->results();			
+		{
+			return self::getInstance()->query("SELECT * FROM {$table}")->results();
 		}
 
 		public static function delete($table, $where)
@@ -101,18 +101,18 @@
 
 		public static function insert($table, $fields = array())
 		{
-			if (count($fields)) 
-			{				
+			if (count($fields))
+			{
 				$keys = array_keys($fields);
 				$values = '';
 				$x = 1;
 
-				foreach ($fields as $field) 
-				{					
+				foreach ($fields as $field)
+				{
 					$values .= '?';
 
-					if ($x < count($fields)) 
-					{						
+					if ($x < count($fields))
+					{
 						$values .= ', ';
 						$x++;
 					}
@@ -120,8 +120,8 @@
 
 				$queryString = "INSERT INTO {$table} (" . implode(', ', $keys) . ") VALUES ({$values})";
 
-				if (!self::getInstance()->query($queryString, $fields)->error()) 
-				{					
+				if (!self::getInstance()->query($queryString, $fields)->error())
+				{
 					return true;
 				}
 			}
@@ -143,5 +143,3 @@
 			return self::$results;
 		}
 	}
-	
-?>
