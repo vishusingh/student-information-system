@@ -1,11 +1,12 @@
 <?php
 
-	class Timetables
+	class Timetables extends Controller
 	{
 		public function index()
 		{
-			require_once View::renderTemplate('timetable');
+			$timeTableResults = Database::getAll('timetables');
+			require_once HEADER;
+			require_once $this->view('timetable');
+			require_once FOOTER;
 		}
 	}
-
-?>
