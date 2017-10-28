@@ -15,7 +15,7 @@
 
         public static function runRequest()
         {
-            $controller = new FrontController();
+            $controller = new self;
             $controller->init(self::$url);
         }
 
