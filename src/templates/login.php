@@ -1,39 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="all,follow" />
-    <link rel="stylesheet" type="text/css" href="<?=CSSPATH;?>bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
-    <link rel="stylesheet" type="text/css" href="<?=CSSPATH;?>style.default.css" id="theme-stylesheet" />
-    <link rel="stylesheet" type="text/css" href="<?=CSSPATH;?>grasp_mobile_progress_circle-1.0.0.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?=CSSPATH;?>custom.css" />
-    <link rel="stylesheet" type="text/css" href="<?=CSSPATH;?>font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?=CSSPATH;?>icons.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title><?=$pageTitle;?></title>
+<link rel="stylesheet" type="text/css" href="<?=CSSPATH;?>switchery.min.css">
+<link rel="stylesheet" type="text/css" href="<?=CSSPATH;?>bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?=CSSPATH;?>icons.css">
+<link rel="stylesheet" type="text/css" href="<?=CSSPATH;?>style.css">
 </head>
 <body>
-<div class="page login-page">
-    <div class="container">
-        <div class="form-outer text-center d-flex align-items-center">
-            <div class="form-inner">
-                <div class="logo text-uppercase"><span>STUDENT</span><strong class="text-primary">  INFORMATION SYSTEM</strong></div>
-                <form id="login-form" method="post" action="/login/">
-                    <div class="form-group">
-                        <label for="login-username" class="label-custom">User Name</label>
-                        <input id="login-username" type="text" name="username" required="">
-                    </div>
-                    <div class="form-group">
-                        <label for="login-password" class="label-custom">Password</label>
-                        <input id="login-password" type="password" name="password" required="">
-                    </div>
-                    <input class="btn btn-primary" type="submit" value="Login" id="login">
-                </form>
-                <a href="/login/" class="forgot-pass">Forgot Password?</a>
-            </div>
+    <div class="wrapper-page">
+        <div class="text-center">
+            <a href="index.html" class="logo-lg"><i class="mdi mdi-radar"></i> <span>SIS</span> </a>
         </div>
+        <form class="form-horizontal m-t-20" action="/" method="POST">
+            <?php
+            if (count($errorList))
+            {
+                foreach ($errorList as $error)
+                {
+            ?>
+            <div class="form-group row">
+                <div class="col-12">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert"><?=$error;?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <?php }} ?>
+
+            <div class="form-group row">
+                <div class="col-12">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="mdi mdi-account"></i></span>
+                        <input name="username" class="form-control" type="text" required="" placeholder="Enter your username or email">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-12">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="mdi mdi-radar"></i></span>
+                        <input name="password" class="form-control" type="password" required="" placeholder="Enter your password">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group text-right m-t-20">
+                <div class="col-xs-12">
+                    <button class="btn btn-primary btn-custom w-md waves-effect waves-light" type="submit">Log In
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
-</div>
+</body>
+</html>
+<script src="<?=JSPATH;?>modernizr.min.js"></script>
+<script src="<?=JSPATH;?>jquery.min.js"></script>
+<script src="<?=JSPATH;?>popper.min.js"></script>
+<script src="<?=JSPATH;?>bootstrap.min.js"></script>
