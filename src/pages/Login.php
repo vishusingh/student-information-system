@@ -4,21 +4,20 @@
 	{
 		public static function index()
 		{
-			$pageTitle = 'Login';
-			$errorList = array();
+			$pageTitle = 'Login | SIS';
+			$errorList = [];
 
-			if(Input::exists('POST'))
+			if (Input::exists('POST'))
 			{
 				$username = Input::get('username');
 				$password = Input::get('password');
 				$token = Input::get('loginToken');
 
-				if(empty($username) || empty($password))
+				if (empty($username) || empty($password))
 				{
 					$errorList[] = 'Username or Password must not be empty';
 				}
-
-				if (count($errorList) == 0)
+				if (!count($errorList))
 				{
 					if (User::login($username, $password))
 			    	{
@@ -26,11 +25,10 @@
 			    	}
 			    	else
 			    	{
-			    		$errorList[] = 'Invalid username or password.';
+			    		$errorList[] = 'Incorrect username or password.';
 			    	}
 				}
 			}
 			require_once $this->view('login');
-			require_once FOOTER;
 		}
 	}
