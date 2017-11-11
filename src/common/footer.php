@@ -25,15 +25,11 @@ var resizefunc = [];
 <script src="<?=JSPATH;?>wow.min.js"></script>
 <script src="<?=JSPATH;?>jquery.nicescroll.js"></script>
 <script src="<?=JSPATH;?>jquery.scrollTo.min.js"></script>
-<script src="http://coderthemes.com/minton/plugins/switchery/switchery.min.js"></script>
+<script src="<?=JSPATH;?>switchery.min.js"></script>
 
 <!-- Counter Up  -->
-<script src="http://coderthemes.com/minton/plugins/waypoints/lib/jquery.waypoints.min.js"></script>
-<script src="http://coderthemes.com/minton/plugins/counterup/jquery.counterup.min.js"></script>
-
-<!--Morris Chart-->
-<script src="http://coderthemes.com/minton/plugins/morris/morris.min.js"></script>
-<script src="http://coderthemes.com/minton/plugins/raphael/raphael-min.js"></script>
+<script src="<?=JSPATH;?>jquery.waypoints.min.js"></script>
+<script src="<?=JSPATH;?>jquery.counterup.min.js"></script>
 
 <!-- Page js  -->
 <script src="<?=JSPATH;?>jquery.dashboard.js"></script>
@@ -41,7 +37,6 @@ var resizefunc = [];
 <!-- Custom main Js -->
 <script src="<?=JSPATH;?>jquery.core.js"></script>
 <script src="<?=JSPATH;?>jquery.app.js"></script>
-
 <script type="text/javascript">
 jQuery(document).ready(function($) {
 $('.counter').counterUp({
@@ -50,6 +45,5 @@ time: 1200
 });
 });
 </script>
-
 </body>
 </html>
