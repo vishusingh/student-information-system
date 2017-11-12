@@ -25,6 +25,7 @@ class Upload extends Controller
 
 	public function index()
 	{
+		requireAuth();
 		require_once HEADER;
 		require_once $this->view('upload');
 		require_once FOOTER;

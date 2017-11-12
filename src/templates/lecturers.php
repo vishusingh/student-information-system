@@ -1,50 +1,59 @@
-<div class="breadcrumb-holder">
-	<div class="container-fluid">
-		<ul class="breadcrumb">
-			<li class="breadcrumb-item"><a href="/dashboard/">Dashboard</a></li>
-			<li class="breadcrumb-item active">Lecturers</li>
-		</ul>
-	</div>
-</div>
-<section class="forms">
-	<div class="container-fluid">
-		<header>
-			<h1 class="h3 display">Lecturers</h1>
-		</header>
-		<div class="col-lg-12">
-			<div class="card">
-				<div class="card-header d-flex align-items-center">
-					<h2 class="h5 display">Lecturers List</h2>
-				</div>
-				<div class="card-block">
-					<table class="table table-striped table-hover">
-						<thead>
-						<tr>
-							<th><i class="icon_profile"></i> ID</th>
-							<th><i class="icon_pin_alt"></i> Name</th>
-							<th><i class="icon_calendar"></i> Username</th>
-							<th><i class="icon_mail_alt"></i> Email</th>
-							<th><i class="icon_cogs"></i> Phone</th>
-							<th><i class="icon_cogs"></i> Joined</th>
-						</tr>
-						</thead>
-						<tbody>
+<div class="content">
+    <div class="container-fluid">
+        <br />
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="card-box">
+                    <h4 class="header-title m-t-0 text-center">Current Lecturers list</h4>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card-box">
+                    <table class="table">
+                        <thead class="thead-default">
+                        <tr>
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Department</th>
+                            <th>Date Joined</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
 						<?php
-						foreach ($lecturerResults as $lecturerResult)
-						{?>
-							<tr>
-								<td><?=$lecturerResult->lecturer_id;?></td>
-								<td><?=$lecturerResult->firstname.' '.$lecturerResult->lastname;?></td>
-								<td><?=$lecturerResult->username;?></td>
-								<td><?=$lecturerResult->email;?></td>
-								<td><?=$lecturerResult->phone;?></td>
-								<td><?=$lecturerResult->joined_at;?></td>
-							</tr>
-						<?php }?>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+                            if (isset($lecturers) && count($lecturers))
+							{
+								foreach ($lecturers as $lecturer)
+								{
+									?>
+                                    <tr>
+                                        <th scope="row"><?= $lecturer->firstname.' '.$lecturer->lastname; ?></th>
+                                        <td><?= $lecturer->username; ?></td>
+                                        <td><?= $lecturer->email; ?></td>
+                                        <td><?= $lecturer->phone; ?></td>
+                                        <td><?= $lecturer->department; ?></td>
+                                        <td><?= explode(' ', $lecturer->date_added)[0]; ?></td>
+                                        <td>
+                                            <button class="btn btn-danger"><i class="fa fa-trash-o"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+									<?php
+								}
+							}
+						?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
