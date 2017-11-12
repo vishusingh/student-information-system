@@ -14,7 +14,7 @@
 			try
 			{
 				self::$connection = new PDO(DBDRIVER.":host=".DBHOST.";dbname=".DBNAME.";port=".DBPORT."", DBUSERNAME, DBPASS);
-				self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//				self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			}
 			catch (PDOException $e)
 			{
@@ -99,7 +99,7 @@
 			return self::action('DELETE', $table, $where);
 		}
 
-		public static function insert($table, $fields = array())
+		public static function insert($table, $fields = [])
 		{
 			if (count($fields))
 			{

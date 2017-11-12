@@ -107,10 +107,10 @@
                 </li>
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect waves-primary"><i class=" ti-announcement"></i>
-                    <span> Annoucements </span> <span class="menu-arrow"></span> </a>
+                    <span> Notices </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
-                        <li><a href="/annoucements/new/">New Annoucement</a></li>
-                        <li><a href="/annoucements/">Annoucements</a></li>
+                        <li><a href="/notices/new/">New Notice</a></li>
+                        <li><a href="/notices/">Notices</a></li>
                     </ul>
                 </li>
                 <li>
