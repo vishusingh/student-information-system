@@ -18,8 +18,8 @@
                     <table class="table">
                         <thead class="thead-default">
                         <tr>
-                            <th>Name</th>
-                            <th>Lecturer</th>
+                            <th>Description</th>
+                            <th>Author</th>
                             <th>Course</th>
                             <th>Semester</th>
                             <th>Date Added</th>
@@ -32,13 +32,13 @@
 						{
 						    ?>
                             <tr>
-                                <th scope="row"><?=$notesResult->name;?></th>
-                                <td><?=$notesResult->lecturer;?></td>
+                                <th scope="row"><?=$notesResult->description;?></th>
+                                <td><?=$notesResult->added_by;?></td>
                                 <td><?=$notesResult->course;?></td>
                                 <td><?=$notesResult->semester;?></td>
                                 <td><?=explode(' ', $notesResult->date_added)[0];?></td>
                                 <td>
-                                    <div class="btn-group" role="group" aria-label="Basic example"><a class="btn btn-danger" href="<?=$notesResult->rootpath;?>"><i class="fa fa-trash"></i></a><a class="btn btn-info" href="<?=$notesResult->rootpath;?>"><i class="fa fa-download"></i></a></div>
+                                    <div class="btn-group" role="group" aria-label="Basic example"><a class="btn btn-danger" href="<?=$notesResult->webpath;?>"><i class="fa fa-trash"></i></a><a class="btn btn-success" href="<?=$notesResult->webpath;?>"><i class="fa fa-download"></i></a></div>
                                 </td>
                             </tr>
 						    <?php

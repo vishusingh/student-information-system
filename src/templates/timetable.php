@@ -18,10 +18,9 @@
                     <table class="table">
                         <thead class="thead-default">
                         <tr>
-                            <th>Added by</th>
                             <th>Description</th>
+                            <th>Author</th>
                             <th>Date Added</th>
-                            <th>Category</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -31,12 +30,11 @@
                             {
                                 ?>
                                 <tr>
-                                    <th scope="row"><?=$timeTableResult->name;?></th>
-                                    <td><?=$timeTableResult->description;?></td>
+                                    <th scope="row"><?=$timeTableResult->description;?></th>
+                                    <td><?=$timeTableResult->added_by;?></td>
                                     <td><?=explode(' ', $timeTableResult->date_added)[0];?></td>
-                                    <td><?=$timeTableResult->category;?></td>
                                     <td>
-                                        <div class="btn-group" role="group" aria-label="Basic example"><a class="btn btn-danger" href="<?=$timeTableResult->rootpath;?>"><i class="fa fa-trash"></i></a><a class="btn btn-success" href="<?=$timeTableResult->rootpath;?>"><i class="fa fa-download"></i></a></div>
+                                        <div class="btn-group" role="group" aria-label="Basic example"><a class="btn btn-danger" href="<?=$timeTableResult->webpath;?>"><i class="fa fa-trash"></i></a><a class="btn btn-success" href="<?=$timeTableResult->webpath;?>"><i class="fa fa-download"></i></a></div>
                                     </td>
                                 </tr>
                                 <?php

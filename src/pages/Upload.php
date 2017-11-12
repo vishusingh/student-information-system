@@ -1,101 +1,163 @@
 <?php
 
-	$page = 'admin';
-	$section = 'upload';
-	requireAdmin();
-	$courses = Database::getInstance()->query('SELECT course_name FROM courses')->results();
-	$lecturers = Database::getInstance()->query('SELECT name FROM lecturers')->results();
-	$uploadErrors = uploadErrors();
-	$notesPath = ROOTPATH . '/downloads/notes/';
-	$notesRootPath = file_exists($notesPath) ? $notesPath : mkdir($notesPath, 0777, true);
-	$timeTablesPath = ROOTPATH . '/downloads/timetables/';
-	$timeTablesRootPath = file_exists($timeTablesPath) ? $timeTablesPath : mkdir($timeTablesPath, 0777, true);
-	$maxFileSize = 5000000;
+class Upload extends Controller
+{
+	private $maxFileSize = 5000000;
+	private $notesWebPath;
+	private $notesRootPath;
+	private $timeTablesWebPath;
+	private $timeTablesRootPath;
+	private $uploadErrors;
+	private $courses;
 
-	if (isset($_POST['submitnotes'])) 
+	public function __construct()
 	{
-		$notesName = $_POST['name'];
-		$lecturerName = $_POST['lecturer'];
-		$courseName = $_POST['course'];
-		$year = $_POST['year'];
-		$semester = $_POST['semester'];
-		$notesFile = $_FILES['file'];
-		$uploadError = $notesFile['error'];
-		$error = $uploadErrors[$uploadError];
+		$notesPath = ROOTPATH . '/downloads/notes/';
+		$timeTablesPath = ROOTPATH . '/downloads/timetables/';
+		$this->notesRootPath = file_exists($notesPath) ? $notesPath : mkdir($notesPath, 0777, true);
+		$this->timeTablesRootPath = file_exists($timeTablesPath) ? $timeTablesPath : mkdir($timeTablesPath, 0777, true);
+		$this->notesWebPath = '/downloads/notes/';
+		$this->timeTablesWebPath = '/downloads/timetables/';
+		$this->uploadErrors = uploadErrors();
+		$courses = Database::getInstance()->query('SELECT courseName FROM courses')->results();
+		$this->courses = isset($courses) && count($courses) ? $courses : [];
+	}
 
-		if ($notesFile['size'] <= $maxFileSize && $notesFile['error'] == 0) 
+	public function index()
+	{
+		require_once HEADER;
+		require_once $this->view('upload');
+		require_once FOOTER;
+	}
+
+	public function notes($message = '')
+	{
+		requireAuth();
+		$errorList = [];
+		$success = ($message == 'success') ? true : false;
+		$upload = new self;
+
+		if (Input::exists('POST'))
 		{
-			$newFileName = date("Y-m-d-h-i-s-a") . '-' . $notesFile['name'];
-			$moveFile = move_uploaded_file($notesFile['tmp_name'], $notesRootPath . $newFileName);
-			$notesRootPath = $notesRootPath . $newFileName;
-			$array = array($notesName,$lecturerName,$courseName,$year,$semester,$notesRootPath);
+			$notesDescription = Input::get('description');
+			$addedBy = User::data('username');
+			$courseName = Input::get('course');
+			$year = Input::get('year');
+			$semester = Input::get('semester');
+			$notesFile = $_FILES['file'];
+			$uploadError = $notesFile['error'];
+			$error = $this->uploadErrors[$uploadError];
 
-			if ($moveFile) 
+			if (empty($notesDescription) || empty($addedBy) || empty($courseName) || empty($year) || empty($semester))
 			{
-				$sqlQuery = 'INSERT INTO notes(name, lecturer, course, year, semester, rootpath) VALUES(?, ?, ?, ?, ?, ?)';
+				$errorList[] = 'All fields are required';
+			}
+			if ($notesFile['size'] <= $this->maxFileSize && $notesFile['error'] == 0)
+			{
+				$fileName = uniqid() . '-' . $notesFile['name'];
+				$path = $this->notesRootPath . $fileName;
+				$moveFile = move_uploaded_file($notesFile['tmp_name'], $path);
 
-				if (Database::getInstance()->query($sqlQuery, $array)) 
+				if (!count($errorList) && $moveFile)
 				{
-					Redirect::to('/upload/?notestatus=success');
+					$webPath = $this->notesWebPath . $fileName;
+					$data = [
+						'description' => $notesDescription,
+						'added_by' => $addedBy,
+						'course' => $courseName,
+						'year' => $year,
+						'semester' => $semester,
+						'rootpath' => $path,
+						'webpath' => $webPath,
+						'date_added' => date('Y-m-d h:i:sa')
+					];
+
+					if (Database::insert('notes', $data))
+					{
+						Redirect::to('/upload/notes/success/');
+					}
+					else
+					{
+						$errorList[] = 'Internal server error. Please try again later';
+					}
 				}
 				else
 				{
-					$errorListNotes[] = Database::getInstance()->query($sqlQuery, $array)->error();					
+					$errorList[] = 'Internal server error. Please try again later';
 				}
 			}
-			else 
+			else
 			{
-				error_log('Failed to move file. This could be because of permisions or there is no such file or directory', 3, $errorStore);
-				$errorListNotes[] = 'Failed to upload file, Try again later';
+				$errorLis[] = $error;
 			}
 		}
-		else 
-		{
-			$errorListNotes[] = $error;
-		}
+		require_once HEADER;
+		require_once $this->view('notes-upload');
+		require_once FOOTER;
 	}
 
-	if (isset($_POST['submittimetable'])) 
+	public function timetable($message = '')
 	{
-		$timeTableName = $_POST['name'];
-		$uploadedBy = $_POST['lecturer'];
-		$academicYear = $_POST['year'];
-		$timetableFile = $_FILES['file'];
-		$uploadError = $timetableFile['error'];
-		$error = $uploadErrors[$uploadError];
+		requireAuth();
+		$success = ($message == 'success') ? true : false;
+		$errorList = [];
+		$upload = new self;
 
-		if ($timetableFile['size'] <= $maxFileSize && $timetableFile['error'] == 0) 
+		if (Input::exists('POST'))
 		{
-			$newFileName = date("Y-m-d-h-i-s-a") . '-' . $timetableFile['name'];
-			$moveFile = move_uploaded_file($timetableFile['tmp_name'], $timeTablesRootPath . $newFileName);
-			$timeTablesRootPath = $timeTablesRootPath . $newFileName;
-			$array = array($timeTableName,$uploadedBy,$academicYear,$timeTablesRootPath);
+			$timeTableDescription = Input::get('description');
+			$addedBy = User::data('username');
+			$timetableFile = $_FILES['file'];
+			$uploadError = $timetableFile['error'];
+			$error = $this->uploadErrors[$uploadError];
 
-			if ($moveFile) 
+			if (empty($timeTableDescription))
 			{
-				$sqlQuery = 'INSERT INTO timetables(name, addedby, year, rootpath) VALUES(?, ?, ?, ?)';
+				$errorList[] = 'All fields are required';
+			}
+			if ($timetableFile['size'] <= $this->maxFileSize && $timetableFile['error'] == 0)
+			{
+				$fileName = uniqid() . '-' . $timetableFile['name'];
+				$path = $this->timeTablesRootPath . $fileName;
+				$moveFile = move_uploaded_file($timetableFile['tmp_name'], $path);
 
-				if (Database::getInstance()->query($sqlQuery, $array)) 
+				if (!count($errorList) && $moveFile)
 				{
-					Redirect::to('/upload/?timetablestatus=success');
+					$webPath = $this->timeTablesWebPath . $fileName;
+					$data = [
+						'description' => $timeTableDescription,
+						'added_by' => $addedBy,
+						'rootpath' => $path,
+						'webpath' => $webPath,
+						'date_added' => date('Y-m-d h:i:sa')
+					];
+
+					if (Database::insert('timetables', $data))
+					{
+						Redirect::to('/upload/timetable/success/');
+					}
+					else
+					{
+						$errorList[] = 'Internal server error. Please try again later';
+					}
 				}
 				else
 				{
-					$errorListTimeTable[] = Database::getInstance()->query($sqlQuery, $array)->error();
+					$errorList[] = 'Internal server error. Please try again later';
 				}
 			}
-			else 
+			else
 			{
-				error_log('Failed to move file. This could be because of permisions or there is no such file or directory', 3, $errorStore);
-				$errorListTimeTable[] = 'Failed to upload file, Try again later';
+				$errorList[] = $error;
 			}
 		}
-		else 
-		{
-			$errorListTimeTable[] = $error;
-		}		
+		require_once HEADER;
+		require_once $this->view('timetable-upload');
+		require_once FOOTER;
 	}
-	require_once HEADER;
-	require_once ROOTPATH . '/templates/upload.php';
-	require_once FOOTER;
-?>
+
+	public function getCourses() :array
+	{
+		return $this->courses;
+	}
+}
