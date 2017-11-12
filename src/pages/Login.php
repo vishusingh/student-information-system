@@ -2,10 +2,10 @@
 
 	class Login extends Controller
 	{
-		public static function index()
+		public function index()
 		{
-			$pageTitle = 'Login | SIS';
 			$errorList = [];
+			$page = new Page('Login | SIS');
 
 			if (Input::exists('POST'))
 			{

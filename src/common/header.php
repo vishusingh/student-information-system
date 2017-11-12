@@ -109,7 +109,7 @@
                     <a href="javascript:void(0);" class="waves-effect waves-primary"><i class=" ti-announcement"></i>
                     <span> Annoucements </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
-                        <li><a href="/newannoucement/">New Annoucement</a></li>
+                        <li><a href="/annoucements/new/">New Annoucement</a></li>
                         <li><a href="/annoucements/">Annoucements</a></li>
                     </ul>
                 </li>

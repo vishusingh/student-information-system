@@ -2,7 +2,7 @@
 
 	class Dashboard extends Controller
 	{
-		function index()
+		public function index()
 		{
 			requireAuth();
 			$students = Database::getInstance()->query('SELECT * FROM students')->count();
