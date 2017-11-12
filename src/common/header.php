@@ -91,9 +91,8 @@
                     <a href="javascript:void(0);" class="waves-effect waves-primary"><i class="ti-cloud-up"></i>
                     <span> Upload </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
-                        <li><a href="/timetable/">Timetable</a></li>
-                        <li><a href="/note/">Notes</a></li>
-                        <li><a href="/custom/">Custom</a></li>
+                        <li><a href="/upload/timetable/">Timetable</a></li>
+                        <li><a href="/upload/notes/">Notes</a></li>
                     </ul>
                 </li>
                 <li class="has_sub">
@@ -102,7 +101,6 @@
                     <ul class="list-unstyled">
                         <li><a href="/timetables/">Timetable</a></li>
                         <li><a href="/notes/">Notes</a></li>
-                        <li><a href="/custom/">Custom</a></li>
                     </ul>
                 </li>
                 <li class="has_sub">
