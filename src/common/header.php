@@ -111,9 +111,13 @@
                         <li><a href="/notices/">Notices</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="/complaints/" class="waves-effect waves-primary">
-                    <i class="ti-comment-alt"></i><span> Complaints </span></a>
+                <li class="has_sub">
+                    <a href="javascript:void(0);" class="waves-effect waves-primary"><i class="ti-comment-alt"></i>
+                        <span> Complaints </span> <span class="menu-arrow"></span> </a>
+                    <ul class="list-unstyled">
+                        <li><a href="/complaints/new/">New Complaint</a></li>
+                        <li><a href="/complaints/">Complaints</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="/lecturers/" class="waves-effect waves-primary">
