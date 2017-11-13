@@ -134,23 +134,32 @@
         </div>
         <!-- end row -->
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card m-b-20">
-                    <div class="card-header">
-                        Annoucement
-                    </div>
-                    <div class="card-body">
-                        <blockquote class="card-bodyquote">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
-                                erat a ante.</p>
-                            <footer>Someone famous in <cite title="Source Title">Source Title</cite>
-                            </footer>
-                        </blockquote>
+		<?php
+		if (isset($notices) && count($notices))
+		{
+			foreach ($notices as $notice)
+			{
+				?>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card m-b-20">
+                            <div class="card-header">
+								<?=$notice->notice_title;?>
+                            </div>
+                            <div class="card-body">
+                                <blockquote class="card-bodyquote">
+                                    <p><?=$notice->notice_message;?></p>
+                                    <div class="card-footer">Added by <cite title="Source Title"><?=$notice->notice_creator;?> | <?=$notice->notice_date;?></cite>
+                                    </div>
+                                </blockquote>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>                
-        </div>
+				<?php
+			}
+		}
+		?>
         <!-- end row -->
 
     </div>
