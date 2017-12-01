@@ -135,7 +135,7 @@
                     <a href="javascript:void(0);" class="waves-effect waves-primary"><i class="ti-layers-alt"></i>
                     <span> Courses </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
-                        <li><a href="/newcourse/">New Course</a></li>
+                        <li><a href="/courses/add/">New Course</a></li>
                         <li><a href="/courses/">Courses</a></li>
                     </ul>
                 </li>
