@@ -79,9 +79,13 @@
                     <a href="/dashboard/" class="waves-effect waves-primary">
                     <i class="ti-home"></i><span> Dashboard </span></a>
                 </li>
-                <li>
-                    <a href="/new/" class="waves-effect waves-primary">
-                    <i class="ti-plus"></i><span> Add new student </span></a>
+                <li class="has_sub">
+                    <a href="javascript:void(0);" class="waves-effect waves-primary"><i class="ti-user"></i>
+                        <span> Students </span> <span class="menu-arrow"></span> </a>
+                    <ul class="list-unstyled">
+                        <li><a href="/students/add/">Add new student</a></li>
+                        <li><a href="/students/">Students</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="/search/" class="waves-effect waves-primary">
@@ -127,10 +131,6 @@
                     <a href="/admins/" class="waves-effect waves-primary">
                     <i class="ti-user"></i><span> Admins </span></a>
                 </li>
-                <li>
-                    <a href="/students/" class="waves-effect waves-primary">
-                    <i class="ti-user"></i><span> Students </span></a>
-                </li>
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect waves-primary"><i class="ti-layers-alt"></i>
                     <span> Courses </span> <span class="menu-arrow"></span> </a>
@@ -146,10 +146,6 @@
                         <li><a href="/addmarks/">Add Marks</a></li>
                         <li><a href="/editmarks/">Edit Marks</a></li>
                     </ul>
-                </li>
-                <li>
-                    <a href="/reports/" class="waves-effect waves-primary">
-                    <i class="ti-pie-chart"></i><span> Reports </span></a>
                 </li>
             </ul>
             <div class="clearfix"></div>
