@@ -3,3 +3,4 @@ procfile
 config.ini
 downloads/
 .idea/
+vendor/

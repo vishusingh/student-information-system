@@ -1,19 +1,51 @@
 <?php
 
-	class Dashboard extends Controller
+class Dashboard extends Controller
+{
+	private $app;
+	private $data;
+	private $lecturers;
+	private $admins;
+	private $students;
+	private $online;
+	private $notices;
+	private $profile;
+	private $authenticator;
+	private $complaints;
+
+	public function __construct(IApp $app)
 	{
-		public function index()
-		{
-			requireAuth();
-			$students = Database::getInstance()->query('SELECT * FROM students')->count();
-			$admins = Database::getInstance()->query('SELECT * FROM admins')->count();
-			$lecturers = Database::getInstance()->query('SELECT * FROM lecturers')->count();
-			$notices = Database::getInstance()->query('select * from notices order by notice_id desc limit 2')->results();
-			$complaints = Database::getInstance()->query('select * from complaints order by complaints.complaint_id desc limit 3')->results();
-			require_once HEADER;
-			require_once $this->view('dashboard');
-			require_once FOOTER;
-		}
+		$this->app = $app;
+		$this->data = new DashboardModel($this->app);
+		$this->authenticator = $this->app->getAuthenticator();
+		$this->online = $this->data->getOnline();
+		$this->admins = $this->data->getAdmins();
+		$this->lecturers = $this->data->getLecturers();
+		$this->students = $this->data->getStudents();
+		$this->notices = $this->data->getNotices();
+		$this->profile = $this->data->getProfile();
+		$this->complaints = $this->data->getComplaints();
 	}
 
-?>
+	/**
+	 * @throws \Dwoo\Exception
+	 */
+	public function index()
+	{
+		$this->authenticator->requireAdmin();
+		$page = new Page('Dashboard');
+		$this->renderTemplate('dashboard.tpl', array_merge($this->app->getDefinitions(),
+			[
+				'pageTitle' => $page->getTitle(),
+				'numberOfStudents' => count($this->students),
+				'numberOfAdmins' => count($this->admins),
+				'numberOfLecturers' => count($this->lecturers),
+				'online' => $this->online,
+				'complaints' => $this->complaints,
+				'notices' => $this->notices,
+				'complaintsCounter' => count($this->complaints),
+				'noticesCounter' => count($this->notices)
+			]
+		));
+	}
+}

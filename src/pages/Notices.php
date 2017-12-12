@@ -2,41 +2,55 @@
 
 class Notices extends Controller
 {
-	private $title;
-	private $message;
+	private $app;
+	private $database;
 
-	public function index()
+	public function __construct(IApp $app)
 	{
-		$page = new Page('New Notice | SIS');
-		$notices = Database::getInstance()->query('select * from notices order by notice_id desc limit 5;')->results();
-		require_once HEADER;
-		require_once $this->view('notice');
-		require_once FOOTER;
+		$this->app = $app;
+		$this->database = $this->app->getDatabase();
 	}
 
-	public function new($param1 = '')
+	/**
+	 * @throws \Dwoo\Exception
+	 */
+	public function index()
 	{
-		$page = new Page('New Notice | SIS');
-		$success = $param1 == 'success' ? true : false;
+		$this->renderTemplate('notices.tpl', array_merge($this->app->getDefinitions(),
+			[
+				'pageTitle' => 'All notices',
+			]
+		));
+	}
+
+	/**
+	 * @param string $param
+	 * @throws \Dwoo\Exception
+	 */
+	public function new($param = '')
+	{
+		$errorList = [];
+		$success = $param == 'success' ? true : false;
+
 		if (Input::exists('POST'))
 		{
-			$this->title = Input::get('title');
-			$this->message = Input::get('message');
-			$errorList = [];
-			if (empty($this->title) || empty($this->message))
+			$title = Input::get('title');
+			$message = Input::get('message');
+
+			if (empty($title) || empty($message))
 			{
 				$errorList[] = 'All fields are required';
 			}
 			if (!count($errorList))
 			{
 				$data = [
-					'notice_title' => $this->title,
-					'notice_message' => $this->message,
-					'notice_creator' => User::data('username'),
-					'notice_date' => date('Y-m-d h:i:sa')
+					'title' => $title,
+					'message' => $message,
+					'creator' => $this->app->getProfile()->getUsername(),
+					'date_added' => date('Y-m-d h:i:sa')
 				];
 
-				if (Database::insert('notices', $data))
+				if ($this->database->insert('notices', $data))
 				{
 					Redirect::to('/notices/new/success/');
 				}
@@ -46,8 +60,15 @@ class Notices extends Controller
 				}
 			}
 		}
-		require_once HEADER;
-		require_once $this->view('new-notice');
-		require_once FOOTER;
+		$this->renderTemplate('new_notice.tpl', array_merge($this->app->getDefinitions(),
+			[
+				'message' => $this->app->getRequest()->getPost()->get('message'),
+				'title' => $this->app->getRequest()->getPost()->get('title'),
+				'pageTitle' => 'Post new notice',
+				'errorCounter' => count($errorList),
+				'errors' => $errorList,
+				'success' => $success
+			]
+		));
 	}
 }

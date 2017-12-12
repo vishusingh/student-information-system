@@ -1,34 +1,58 @@
 <?php
 
-	class Login extends Controller
+class Login extends Controller
+{
+	private $post;
+	private $app;
+	private $user;
+
+	public function __construct(IApp $app)
 	{
-		public function index()
+		$this->app = $app;
+		$this->post = $this->app->getRequest()->getPost();
+		$this->user = $this->app->getUser();
+	}
+
+	/**
+	 * @throws \Dwoo\Exception
+	 */
+	public function index()
+	{
+		$errorList = [];
+		$page = new Page('Login | SIS');
+
+		if (Input::exists('POST'))
 		{
-			$errorList = [];
-			$page = new Page('Login | SIS');
+			$username = $this->post->get('username');
+			$password = $this->post->get('password');
 
-			if (Input::exists('POST'))
+			if (empty($username) || empty($password))
 			{
-				$username = Input::get('username');
-				$password = Input::get('password');
-				$token = Input::get('loginToken');
-
-				if (empty($username) || empty($password))
+				$errorList[] = 'Username or Password must not be empty';
+			}
+			if (!count($errorList))
+			{
+				if ($this->user->login($username, $password))
 				{
-					$errorList[] = 'Username or Password must not be empty';
+					Redirect::to('/dashboard/');
 				}
-				if (!count($errorList))
+				else
 				{
-					if (User::login($username, $password))
-			    	{
-			    		Redirect::to('/dashboard/');
-			    	}
-			    	else
-			    	{
-			    		$errorList[] = 'Incorrect username or password.';
-			    	}
+					$errorList[] = 'Incorrect username or password.';
 				}
 			}
-			require_once $this->view('login');
 		}
+
+		$data = [
+			'js' => $this->app->getWebPaths()->get('js'),
+			'css' => $this->app->getWebPaths()->get('css'),
+			'images' => $this->app->getWebPaths()->get('images'),
+			'username' => $this->post->get('username'),
+			'errors' => $errorList,
+			'errorCounter' => count($errorList),
+			'pageTitle' => $page->getTitle()
+		];
+
+		$this->renderTemplate('login.tpl', $data);
 	}
+}
