@@ -19,9 +19,7 @@
 			$this->app->getAuthenticator()->requireLoggedIn();
 			$this->renderTemplate('timetables.tpl', array_merge($this->app->getDefinitions(),
 				[
-					'timetables' => $this->data->getTimetables(),
-					'pageTitle' => 'Timetables download',
-					'timetablesCounter' => count($this->data->getTimetables())
+					'pageTitle' => 'Timetables download'
 				]
 			));
 		}
