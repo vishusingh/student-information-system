@@ -13,36 +13,28 @@
         </div>
         <br />
 
+        {if $delete}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">{$deleteMessage}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {/if}
+
         <div class="row">
-            <div class="col-lg-12">
-                <div class="card-box">
-                    <table class="table">
-                        <thead class="thead-default">
+            <div class="col-12">
+                <div class="card-box table-responsive">
+                    <table id="notes_datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <thead>
                         <tr>
                             <th>Description</th>
-                            <th>Author</th>
                             <th>Course</th>
+                            <th>Year</th>
                             <th>Semester</th>
                             <th>Date Added</th>
                             <th>Action</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        {if $notesCounter > 0}
-                            {foreach $notes note}
-                                <tr>
-                                    <th scope="row">{$note.description}</th>
-                                    <td>{$note.added_by}</td>
-                                    <td>{$note.course}</td>
-                                    <td>{$note.semester}</td>
-                                    <td>{$note.date_added}</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="Basic example"><a class="btn btn-danger" href="{$note.webpath}"><i class="fa fa-trash"></i></a><a class="btn btn-success" href="{$note.webpath}"><i class="fa fa-download"></i></a></div>
-                                    </td>
-                                </tr>
-                            {/foreach}
-					    {/if}
-                        </tbody>
                     </table>
                 </div>
             </div>
