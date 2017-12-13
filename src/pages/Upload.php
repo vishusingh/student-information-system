@@ -32,6 +32,7 @@ class Upload extends Controller
 	 */
 	public function index()
 	{
+		$this->app->getAuthenticator()->requireAdmin();
 		$this->renderTemplate('upload.tpl', array_merge($this->app->getDefinitions(), ['pageTitle' => 'Upload']));
 	}
 

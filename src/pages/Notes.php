@@ -16,6 +16,7 @@ class Notes extends Controller
 	 */
 	public function index()
 	{
+		$this->app->getAuthenticator()->requireLoggedIn();
 		$this->renderTemplate('notes.tpl', array_merge($this->app->getDefinitions(),
 			[
 				'notesCounter' => count($this->data->getNotes()),

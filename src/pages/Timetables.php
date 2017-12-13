@@ -16,6 +16,7 @@
 		 */
 		public function index()
 		{
+			$this->app->getAuthenticator()->requireLoggedIn();
 			$this->renderTemplate('timetables.tpl', array_merge($this->app->getDefinitions(),
 				[
 					'timetables' => $this->data->getTimetables(),

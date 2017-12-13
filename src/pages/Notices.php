@@ -17,8 +17,8 @@ class Notices extends Controller
 	 */
 	public function index($param = '')
 	{
-		$deleted = ($param == 'deleted') ? true : false;
 		$this->app->getAuthenticator()->isLoggedIn();
+		$deleted = ($param == 'deleted') ? true : false;
 		$this->renderTemplate('notices.tpl', array_merge($this->app->getDefinitions(),
 			[
 				'pageTitle' => 'All notices',

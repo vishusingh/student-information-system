@@ -95,7 +95,7 @@ class App implements IApp
 
 	public function getAuthenticator() :Authenticator
 	{
-		return new Authenticator($this->getProfile(), $this->getSession());
+		return new Authenticator($this->getSession());
 	}
 
 	public function getDefinitions() :array

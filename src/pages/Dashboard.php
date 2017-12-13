@@ -32,7 +32,7 @@ class Dashboard extends Controller
 	 */
 	public function index()
 	{
-		$this->authenticator->requireAdmin();
+		$this->authenticator->requireLoggedIn();
 		$page = new Page('Dashboard');
 		$this->renderTemplate('dashboard.tpl', array_merge($this->app->getDefinitions(),
 			[

@@ -53,4 +53,16 @@ class Session implements IRequestData
 	{
 		return session_destroy();
 	}
+
+	public function flash(string $sessionName) :string
+	{
+		if ($this->has($sessionName))
+		{
+			$session = $this->get($sessionName);
+			$this->unset($sessionName);
+			return $session;
+		}
+		return '';
+	}
+
 }

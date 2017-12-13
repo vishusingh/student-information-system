@@ -33,11 +33,6 @@ class User implements IUser
 		return $this->database->insert($table, $fields);
 	}
 
-	public function isLoggedIn() :bool
-	{
-		return $this->session->has('login');
-	}
-
 	public function find($username) :bool
 	{
 		if ($this->admin($username))

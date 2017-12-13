@@ -4,12 +4,10 @@ class Authenticator
 {
 	private $loggedIn = false;
 	private $role;
-	private $profile;
 	private $session;
 
-	public function __construct(IProfile $profile, Session $session)
+	public function __construct(Session $session)
 	{
-		$this->profile = $profile;
 		$this->session = $session;
 		$this->role = $this->session->get('role');
 		$this->loggedIn = $this->session->has('login');
@@ -17,7 +15,8 @@ class Authenticator
 
 	public function requireAdmin() :void
 	{
-		if (!($this->isLoggedIn() && ($this->role ==  'admin')))
+		$this->requireLoggedIn();
+		if (!($this->isLoggedIn() && ($this->role ==  ('admin' || 'lecturer'))))
 		{
 			die('<h2>Unauthorized Access. This attempt will be reported to administrators</h2>');
 		}
