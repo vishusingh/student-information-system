@@ -16,7 +16,7 @@ class AppInitializer
 
 	private static function setUp()
 	{
-		self::createSession();
+		session_start();
 		self::$app = new App(
 			self::getRequest(),
 			self::getConfiguration(),
@@ -51,14 +51,6 @@ class AppInitializer
 	private static function getRequest() :IRequest
 	{
 		return new Request($_POST, $_GET, $_COOKIE);
-	}
-
-	private static function createSession()
-	{
-		if (session_status() !== PHP_SESSION_ACTIVE)
-		{
-			session_start();
-		}
 	}
 
 	private static function getWebPaths() :array
