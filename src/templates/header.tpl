@@ -81,11 +81,12 @@
         <!--- Divider -->
         <div id="sidebar-menu">
             <ul>
-                <li class="menu-title">{$username}</li>
+                <li class="menu-title">{$role} | {$username}</li>
                 <li>
                     <a href="/dashboard/" class="waves-effect waves-primary">
                     <i class="ti-home"></i><span> Dashboard </span></a>
                 </li>
+                {if $admin}
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect waves-primary"><i class="ti-user"></i>
                         <span> Students </span> <span class="menu-arrow"></span> </a>
@@ -94,10 +95,13 @@
                         <li><a href="/students/">Students</a></li>
                     </ul>
                 </li>
+                {/if}
                 <li>
                     <a href="/search/" class="waves-effect waves-primary">
                     <i class="ti-search"></i><span> Search </span></a>
                 </li>
+
+                {if $admin}
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect waves-primary"><i class="ti-cloud-up"></i>
                     <span> Upload </span> <span class="menu-arrow"></span> </a>
@@ -106,6 +110,8 @@
                         <li><a href="/upload/notes/">Notes</a></li>
                     </ul>
                 </li>
+                {/if}
+
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect waves-primary"><i class="ti-cloud-down"></i>
                     <span> Download </span> <span class="menu-arrow"></span> </a>
@@ -118,7 +124,7 @@
                     <a href="javascript:void(0);" class="waves-effect waves-primary"><i class=" ti-announcement"></i>
                     <span> Notices </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
-                        <li><a href="/notices/new/">New Notice</a></li>
+                        {if $admin}<li><a href="/notices/new/">New Notice</a></li>{/if}
                         <li><a href="/notices/">Notices</a></li>
                     </ul>
                 </li>
@@ -127,22 +133,24 @@
                         <span> Complaints </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
                         {if $student}<li><a href="/complaints/new/">New Complaint</a></li>{/if}
-                        <li><a href="/complaints/">Complaints</a></li>
+                        {if $admin}<li><a href="/complaints/">Complaints</a></li>{/if}
                     </ul>
                 </li>
                 <li>
                     <a href="/lecturers/" class="waves-effect waves-primary">
                     <i class="ti-user"></i><span> Lecturers </span></a>
                 </li>
+                {if $admin}
                 <li>
                     <a href="/admins/" class="waves-effect waves-primary">
                     <i class="ti-user"></i><span> Admins </span></a>
                 </li>
+                {/if}
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect waves-primary"><i class="ti-layers-alt"></i>
                     <span> Courses </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
-                        <li><a href="/courses/add/">New Course</a></li>
+                        {if $admin}<li><a href="/courses/add/">New Course</a></li>{/if}
                         <li><a href="/courses/">Courses</a></li>
                     </ul>
                 </li>
