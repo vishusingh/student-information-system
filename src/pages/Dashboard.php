@@ -34,7 +34,6 @@ class Dashboard extends Controller
 	{
 		$this->authenticator->requireLoggedIn();
 		$page = new Page('Dashboard');
-		var_dump($this->app->getAuthenticator()->isAdmin());
 		$this->renderTemplate('dashboard.tpl', array_merge($this->app->getDefinitions(),
 			[
 				'pageTitle' => $page->getTitle(),

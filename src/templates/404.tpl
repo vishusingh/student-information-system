@@ -1,3 +1,4 @@
+{include('short_header.tpl')}
 <div class="ex-page-content">
     <div class="container">
         <div class="row">
@@ -28,7 +29,7 @@
                     <div class="buttons-con">
                         <div class="action-link-wrap">
                             <a onclick="history.back(-1)" href="#" class="btn btn-custom btn-primary waves-effect waves-light m-t-20">Go Back</a>
-                            <a href="/dashboard/" class="btn btn-custom btn-primary waves-effect waves-light m-t-20">Go to Home Page</a>
+                            <a href="/dashboard/" class="btn btn-custom btn-primary waves-effect waves-light m-t-20">Go to dashboard</a>
                         </div>
                     </div>
                 </div>
@@ -36,3 +37,4 @@
         </div>
     </div>
 </div>
+{include('short_footer.tpl')}

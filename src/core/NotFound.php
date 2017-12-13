@@ -2,11 +2,18 @@
 
 class NotFound extends Controller
 {
+
+	/**
+	 * @throws \Dwoo\Exception
+	 */
 	public function index()
 	{
-		$page = new Page('404 | NotFound');
-		require_once SHORTHEADER;
-		require_once $this->view('404');
-		require_once SHORTFOOTER;
+		$this->renderTemplate('404.tpl',
+			[
+				'js' => $this->getApp()->getWebPaths()->get('js'),
+				'css' => $this->getApp()->getWebPaths()->get('css'),
+				'pageTitle' => '404 | Not Found'
+			]
+		);
 	}
 }
