@@ -67,12 +67,22 @@ time: 1200
             "processing": true,
             "serverSide": true,
             "ajax": "/api/notices.php"
-        })
+        });
         $('#complaints_datatable').DataTable({
             "processing": true,
             "serverSide": true,
             "ajax": "/api/complaints.php"
-        })
+        });
+        $('#timetables_datatable').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": "/api/timetables.php"
+        });
+        $('#notes_datatable').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": "/api/notes.php"
+        });
     });
 </script>
 </body>
