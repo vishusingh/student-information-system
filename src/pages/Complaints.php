@@ -2,24 +2,44 @@
 
 class Complaints extends Controller
 {
-	public function index()
+	private $app;
+	private $data;
+	private $database;
+	private $session;
+
+	public function __construct(IApp $app)
 	{
-		$page = new Page('Complaints | SIS');
-		$complaints = Database::getInstance()->query('select * from complaints order by complaints.complaint_id desc limit 5;')->results();
-		require_once HEADER;
-		require_once $this->view('complaints');
-		require_once FOOTER;
+		$this->app = $app;
+		$this->database = $this->app->getDatabase();
+		$this->session = $this->app->getSession();
+		$this->data = new DataModel($this->app);
 	}
 
-	public function new($param1 = '')
+	/**
+	 * @throws \Dwoo\Exception
+	 */
+	public function index()
 	{
-		$page = new Page('New Complaint | SIS');
-		$success = $param1 == 'success' ? true : false;
+		$this->app->getAuthenticator()->requireAdmin();
+		$this->renderTemplate('complaints.tpl', array_merge($this->app->getDefinitions(),
+			[
+				'pageTitle' => 'All Complaints'
+			]
+		));
+	}
+
+	/**
+	 * @throws \Dwoo\Exception
+	 */
+	public function new()
+	{
+		$this->app->getAuthenticator()->requireLoggedIn();
+		$errorList = [];
+
 		if (Input::exists('POST'))
 		{
 			$title = Input::get('title');
 			$message = Input::get('message');
-			$errorList = [];
 			if (empty($title) || empty($message))
 			{
 				$errorList[] = 'All fields are required';
@@ -27,15 +47,16 @@ class Complaints extends Controller
 			if (!count($errorList))
 			{
 				$data = [
-					'complaint_title' => $title,
-					'complaint_message' => $message,
-					'complaint_creator' => User::data('username'),
-					'complaint_date' => date('Y-m-d h:i:sa')
+					'title' => $title,
+					'message' => $message,
+					'creator' => $this->app->getProfile()->getUsername(),
+					'date_added' => date('Y-m-d h:i:sa')
 				];
 
-				if (Database::insert('complaints', $data))
+				if ($this->database->insert('complaints', $data))
 				{
-					Redirect::to('/complaints/new/success/');
+					$this->session->set('success', 'Complaint has been sent to our admins. Thanks');
+					Redirect::to('/complaints/new/');
 				}
 				else
 				{
@@ -43,8 +64,16 @@ class Complaints extends Controller
 				}
 			}
 		}
-		require_once HEADER;
-		require_once $this->view('new-complaint');
-		require_once FOOTER;
+		$this->renderTemplate('new_complaint.tpl', array_merge($this->app->getDefinitions(),
+			[
+				'success' => $this->session->has('success'),
+				'successMessage' => $this->session->flash('success'),
+				'pageTitle' => 'Add new complaint',
+				'errorCounter' => count($errorList),
+				'errors' => $errorList,
+				'title' => $this->app->getRequest()->getPost()->get('title'),
+				'message' => $this->app->getRequest()->getPost()->get('message')
+			]
+		));
 	}
 }

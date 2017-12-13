@@ -44,8 +44,7 @@ class Dashboard extends Controller
 				'complaints' => $this->complaints,
 				'notices' => $this->notices,
 				'complaintsCounter' => count($this->complaints),
-				'noticesCounter' => count($this->notices),
-				'admin' => $this->app->getAuthenticator()->isAdmin()
+				'noticesCounter' => count($this->notices)
 			]
 		));
 	}

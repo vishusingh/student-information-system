@@ -68,6 +68,11 @@ time: 1200
             "serverSide": true,
             "ajax": "/api/notices.php"
         })
+        $('#complaints_datatable').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": "/api/complaints.php"
+        })
     });
 </script>
 </body>

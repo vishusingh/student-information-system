@@ -126,7 +126,7 @@
                     <a href="javascript:void(0);" class="waves-effect waves-primary"><i class="ti-comment-alt"></i>
                         <span> Complaints </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
-                        <li><a href="/complaints/new/">New Complaint</a></li>
+                        {if $student}<li><a href="/complaints/new/">New Complaint</a></li>{/if}
                         <li><a href="/complaints/">Complaints</a></li>
                     </ul>
                 </li>
