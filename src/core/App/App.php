@@ -107,6 +107,8 @@ class App implements IApp
 			'css' => $this->getWebPaths()->get('css'),
 			'images' => $this->getWebPaths()->get('images'),
 			'username' => $this->getProfile()->getUsername(),
+			'admin' => $this->getAuthenticator()->isAdmin(),
+			'student' => $this->getAuthenticator()->isStudent()
 		];
 		return $definitions;
 	}

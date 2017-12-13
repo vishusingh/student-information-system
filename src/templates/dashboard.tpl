@@ -85,7 +85,7 @@
                         <div class="card-body">
                             <blockquote class="card-bodyquote">
                                 <p>{$complaint.message}</p>
-                                <div class="card-footer">Added by <cite title="Source Title">{$complaint.creator} | {$complaint.date}</cite>
+                                <div class="card-footer">Added by <cite title="Source Title">{$complaint.creator} | {$complaint.date_added}</cite>
                                 </div>
                             </blockquote>
                         </div>
