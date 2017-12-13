@@ -92,6 +92,17 @@ class Database
 		return false;
 	}
 
+	public function update(string $table, array $fieldsAndValues, string $where) :bool
+	{
+		if (count($fieldsAndValues))
+		{
+			$keys = implode(' = ?, ', array_keys($fieldsAndValues));
+			$sql = "UPDATE $table SET $keys = ? $where";
+			return $this->query($sql, array_values($fieldsAndValues));
+		}
+		return false;
+	}
+
 	public static function getInstance(string $connection, string $username, string $password) :Database
 	{
 		if (is_null(self::$instance))
