@@ -1,6 +1,6 @@
 <?php
 
-class DashboardModel
+class DataModel
 {
 	private $app;
 	private $database;

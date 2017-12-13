@@ -16,7 +16,7 @@ class Authenticator
 	public function requireAdmin() :void
 	{
 		$this->requireLoggedIn();
-		if (!($this->isLoggedIn() && ($this->role ==  ('admin' || 'lecturer'))))
+		if (!($this->isLoggedIn() && ($this->role ==  'admin')))
 		{
 			die('<h2>Unauthorized Access. This attempt will be reported to administrators</h2>');
 		}
@@ -33,5 +33,15 @@ class Authenticator
 	public function isLoggedIn() :bool
 	{
 		return $this->loggedIn;
+	}
+
+	public function isAdmin() :bool
+	{
+		return ($this->role ==  'admin');
+	}
+
+	public function isStudent() :bool
+	{
+		return ($this->role ==  'student');
 	}
 }

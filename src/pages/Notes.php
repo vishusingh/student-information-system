@@ -8,7 +8,7 @@ class Notes extends Controller
 	public function __construct(IApp $app)
 	{
 		$this->app = $app;
-		$this->data = new DashboardModel($this->app);
+		$this->data = new DataModel($this->app);
 	}
 
 	/**

@@ -64,5 +64,4 @@ class Session implements IRequestData
 		}
 		return '';
 	}
-
 }

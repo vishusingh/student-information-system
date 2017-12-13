@@ -65,8 +65,8 @@
                 </div>
             </div>
         </div>
-        <!-- end row -->
 
+        {if $admin}
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
@@ -81,11 +81,11 @@
                 {foreach $complaints complaint}
                 <div class="col-md-4">
                     <div class="card m-b-20">
-                        <div class="card-header">{$complaint['title']}</div>
+                        <div class="card-header">{$complaint.title}</div>
                         <div class="card-body">
                             <blockquote class="card-bodyquote">
-                                <p>{$complaint['message']}</p>
-                                <div class="card-footer">Added by <cite title="Source Title">{$complaint['creator']} | {$complaint['date']}</cite>
+                                <p>{$complaint.message}</p>
+                                <div class="card-footer">Added by <cite title="Source Title">{$complaint.creator} | {$complaint.date}</cite>
                                 </div>
                             </blockquote>
                         </div>
@@ -94,7 +94,7 @@
                 {/foreach}
             {/if}
         </div>
-        <!-- end row -->
+        {/if}
 
         <div class="row">
             <div class="col-sm-12">

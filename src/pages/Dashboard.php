@@ -16,7 +16,7 @@ class Dashboard extends Controller
 	public function __construct(IApp $app)
 	{
 		$this->app = $app;
-		$this->data = new DashboardModel($this->app);
+		$this->data = new DataModel($this->app);
 		$this->authenticator = $this->app->getAuthenticator();
 		$this->online = $this->data->getOnline();
 		$this->admins = $this->data->getAdmins();
@@ -34,6 +34,7 @@ class Dashboard extends Controller
 	{
 		$this->authenticator->requireLoggedIn();
 		$page = new Page('Dashboard');
+		var_dump($this->app->getAuthenticator()->isAdmin());
 		$this->renderTemplate('dashboard.tpl', array_merge($this->app->getDefinitions(),
 			[
 				'pageTitle' => $page->getTitle(),
@@ -44,7 +45,8 @@ class Dashboard extends Controller
 				'complaints' => $this->complaints,
 				'notices' => $this->notices,
 				'complaintsCounter' => count($this->complaints),
-				'noticesCounter' => count($this->notices)
+				'noticesCounter' => count($this->notices),
+				'admin' => $this->app->getAuthenticator()->isAdmin()
 			]
 		));
 	}

@@ -17,7 +17,7 @@ class Upload extends Controller
 		$this->app = $app;
 		$rootPath = $this->app->getRootPath();
 		$this->database = $this->app->getDatabase();
-		$this->data = new DashboardModel($this->app);
+		$this->data = new DataModel($this->app);
 		$notesPath = $rootPath . 'downloads/notes/';
 		$timeTablesPath = $rootPath . 'downloads/timetables/';
 		$this->notesRootPath = file_exists($notesPath) ? $notesPath : mkdir($notesPath, 0777, true);
