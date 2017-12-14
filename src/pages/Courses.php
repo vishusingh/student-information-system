@@ -2,17 +2,36 @@
 
 class Courses extends Controller
 {
-	public function index()
+	private $app;
+	private $database;
+	private $session;
+
+	public function __construct(IApp $app)
 	{
-		$courses = Database::getAll('courses');
-		require_once HEADER;
-		require_once $this->view('courses');
-		require_once FOOTER;
+		$this->app = $app;
+		$this->database = $this->app->getDatabase();
+		$this->session = $this->app->getSession();
 	}
 
-	public function add($message = '')
+	/**
+	 * @throws \Dwoo\Exception
+	 */
+	public function index()
 	{
-		$success = ($message == 'success') ? true : false;
+		$this->renderTemplate('courses.tpl', array_merge($this->app->getDefinitions(),
+			[
+				'pageTitle' => 'All courses',
+				'successMessage' => $this->session->flash('success'),
+				'success' => $this->session->has('success')
+			]
+		));
+	}
+
+	/**
+	 * @throws \Dwoo\Exception
+	 */
+	public function new()
+	{
 		$errorList = [];
 
 		if (Input::exists('POST'))
@@ -38,12 +57,12 @@ class Courses extends Controller
 					'name' => $courseName,
 					'department' => $department,
 					'years' => $years,
-					'date' => date('Y-m-d h:i:sa')
+					'date_added' => date('Y-m-d')
 				];
-				if (Database::insert('courses', $data))
+				if ($this->database->insert('courses', $data))
 				{
-					Redirect::to('/courses/add/success/');
-					exit;
+					$this->session->set('success', 'Course has been successfully added');
+					Redirect::to('/courses/');
 				}
 				else
 				{
@@ -51,8 +70,15 @@ class Courses extends Controller
 				}
 			}
 		}
-		require_once HEADER;
-		require_once $this->view('new_course');
-		require_once FOOTER;
+		$this->renderTemplate('new_course.tpl', array_merge($this->app->getDefinitions(),
+			[
+				'pageTitle' => 'Add new course',
+				'errorCounter' => count($errorList),
+				'errors' => $errorList,
+				'courseName' => $this->app->getRequest()->getPost()->get('courseName'),
+				'department' => $this->app->getRequest()->getPost()->get('department'),
+				'years' => $this->app->getRequest()->getPost()->get('years')
+			]
+		));
 	}
 }

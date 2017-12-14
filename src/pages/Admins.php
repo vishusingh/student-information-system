@@ -16,7 +16,6 @@ class Admins extends Controller
 	public function index()
 	{
 		$this->app->getAuthenticator()->requireAdmin();
-
 	}
 
 	public function view($id = '')

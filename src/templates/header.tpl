@@ -150,16 +150,9 @@
                     <a href="javascript:void(0);" class="waves-effect waves-primary"><i class="ti-layers-alt"></i>
                     <span> Courses </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
-                        {if $admin}<li><a href="/courses/add/">New Course</a></li>{/if}
+                        {if $student}<li><a href="/courses/mates/">Course mates</a></li>{/if}
+                        {if $admin}<li><a href="/courses/new/">New course</a></li>{/if}
                         <li><a href="/courses/">Courses</a></li>
-                    </ul>
-                </li>
-                <li class="has_sub">
-                    <a href="javascript:void(0);" class="waves-effect waves-primary"><i class="ti-stats-up"></i>
-                    <span> Marks </span> <span class="menu-arrow"></span> </a>
-                    <ul class="list-unstyled">
-                        <li><a href="/addmarks/">Add Marks</a></li>
-                        <li><a href="/editmarks/">Edit Marks</a></li>
                     </ul>
                 </li>
             </ul>
