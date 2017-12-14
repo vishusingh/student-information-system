@@ -32,6 +32,7 @@ class Courses extends Controller
 	 */
 	public function new()
 	{
+		$this->app->getAuthenticator()->requireAdmin();
 		$errorList = [];
 
 		if (Input::exists('POST'))
