@@ -3,12 +3,10 @@
 class Lecturers extends Controller
 {
 	private $app;
-	private $data;
 
 	public function __construct(IApp $app)
 	{
 		$this->app = $app;
-		$this->data = new DataModel($this->app);
 	}
 
 	/**
@@ -22,10 +20,5 @@ class Lecturers extends Controller
 				'pageTitle' => 'All lecturers'
 			]
 		));
-	}
-
-	public function view($id = '')
-	{
-
 	}
 }

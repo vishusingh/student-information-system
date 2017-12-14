@@ -93,6 +93,11 @@ time: 1200
             "serverSide": true,
             "ajax": "/api/lecturers.php"
         });
+        $('#admins_datatable').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": "/api/admins.php"
+        });
     });
 </script>
 </body>

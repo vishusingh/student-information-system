@@ -3,23 +3,22 @@
 class Admins extends Controller
 {
 	private $app;
-	private $data;
-	private $admins;
 
 	public function __construct(IApp $app)
 	{
 		$this->app = $app;
-		$this->data = new DataModel($this->app);
-		$this->admins = $this->data->getAdmins();
 	}
 
+	/**
+	 * @throws \Dwoo\Exception
+	 */
 	public function index()
 	{
 		$this->app->getAuthenticator()->requireAdmin();
-	}
-
-	public function view($id = '')
-	{
-
+		$this->renderTemplate('admins.tpl', array_merge($this->app->getDefinitions(),
+			[
+				'pageTitle' => 'All Admins'
+			]
+		));
 	}
 }

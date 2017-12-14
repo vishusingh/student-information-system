@@ -1,7 +1,7 @@
 <?php
 
 // DB table to use
-$table = 'lecturers';
+$table = 'admins';
 
 // Table's primary key
 $primaryKey = 'id';
