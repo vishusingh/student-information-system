@@ -96,11 +96,7 @@
                     </ul>
                 </li>
                 {/if}
-                <li>
-                    <a href="/search/" class="waves-effect waves-primary">
-                    <i class="ti-search"></i><span> Search </span></a>
-                </li>
-
+                
                 {if $admin}
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect waves-primary"><i class="ti-cloud-up"></i>
