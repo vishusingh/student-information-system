@@ -26,11 +26,15 @@ class StudentProfile implements IProfile
 
 	public function getFullName() :string
 	{
-		return (
-			$this->getAll()->get('first_name') . ' ' .
-			$this->getAll()->get('last_name')  . ' ' .
-			$this->getAll()->get('middle_name')
-		);
+		if ($this->getAll()->get('middle_name') != null && !empty($this->getAll()->get('middle_name')))
+		{
+			return (
+				$this->getAll()->get('first_name') . ' ' .
+				$this->getAll()->get('middle_name') . ' ' .
+				$this->getAll()->get('last_name')
+			);
+		}
+		return ($this->getAll()->get('first_name') . ' ' . $this->getAll()->get('last_name'));
 	}
 
 	public function getPassword() :string
