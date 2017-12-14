@@ -88,6 +88,11 @@ time: 1200
             "serverSide": true,
             "ajax": "/api/courses.php"
         });
+        $('#lecturers_datatable').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": "/api/lecturers.php"
+        });
     });
 </script>
 </body>

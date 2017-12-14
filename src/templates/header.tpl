@@ -138,12 +138,12 @@
                 </li>
                 <li>
                     <a href="/lecturers/" class="waves-effect waves-primary">
-                    <i class="ti-user"></i><span> Lecturers </span></a>
+                    {if $admin}<i class="ti-user"></i><span> Lecturers </span></a>{/if}
                 </li>
                 {if $admin}
                 <li>
                     <a href="/admins/" class="waves-effect waves-primary">
-                    <i class="ti-user"></i><span> Admins </span></a>
+                   {if $admin}<i class="ti-user"></i><span> Admins </span></a>{/if}
                 </li>
                 {/if}
                 <li class="has_sub">
