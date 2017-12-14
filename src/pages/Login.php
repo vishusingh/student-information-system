@@ -11,6 +11,8 @@ class Login extends Controller
 		$this->app = $app;
 		$this->post = $this->app->getRequest()->getPost();
 		$this->user = $this->app->getUser();
+		if ($this->app->getAuthenticator()->isLoggedIn())
+			Redirect::to('/dashboard/');
 	}
 
 	/**

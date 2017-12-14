@@ -53,6 +53,14 @@ var resizefunc = [];
 <!-- Custom main Js -->
 <script src="{$js}jquery.core.js"></script>
 <script src="{$js}jquery.app.js"></script>
+
+<!--Form Wizard-->
+<script src="{$js}jquery.steps.min.js"></script>
+<script src="{$js}jquery.validate.min.js"></script>
+
+<!--wizard initialization-->
+<script src="{$js}jquery.wizard-init.js"></script>
+
 <script type="text/javascript">
 jQuery(document).ready(function($) {
 $('.counter').counterUp({
@@ -97,6 +105,11 @@ time: 1200
             "processing": true,
             "serverSide": true,
             "ajax": "/api/admins.php"
+        });
+        $('#students_datatable').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": "/api/students.php"
         });
     });
 </script>

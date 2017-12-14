@@ -22,7 +22,7 @@ class Profile implements IProfile
 		$this->all = $this->user->find($username);
 		$this->all = $this->user->getUserData();
 		$userData = $this->getAll();
-		$this->username = $userData->get('username');
+		$this->username = $username;
 		$this->fullName = (
 			$userData->get('first_name') . ' ' . $userData->get('middle_name') . ' ' . $userData->get('last_name')
 		);

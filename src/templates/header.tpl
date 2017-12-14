@@ -4,6 +4,8 @@
 <title>{$pageTitle}</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<!--Form Wizard-->
+<link rel="stylesheet" type="text/css" href="{$css}jquery.steps.css" />
 <!-- DataTables -->
 <link rel="stylesheet" type="text/css" href="{$css}dataTables.bootstrap4.min.css" />
 <link rel="stylesheet" type="text/css" href="{$css}buttons.bootstrap4.min.css" />
@@ -91,12 +93,12 @@
                     <a href="javascript:void(0);" class="waves-effect waves-primary"><i class="ti-user"></i>
                         <span> Students </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
-                        <li><a href="/students/add/">Add new student</a></li>
+                        <li><a href="/students/new/">Add new student</a></li>
                         <li><a href="/students/">Students</a></li>
                     </ul>
                 </li>
                 {/if}
-                
+
                 {if $admin}
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect waves-primary"><i class="ti-cloud-up"></i>
