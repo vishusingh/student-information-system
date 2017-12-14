@@ -1,7 +1,7 @@
 {include('short_header.tpl')}
 <div class="wrapper-page">
     <div class="text-center">
-        <a href="index.html" class="logo-lg"><i class="mdi mdi-radar"></i> <span>SIS</span> </a>
+        <a href="/" class="logo-lg"><i class="mdi mdi-radar"></i> <span>{$brandName}</span> </a>
     </div>
     <form class="form-horizontal m-t-20" action="/" method="POST">
         {if $errorCounter > 0}

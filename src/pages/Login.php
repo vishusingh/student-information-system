@@ -50,7 +50,8 @@ class Login extends Controller
 			'username' => $this->post->get('username'),
 			'errors' => $errorList,
 			'errorCounter' => count($errorList),
-			'pageTitle' => $page->getTitle()
+			'pageTitle' => $page->getTitle(),
+			'brandName' => 'MISD STUDENT INFORMATION SYSTEM'
 		];
 
 		$this->renderTemplate('login.tpl', $data);

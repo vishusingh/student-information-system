@@ -102,7 +102,7 @@ class App implements IApp
 	{
 		$definitions = [
 			'footNote' => date('Y') . ' © Student Information System.',
-			'brandName' => 'SIS',
+			'brandName' => 'MISD SIS',
 			'js' => $this->getWebPaths()->get('js'),
 			'css' => $this->getWebPaths()->get('css'),
 			'images' => $this->getWebPaths()->get('images'),
