@@ -1,3 +1,4 @@
+{include('header.tpl')}
 <div class="content">
 	<div class="container-fluid">
 		<br />
@@ -16,40 +17,20 @@
 			<div class="col-lg-3"></div>
 			<div class="col-lg-6">
 				<div class="card-box">
-					<form role="form" method="post" action="/courses/add/">
-						<?php
-						if (isset($errorList) && count($errorList))
-						{
-							foreach ($errorList as $error)
-							{
-								?>
+					<form role="form" method="post" action="/courses/new/">
+						{if $errorCounter > 0}
+							{foreach $errors error}
 								<div class="form-group row">
 									<div class="col-12">
-										<div class="alert alert-danger alert-dismissible fade show" role="alert"><?=$error;?>
+										<div class="alert alert-danger alert-dismissible fade show" role="alert">{$error}
 											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 												<span aria-hidden="true">&times;</span>
 											</button>
 										</div>
 									</div>
 								</div>
-								<?php
-							}
-						}
-						if ($success)
-						{
-							?>
-							<div class="form-group row">
-								<div class="col-12">
-									<div class="alert alert-success alert-dismissible fade show" role="alert">Course successfully added
-										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-								</div>
-							</div>
-							<?php
-						}
-						?>
+							{/foreach}
+                        {/if}
 						<div class="form-group">
 							<label for="coursename">Course name</label>
 							<input name="courseName" type="text" class="form-control" id="coursename" placeholder="Enter course name">
@@ -70,3 +51,4 @@
 		</div>
 	</div>
 </div>
+{include('footer.tpl')}
