@@ -28,7 +28,7 @@ $columns = [
 		'dt' => 4,
 		'formatter' => function($id)
 		{
-			return "<a class='btn btn-info' href='/staff/view/$id'>View profile</a>";
+			return "<a class='btn btn-info' href='/users/view/$id'>View profile</a>";
 		}
 	]
 ];

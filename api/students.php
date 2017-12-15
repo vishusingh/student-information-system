@@ -18,11 +18,11 @@ $columns = [
 	['db' => 'last_name', 'dt' => 4],
 	['db' => 'course', 'dt' => 5],
 	[
-		'db' => 'id',
+		'db' => 'username',
 		'dt' => 6,
 		'formatter' => function($id)
 		{
-			return "<a class='btn btn-info' href='/students/profile/$id'>View Profile</a>";
+			return "<a class='btn btn-info' href='/users/view/$id'>View Profile</a>";
 		}
 	]
 ];
