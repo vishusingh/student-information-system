@@ -1,8 +1,3 @@
 <?php
 
-	if (!empty($_POST)) 
-	{
-		shell_exec('git pull');		
-	}
-
-?>
+return !empty($_POST) ? shell_exec('git pull') : '';

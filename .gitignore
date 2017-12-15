@@ -2,3 +2,5 @@ composer.lock
 procfile
 config.ini
 downloads/
+.idea/
+vendor/
