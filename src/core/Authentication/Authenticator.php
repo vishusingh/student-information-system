@@ -37,7 +37,7 @@ class Authenticator
 
 	public function isAdmin() :bool
 	{
-		return ($this->role ==  'admin');
+		return ($this->role ==  'admin') || ($this->role ==  'lecturer');
 	}
 
 	public function isStudent() :bool
