@@ -3,7 +3,7 @@
 class AppInitializer
 {
 	private static $app = null;
-	private const ds = DIRECTORY_SEPARATOR;
+	private static $ds = DIRECTORY_SEPARATOR;
 
 	public static function getApp() :App
 	{
@@ -45,7 +45,7 @@ class AppInitializer
 	
 	private static function getDataPath() :string
 	{
-		return self::getRootPath() . 'data' . self::ds;
+		return self::getRootPath() . 'data' . self::$ds;
 	}
 
 	private static function getRequest() :IRequest
@@ -60,7 +60,7 @@ class AppInitializer
 
 	private static function getRootPath() :string
 	{
-		return __DIR__ . self::ds . '..' . self::ds . '..' . self::ds . '..' . self::ds;
+		return __DIR__ . self::$ds . '..' . self::$ds . '..' . self::$ds . '..' . self::$ds;
 	}
 
 	private static function getConfig() :array
