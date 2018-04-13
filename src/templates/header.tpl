@@ -49,7 +49,7 @@
                         <h5 class="text-overflow"><small>{$username}</small> </h5>
                     </div>
                     <!-- item-->
-                    <a href="/profile/" class="dropdown-item notify-item">
+                    <a href="/users/view/{$username}/" class="dropdown-item notify-item">
                     <i class="mdi mdi-account-star-variant"></i> <span>Profile</span>
                     </a>
                     <!-- item-->
