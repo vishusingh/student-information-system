@@ -1,5 +1,7 @@
 <?php
 
+require_once './db.php';
+
 // DB table to use
 $table = 'complaints';
 
@@ -17,19 +19,12 @@ $columns = [
 	[
 		'db' => 'date_added',
 		'dt' => 3,
-		'formatter' => function( $d, $row )
+		'formatter' => function($d)
 		{
 			return date( 'jS M y', strtotime($d));
 		}
 	]
 ];
 
-// SQL server connection information
-$sql_details = [
-	'user' => 'root',
-	'pass' => 'arks2015',
-	'db'   => 'sis',
-	'host' => '127.0.0.1'
-];
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'SSP.php';
 echo json_encode(SSP::simple($_GET, $sql_details, $table, $primaryKey, $columns));
