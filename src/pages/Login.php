@@ -53,7 +53,7 @@ class Login extends Controller
 			'errors' => $errorList,
 			'errorCounter' => count($errorList),
 			'pageTitle' => $page->getTitle(),
-			'brandName' => 'MISD STUDENT INFORMATION SYSTEM'
+			'brandName' => 'STUDENT INFORMATION SYSTEM'
 		];
 
 		$this->renderTemplate('login.tpl', $data);
