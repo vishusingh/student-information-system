@@ -1,5 +1,0 @@
-<?php
-
-	$baseUrl = baseUrl;
-
-?>
